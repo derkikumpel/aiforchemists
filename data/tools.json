@@ -135,22 +135,4 @@
     "category": "synthesis",
     "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751526221/chem-ai-tools/atomwise.png"
   },
-  {
-    "name": "ChatGPT",
-    "description": "Advanced AI chatbot for conversations and tasks",
-    "category": "AI Chat",
-    "pricing": "Free/Premium",
-    "website": "https://chat.openai.com",
-    "affiliate_link": null,
-    "screenshot": "assets/placeholder.png"
-  },
-  {
-    "name": "Claude",
-    "description": "AI assistant for analysis, writing, and coding",
-    "category": "AI Chat",
-    "pricing": "Free/Premium",
-    "website": "https://claude.ai",
-    "affiliate_link": null,
-    "screenshot": "assets/placeholder.png"
-  }
 ]
