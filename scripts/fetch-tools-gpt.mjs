@@ -1,5 +1,6 @@
 import fs from 'fs-extra';
 import OpenAI from 'openai';
+import fetch from 'node-fetch';
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 const openaiModels = ['gpt-4o-mini', 'gpt-4o', 'gpt-3.5-turbo'];
@@ -7,17 +8,12 @@ const openaiModels = ['gpt-4o-mini', 'gpt-4o', 'gpt-3.5-turbo'];
 const cacheFile = './data/description-cache.json';
 const toolsFile = './data/tools.json';
 
-if (process.stdout._handle && process.stdout._handle.setBlocking) {
-  process.stdout._handle.setBlocking(true);
-}
-if (process.stderr._handle && process.stderr._handle.setBlocking) {
-  process.stderr._handle.setBlocking(true);
-}
+if (process.stdout._handle?.setBlocking) process.stdout._handle.setBlocking(true);
+if (process.stderr._handle?.setBlocking) process.stderr._handle.setBlocking(true);
 
 function log(...args) {
   process.stdout.write(new Date().toISOString() + ' LOG: ' + args.map(String).join(' ') + '\n');
 }
-
 function error(...args) {
   process.stderr.write(new Date().toISOString() + ' ERROR: ' + args.map(String).join(' ') + '\n');
 }
@@ -80,6 +76,30 @@ Return as JSON:
         break;
       } catch (e) {
         error(`⚠️ Fehler mit ${model} für ${tool.name}: ${e.message}`);
+      }
+    }
+
+    if (!description) {
+      try {
+        log(`→ Versuche DeepSeek Fallback für ${tool.name}`);
+        const res = await fetch('https://api.deepseek.com/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${process.env.DEEPSEEK_API_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            model: 'deepseek-chat',
+            messages: [{ role: 'user', content: prompt }],
+            temperature: 0.7,
+          }),
+        });
+
+        const data = await res.json();
+        description = JSON.parse(data.choices?.[0]?.message?.content?.trim());
+        log(`✅ Beschreibung mit DeepSeek erhalten für ${tool.name}`);
+      } catch (e) {
+        error(`❌ DeepSeek Fehler für ${tool.name}: ${e.message}`);
       }
     }
 
