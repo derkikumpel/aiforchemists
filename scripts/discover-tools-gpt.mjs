@@ -1,5 +1,6 @@
 import fs from 'fs-extra';
 import OpenAI from 'openai';
+import fetch from 'node-fetch'; // wichtig für DeepSeek Fallback
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 const openaiModels = ['gpt-4o-mini', 'gpt-4o', 'gpt-3.5-turbo'];
@@ -7,19 +8,12 @@ const openaiModels = ['gpt-4o-mini', 'gpt-4o', 'gpt-3.5-turbo'];
 const cacheFile = './data/discover-cache.json';
 const toolsFile = './data/tools.json';
 
-// Erzwingt synchrones Schreiben auf stdout (nur Node.js < 20 gut unterstützt, 
-// aber hilft oft schon in CI-Umgebungen)
-if (process.stdout._handle && process.stdout._handle.setBlocking) {
-  process.stdout._handle.setBlocking(true);
-}
-if (process.stderr._handle && process.stderr._handle.setBlocking) {
-  process.stderr._handle.setBlocking(true);
-}
+if (process.stdout._handle?.setBlocking) process.stdout._handle.setBlocking(true);
+if (process.stderr._handle?.setBlocking) process.stderr._handle.setBlocking(true);
 
 function log(...args) {
   process.stdout.write(new Date().toISOString() + ' LOG: ' + args.map(String).join(' ') + '\n');
 }
-
 function error(...args) {
   process.stderr.write(new Date().toISOString() + ' ERROR: ' + args.map(String).join(' ') + '\n');
 }
@@ -91,6 +85,37 @@ export async function discoverTools() {
     }
   }
 
+  // Fallback zu DeepSeek
+  if (!tools) {
+    try {
+      log('→ Versuche DeepSeek Fallback');
+
+      const res = await fetch('https://api.deepseek.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${process.env.DEEPSEEK_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          model: 'deepseek-chat',
+          messages: [{ role: 'user', content: prompt }],
+          temperature: 0.7,
+        }),
+      });
+
+      const data = await res.json();
+      const raw = data.choices?.[0]?.message?.content?.trim() || '';
+      const jsonStart = raw.indexOf('[');
+      const jsonEnd = raw.lastIndexOf(']');
+      if (jsonStart === -1 || jsonEnd === -1) throw new Error('DeepSeek: Kein JSON erkannt');
+
+      tools = JSON.parse(raw.substring(jsonStart, jsonEnd + 1));
+      log(`✅ Tools gefunden mit DeepSeek (${tools.length} Tools)`);
+    } catch (e) {
+      error(`❌ DeepSeek-Fehler: ${e.message}`);
+    }
+  }
+
   if (!tools) {
     error('❌ Keine neuen Tools entdeckt. Benutze nur Cache.');
     await fs.writeJson(toolsFile, existingTools, { spaces: 2 });
@@ -108,7 +133,6 @@ export async function discoverTools() {
   return updatedTools;
 }
 
-// Wenn du dieses Skript direkt ausführst:
 if (import.meta.url === process.argv[1] || process.argv[1].endsWith('discover-tools-gpt.mjs')) {
   discoverTools().catch(e => {
     error('Uncaught Error:', e);
