@@ -1,15 +1,12 @@
 import fs from 'fs-extra';
 import OpenAI from 'openai';
-import fetch from 'node-fetch'; // wichtig für DeepSeek Fallback
+import fetch from 'node-fetch';
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 const openaiModels = ['gpt-4o-mini', 'gpt-4o', 'gpt-3.5-turbo'];
 
 const cacheFile = './data/discover-cache.json';
 const toolsFile = './data/tools.json';
-
-if (process.stdout._handle?.setBlocking) process.stdout._handle.setBlocking(true);
-if (process.stderr._handle?.setBlocking) process.stderr._handle.setBlocking(true);
 
 function log(...args) {
   process.stdout.write(new Date().toISOString() + ' LOG: ' + args.map(String).join(' ') + '\n');
@@ -41,25 +38,25 @@ export async function discoverTools() {
   const exclusionList = existingTools.map(t => `- ${t.name} (${t.slug})`).slice(0, 50).join('\n');
 
   const prompt = `
-    Please list 10 current AI tools in the field of cheminformatics or drug discovery that are NOT in the following list:
+Please list 10 current AI tools in the field of cheminformatics or drug discovery that are NOT in the following list:
 
-    ${exclusionList || '- (none listed)'}
+${exclusionList || '- (none listed)'}
 
-    For each tool, return a JSON object with the following fields:
-    - name
-    - slug (lowercase, dash-separated)
-    - url
-    - short_description (30–50 words)
-    - long_description (must be at least 150 words – this is required and will be checked)
-    - tags (maximum of 6 relevant tags)
-    - category (e.g., synthesis, analysis, database, etc.)
+For each tool, return a JSON object with the following fields:
+- name
+- slug (lowercase, dash-separated)
+- url
+- short_description (30–50 words)
+- long_description (must be at least 150 words – this is required and will be checked)
+- tags (maximum of 6 relevant tags)
+- category (e.g., synthesis, analysis, database, etc.)
 
-    ⚠️ IMPORTANT:
-    - Ensure the long_description has a minimum of 150 words. Do not summarize or skip this requirement.
-    - Return only a valid JSON array of tool objects. No commentary, no code block syntax.
+⚠️ IMPORTANT:
+- Ensure the long_description has a minimum of 150 words. Do not summarize or skip this requirement.
+- Return only a valid JSON array of tool objects. No commentary, no code block syntax.
 
-    Respond only with the JSON array.
-  `;
+Respond only with the JSON array.
+`;
 
   let tools = null;
 
@@ -85,7 +82,7 @@ export async function discoverTools() {
     }
   }
 
-  // Fallback zu DeepSeek
+  // DeepSeek Fallback
   if (!tools) {
     try {
       log('→ Versuche DeepSeek Fallback');
@@ -129,7 +126,7 @@ export async function discoverTools() {
   await fs.writeJson(toolsFile, updatedTools, { spaces: 2 });
   await fs.writeJson(cacheFile, updatedCache, { spaces: 2 });
 
-  log(`💾 Tools gespeichert: ${updatedTools.length} Einträge (davon neu: ${newTools.length}).`);
+  log(`💾 Tools gespeichert: ${updatedTools.length} Einträge (davon neu: ${newTools.length})`);
   return updatedTools;
 }
 
