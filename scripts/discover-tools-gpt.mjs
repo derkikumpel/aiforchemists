@@ -81,160 +81,38 @@ Respond only with the JSON array.
       error(`⚠️ OpenAI-Fehler (${model}): ${e.message}`);
     }
   }
-// -----------------------------------------------------------------------------------------------------------------------------------------------
-  // DeepSeek Fallback mit robuster JSON-Extraktion
-if (!tools) {
-  try {
-    log('→ Versuche DeepSeek Fallback');
-    const res = await fetch('https://api.deepseek.com/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${process.env.DEEPSEEK_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        model: 'deepseek-chat',
-        messages: [{ 
-          role: 'user', 
-          content: `${prompt}\n\nWichtig: Antworte NUR mit einem gültigen JSON-Array, keine zusätzlichen Erklärungen oder Text!` 
-        }],
-        temperature: 0.1, // Niedrigere Temperatur für konsistentere Ausgabe
-      }),
-    });
 
-    if (!res.ok) {
-      throw new Error(`DeepSeek API Error: ${res.status} ${res.statusText}`);
-    }
-
-    const data = await res.json();
-    let responseText = data.choices[0]?.message?.content;
-    
-    if (!responseText) {
-      throw new Error('Keine Response von DeepSeek erhalten');
-    }
-
-    log(`→ DeepSeek Rohantwort: ${responseText.substring(0, 200)}...`);
-
-    // Robuste JSON-Extraktion
-    let jsonText = responseText.trim();
-    
-    // Methode 1: Entferne Markdown-Code-Blöcke
-    const codeBlockMatch = jsonText.match(/```(?:json)?\s*(\[.*?\])\s*```/s);
-    if (codeBlockMatch) {
-      jsonText = codeBlockMatch[1];
-    }
-    
-    // Methode 2: Finde JSON-Array zwischen [ und ]
-    const jsonArrayMatch = jsonText.match(/\[[\s\S]*\]/);
-    if (jsonArrayMatch) {
-      jsonText = jsonArrayMatch[0];
-    }
-    
-    // Methode 3: Entferne Text vor dem ersten [ und nach dem letzten ]
-    const firstBracket = jsonText.indexOf('[');
-    const lastBracket = jsonText.lastIndexOf(']');
-    
-    if (firstBracket !== -1 && lastBracket !== -1 && lastBracket > firstBracket) {
-      jsonText = jsonText.substring(firstBracket, lastBracket + 1);
-    }
-
-    // Bereinige häufige Probleme
-    jsonText = jsonText
-      .replace(/,\s*]/g, ']') // Entferne trailing commas
-      .replace(/,\s*}/g, '}') // Entferne trailing commas in Objekten
-      .replace(/\n/g, ' ')    // Entferne Zeilenumbrüche
-      .replace(/\s+/g, ' ')   // Normalisiere Whitespace
-      .trim();
-
-    log(`→ Bereinigte JSON: ${jsonText.substring(0, 200)}...`);
-
-    // Versuche JSON zu parsen
+  // DeepSeek Fallback
+  if (!tools) {
     try {
-      tools = JSON.parse(jsonText);
-      
-      // Validiere das Format
-      if (!Array.isArray(tools)) {
-        throw new Error('Response ist kein Array');
-      }
-      
-      if (tools.length === 0) {
-        throw new Error('Leeres Array erhalten');
-      }
-      
-      // Validiere Tool-Struktur
-      const validTools = tools.filter(tool => 
-        tool && 
-        typeof tool === 'object' && 
-        tool.name && 
-        tool.description && 
-        tool.category
-      );
-      
-      if (validTools.length === 0) {
-        throw new Error('Keine gültigen Tools gefunden');
-      }
-      
-      tools = validTools;
-      log(`✅ DeepSeek erfolgreich: ${tools.length} Tools extrahiert`);
-      
-    } catch (parseError) {
-      log(`❌ JSON-Parse-Fehler: ${parseError.message}`);
-      log(`→ Problematische JSON: ${jsonText}`);
-      throw new Error(`JSON-Parse-Fehler: ${parseError.message}`);
-    }
+      log('→ Versuche DeepSeek Fallback');
 
-  } catch (error) {
-    log(`❌ DeepSeek-Fehler: ${error.message}`);
-    
-    // Fallback: Verwende Cache oder Dummy-Daten
-    if (fs.existsSync('cache/tools.json')) {
-      log('→ Verwende Cache-Daten');
-      tools = JSON.parse(fs.readFileSync('cache/tools.json', 'utf8'));
-    } else {
-      log('→ Verwende Fallback-Daten');
-      tools = [
-        {
-          name: "ChatGPT",
-          description: "Advanced AI chatbot for conversations and tasks",
-          category: "AI Chat",
-          pricing: "Free/Premium",
-          website: "https://chat.openai.com",
-          affiliate_link: null
+      const res = await fetch('https://api.deepseek.com/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${process.env.DEEPSEEK_API_KEY}`,
+          'Content-Type': 'application/json',
         },
-        {
-          name: "Claude",
-          description: "AI assistant for analysis, writing, and coding",
-          category: "AI Chat", 
-          pricing: "Free/Premium",
-          website: "https://claude.ai",
-          affiliate_link: null
-        }
-      ];
+        body: JSON.stringify({
+          model: 'deepseek-chat',
+          messages: [{ role: 'user', content: prompt }],
+          temperature: 0.7,
+        }),
+      });
+
+      const data = await res.json();
+      const raw = data.choices?.[0]?.message?.content?.trim() || '';
+      const jsonStart = raw.indexOf('[');
+      const jsonEnd = raw.lastIndexOf(']');
+      if (jsonStart === -1 || jsonEnd === -1) throw new Error('DeepSeek: Kein JSON erkannt');
+
+      tools = JSON.parse(raw.substring(jsonStart, jsonEnd + 1));
+      log(`✅ Tools gefunden mit DeepSeek (${tools.length} Tools)`);
+    } catch (e) {
+      error(`❌ DeepSeek-Fehler: ${e.message}`);
     }
   }
-}
 
-// Zusätzliche Validierung vor der Verwendung
-if (!tools || !Array.isArray(tools) || tools.length === 0) {
-  log('❌ Keine gültigen Tools verfügbar');
-  process.exit(1);
-}
-
-log(`✅ Verwende ${tools.length} Tools für die Webseite`);
-
-// Optional: Speichere erfolgreiche Tools im Cache
-if (tools && tools.length > 0) {
-  try {
-    if (!fs.existsSync('cache')) {
-      fs.mkdirSync('cache');
-    }
-    fs.writeFileSync('cache/tools.json', JSON.stringify(tools, null, 2));
-    log('✅ Tools im Cache gespeichert');
-  } catch (cacheError) {
-    log(`⚠️ Cache-Fehler: ${cacheError.message}`);
-  }
-}
-// -------------------------------------------------------------------------------------------------------------
   if (!tools) {
     error('❌ Keine neuen Tools entdeckt. Benutze nur Cache.');
     await fs.writeJson(toolsFile, existingTools, { spaces: 2 });
