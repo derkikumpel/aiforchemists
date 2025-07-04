@@ -82,7 +82,7 @@ Return as JSON:
     if (!description) {
       try {
         log(`→ Versuche DeepSeek Fallback für ${tool.name}`);
-        const res = await fetch('https://api.deepseek.com/v1/chat/completions', {
+        const res = await fetch('https://api.deepseek.com/chat/completions', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${process.env.DEEPSEEK_API_KEY}`,
