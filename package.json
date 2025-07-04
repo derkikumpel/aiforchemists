@@ -1,12 +1,12 @@
 {
- "name": "ai-tool-discovery",
+  "name": "ai-tool-discovery",
   "version": "1.0.0",
   "description": "Discovery and description of AI tools for chemistry using OpenAI and DeepSeek as fallback.",
   "type": "module",
   "main": "discover-tools-gpt.mjs",
   "scripts": {
     "discover": "node discover-tools-gpt.mjs",
-    "fetch": "node fetch-tools-gpt.mjs"
+    "fetch": "node fetch-tools-gpt.mjs",
     "screenshot": "node scripts/screenshot-tools.mjs",
     "generate": "node scripts/generate-detail-pages.js",
     "update-data": "npm run discover && npm run screenshot && npm run fetch"
@@ -23,8 +23,8 @@
   },
   "engines": {
     "node": ">=20"
-  }
-   "keywords": [
+  },
+  "keywords": [
     "openai",
     "deepseek",
     "cheminformatics",
