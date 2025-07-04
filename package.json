@@ -1,12 +1,12 @@
 {
-  "name": "cheminformatics-tools",
+ "name": "ai-tool-discovery",
   "version": "1.0.0",
-  "description": "Projekt zum automatischen Entdecken und Dokumentieren von Cheminformatics-Tools mit GPT",
-  "main": "scripts/discover-tools-gpt.mjs",
+  "description": "Discovery and description of AI tools for chemistry using OpenAI and DeepSeek as fallback.",
   "type": "module",
+  "main": "discover-tools-gpt.mjs",
   "scripts": {
-    "discover": "node scripts/discover-tools-gpt.mjs",
-    "fetch": "node scripts/fetch-tools-gpt.mjs",
+    "discover": "node discover-tools-gpt.mjs",
+    "fetch": "node fetch-tools-gpt.mjs"
     "screenshot": "node scripts/screenshot-tools.mjs",
     "generate": "node scripts/generate-detail-pages.js",
     "update-data": "npm run discover && npm run screenshot && npm run fetch"
@@ -16,6 +16,7 @@
   "dependencies": {
     "handlebars": "^4.7.8",
     "openai": "^4.9.0",
+    "node-fetch": "^3.3.2",
     "fs-extra": "^11.1.1",
     "playwright": "^1.44.0",
     "cloudinary": "^1.37.1"
@@ -23,4 +24,11 @@
   "engines": {
     "node": ">=20"
   }
+   "keywords": [
+    "openai",
+    "deepseek",
+    "cheminformatics",
+    "drug-discovery",
+    "ai-tools"
+  ],
 }
