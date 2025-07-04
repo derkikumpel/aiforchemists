@@ -125,5 +125,21 @@
       "structure-based modeling"
     ],
     "category": "synthesis"
+  },
+  {
+    "name": "ChatGPT",
+    "description": "Advanced AI chatbot for conversations and tasks",
+    "category": "AI Chat",
+    "pricing": "Free/Premium",
+    "website": "https://chat.openai.com",
+    "affiliate_link": null
+  },
+  {
+    "name": "Claude",
+    "description": "AI assistant for analysis, writing, and coding",
+    "category": "AI Chat",
+    "pricing": "Free/Premium",
+    "website": "https://claude.ai",
+    "affiliate_link": null
   }
 ]

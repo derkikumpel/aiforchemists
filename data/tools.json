@@ -13,7 +13,7 @@
       "open-source"
     ],
     "category": "analysis",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751637018/chem-ai-tools/deepchem.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751637669/chem-ai-tools/deepchem.png"
   },
   {
     "name": "ChemAxon",
@@ -134,5 +134,23 @@
     ],
     "category": "synthesis",
     "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751526221/chem-ai-tools/atomwise.png"
+  },
+  {
+    "name": "ChatGPT",
+    "description": "Advanced AI chatbot for conversations and tasks",
+    "category": "AI Chat",
+    "pricing": "Free/Premium",
+    "website": "https://chat.openai.com",
+    "affiliate_link": null,
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "Claude",
+    "description": "AI assistant for analysis, writing, and coding",
+    "category": "AI Chat",
+    "pricing": "Free/Premium",
+    "website": "https://claude.ai",
+    "affiliate_link": null,
+    "screenshot": "assets/placeholder.png"
   }
 ]
