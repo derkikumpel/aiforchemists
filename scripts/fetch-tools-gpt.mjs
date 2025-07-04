@@ -8,9 +8,6 @@ const openaiModels = ['gpt-4o-mini', 'gpt-4o', 'gpt-3.5-turbo'];
 const cacheFile = './data/description-cache.json';
 const toolsFile = './data/tools.json';
 
-if (process.stdout._handle?.setBlocking) process.stdout._handle.setBlocking(true);
-if (process.stderr._handle?.setBlocking) process.stderr._handle.setBlocking(true);
-
 function log(...args) {
   process.stdout.write(new Date().toISOString() + ' LOG: ' + args.map(String).join(' ') + '\n');
 }
@@ -145,3 +142,4 @@ async function main() {
 if (import.meta.url === process.argv[1] || process.argv[1].endsWith('fetch-tools-gpt.mjs')) {
   main();
 }
+
