@@ -13,7 +13,7 @@
       "open-source"
     ],
     "category": "analysis",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751637669/chem-ai-tools/deepchem.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751777542/chem-ai-tools/deepchem.png"
   },
   {
     "name": "ChemAxon",
@@ -118,7 +118,7 @@
       "compound libraries"
     ],
     "category": "database",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751608532/chem-ai-tools/zinc-database.png"
+    "screenshot": "assets/placeholder.png"
   },
   {
     "name": "Atomwise",
@@ -134,5 +134,165 @@
     ],
     "category": "synthesis",
     "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751526221/chem-ai-tools/atomwise.png"
+  },
+  {
+    "name": "ChEMBL",
+    "slug": "chembl",
+    "url": "https://www.ebi.ac.uk/chembl/",
+    "short_description": "A manually curated database of bioactive molecules with drug-like properties.",
+    "long_description": "ChEMBL is a large-scale bioactivity database developed at the European Bioinformatics Institute (EBI). It contains information on the biological activities of small molecules, with a focus on drug-like properties. Researchers can access detailed data on compound activities, including target information, assay types, and more. The database is designed to support drug discovery and development by providing a wealth of information that can be used to inform the selection of promising compounds for further study. ChEMBL is updated regularly, ensuring that users have access to the latest data in the field. The platform also offers various tools and resources for data analysis, including cheminformatics tools for molecular modeling and visualization. Whether you are a researcher, academic, or industry professional, ChEMBL serves as a vital resource for understanding the interactions between small molecules and biological targets.",
+    "tags": [
+      "database",
+      "bioactivity",
+      "drug discovery",
+      "research",
+      "chemoinformatics"
+    ],
+    "category": "database",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751444640/chem-ai-tools/chembl.png"
+  },
+  {
+    "name": "OpenEye Scientific Software",
+    "slug": "openeye-scientific-software",
+    "url": "https://www.eyesopen.com/",
+    "short_description": "OpenEye Scientific Software offers advanced molecular modeling and cheminformatics tools, enabling researchers to visualize, analyze, and predict chemical properties and behaviors. Its robust platform supports a wide range of applications in drug discovery and materials science.",
+    "long_description": "OpenEye Scientific Software provides a comprehensive suite of molecular modeling and cheminformatics tools designed to enhance the research capabilities of chemists and scientists. With a focus on user-friendly interfaces and powerful algorithms, OpenEye allows users to visualize complex molecular structures, perform detailed analyses, and predict chemical properties efficiently. The software caters to various applications, including drug discovery, materials science, and chemical research, making it an invaluable resource for both academic and industrial laboratories. Features such as molecular docking, virtual screening, and conformational analysis enable researchers to explore vast chemical spaces and optimize compounds effectively. OpenEye's tools are built to handle large datasets and integrate seamlessly with existing workflows, ensuring compatibility with other software and data formats. By leveraging cutting-edge technology, OpenEye Scientific Software empowers researchers to accelerate their scientific discoveries and make informed decisions in their projects. Whether for small-scale studies or large-scale drug development initiatives, OpenEye stands out as a leader in the computational chemistry landscape, providing solutions that drive innovation and enhance understanding in the chemical sciences.",
+    "tags": [
+      "cheminformatics",
+      "molecular modeling",
+      "visualization",
+      "software",
+      "drug discovery"
+    ],
+    "category": "software",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751777620/chem-ai-tools/openeye-scientific-software.png"
+  },
+  {
+    "name": "Chemotools",
+    "slug": "chemotools",
+    "url": "https://chemotools.com/",
+    "short_description": "Chemotools is an innovative AI-driven platform designed to streamline chemical research, enabling scientists to analyze complex data, predict molecular behavior, and optimize chemical processes with enhanced accuracy and efficiency.",
+    "long_description": "Chemotools is a cutting-edge AI-powered platform tailored for the chemistry community, facilitating advanced research and development across various chemical disciplines. By harnessing machine learning algorithms and sophisticated data analysis techniques, Chemotools empowers researchers to interpret complex chemical data, predict molecular interactions, and optimize chemical syntheses. The platform features an intuitive user interface that allows chemists, both experienced and novice, to easily access a suite of tools designed for modeling molecular structures, simulating chemical reactions, and analyzing experimental results. Chemotools also offers collaborative features that enable teams to share insights and findings seamlessly, fostering innovation and accelerating the pace of discovery. With its robust database of chemical compounds and reactions, Chemotools serves as an invaluable resource for drug discovery, materials science, and environmental chemistry. By integrating artificial intelligence into the chemistry workflow, Chemotools not only enhances the accuracy of predictions and analyses but also significantly reduces the time required to bring new chemical products to market, making it an essential tool for modern chemists.",
+    "tags": [
+      "molecular modeling",
+      "cheminformatics",
+      "cloud-based",
+      "drug discovery",
+      "collaboration"
+    ],
+    "category": "software",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "MolProbity",
+    "slug": "molprobity",
+    "url": "http://molprobity.biochem.duke.edu/",
+    "short_description": "MolProbity is an advanced software tool designed for the validation and visualization of macromolecular structures, ensuring high-quality models for protein and nucleic acid research through comprehensive analysis of stereochemistry and geometry.",
+    "long_description": "MolProbity is a powerful software tool widely used in the field of structural biology for validating and visualizing macromolecular structures such as proteins and nucleic acids. It provides researchers with critical insights into the quality of their structural models by performing detailed assessments of stereochemistry, geometry, and atomic interactions. The tool evaluates various aspects, including bond angles, torsion angles, and van der Waals contacts, helping users identify potential structural errors or deviations from ideal geometries. MolProbity also offers interactive graphical interfaces that allow users to easily visualize structural features and problematic regions, facilitating informed decision-making during model refinement. Additionally, it incorporates comprehensive databases and scoring systems to benchmark structural quality against established standards. Whether used in the initial stages of model building or in the final validation of structures prior to publication, MolProbity is an essential resource for researchers seeking to ensure the accuracy and reliability of their macromolecular models, ultimately contributing to advancements in fields such as drug design and molecular biology.",
+    "tags": [
+      "protein structure",
+      "validation",
+      "web tool",
+      "structural biology",
+      "drug discovery"
+    ],
+    "category": "analysis",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751634917/chem-ai-tools/molprobity.png"
+  },
+  {
+    "name": "Bioinformatics.org",
+    "slug": "bioinformatics-org",
+    "url": "https://bioinformatics.org/",
+    "short_description": "Bioinformatics.org is a comprehensive platform providing tools and resources for researchers in chemistry and life sciences, facilitating the analysis and interpretation of biological data through advanced computational techniques.",
+    "long_description": "Bioinformatics.org is an innovative online platform designed to support researchers in the fields of chemistry and life sciences by offering a wide array of computational tools and resources. This platform serves as a hub for bioinformatics applications, enabling users to analyze, visualize, and interpret complex biological data effectively. With a focus on enhancing research productivity, Bioinformatics.org provides access to a variety of databases, software tools, and educational materials tailored for both novice and experienced scientists. Users can explore functionalities such as sequence alignment, molecular modeling, and structural analysis, which are essential for drug discovery, genomics, and proteomics studies. The community-driven aspect of Bioinformatics.org encourages collaboration and knowledge sharing among researchers, fostering advancements in the field. By leveraging cutting-edge technology and user-friendly interfaces, Bioinformatics.org empowers scientists to transform raw data into actionable insights, ultimately accelerating progress in chemical and biological research. Whether you are studying protein interactions or investigating metabolic pathways, Bioinformatics.org equips you with the necessary tools to drive your research forward.",
+    "tags": [
+      "community",
+      "bioinformatics",
+      "resources",
+      "collaboration",
+      "tools"
+    ],
+    "category": "community",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751777631/chem-ai-tools/bioinformatics-org.png"
+  },
+  {
+    "name": "ChemSpider",
+    "slug": "chemspider",
+    "url": "http://www.chemspider.com/",
+    "short_description": "A free chemical structure database providing access to over 58 million compounds.",
+    "long_description": "ChemSpider is a free-to-access chemical structure database that provides researchers with a wealth of information on over 58 million chemical compounds. Operated by the Royal Society of Chemistry, ChemSpider aggregates data from various sources, offering users an extensive library of chemical information, including molecular structures, properties, and bibliographic data. Researchers can search for compounds by various identifiers, such as names, structures, or molecular formulas, making it easy to find relevant information quickly. ChemSpider is particularly valuable for drug discovery, as it allows scientists to explore chemical space and identify potential drug candidates based on their properties. The database also offers tools for structure visualization and comparison, enabling users to analyze compounds in detail. Furthermore, ChemSpider's commitment to open access ensures that researchers worldwide can benefit from its resources, fostering collaboration and innovation across the scientific community. This makes ChemSpider an indispensable tool for anyone working in the fields of chemistry and drug discovery.",
+    "tags": [
+      "database",
+      "chemical structures",
+      "open access",
+      "drug discovery",
+      "research"
+    ],
+    "category": "database",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "pKa Calculator",
+    "slug": "pka-calculator",
+    "url": "http://www.pKaCalculator.com/",
+    "short_description": "An online tool for calculating pKa values of organic compounds.",
+    "long_description": "The pKa Calculator is a powerful online tool designed to assist researchers in calculating the pKa values of organic compounds. Understanding the acidity and basicity of compounds is crucial in fields such as drug discovery and environmental chemistry, as pKa values influence the solubility, permeability, and overall behavior of molecules in biological systems. This tool allows scientists to input molecular structures and receive accurate pKa predictions based on established algorithms and databases. The user-friendly interface enables researchers to easily navigate the tool, making it accessible for both experienced chemists and those new to the field. Additionally, the pKa Calculator provides valuable insights into the chemical properties of compounds, allowing researchers to make informed decisions about compound selection and optimization. By streamlining the process of pKa determination, this tool significantly contributes to the efficiency of drug design and development, ultimately aiding in the discovery of new therapeutic agents.",
+    "tags": [
+      "pKa",
+      "calculator",
+      "organic chemistry",
+      "drug discovery",
+      "research"
+    ],
+    "category": "analysis",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "CADD Group",
+    "slug": "cadd-group",
+    "url": "https://cadd.group/",
+    "short_description": "CADD Group is an advanced AI tool designed for chemists, enhancing molecular modeling and simulation capabilities. It streamlines the process of drug discovery by predicting molecular interactions and optimizing compounds efficiently.",
+    "long_description": "CADD Group is a cutting-edge AI tool tailored for the field of chemistry, specifically focusing on computer-aided drug design (CADD). Utilizing sophisticated algorithms and machine learning techniques, CADD Group assists researchers in predicting molecular interactions and optimizing chemical compounds, significantly accelerating the drug discovery process. By analyzing vast datasets of molecular structures and biological activity, the tool enables chemists to identify promising candidates for development with greater accuracy and efficiency. Its user-friendly interface allows for seamless integration into existing workflows, empowering scientists to visualize molecular interactions, run simulations, and evaluate potential compounds with ease. Whether in academia or industry, CADD Group serves as an invaluable resource for chemists seeking to innovate and streamline their research, ultimately leading to more effective and targeted therapeutic solutions. By harnessing the power of AI, CADD Group not only enhances the productivity of research teams but also contributes to the advancement of medicinal chemistry and the development of novel drugs.",
+    "tags": [
+      "CADD",
+      "drug design",
+      "collaboration",
+      "resources",
+      "tools"
+    ],
+    "category": "community",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751777638/chem-ai-tools/cadd-group.png"
+  },
+  {
+    "name": "RCSB Protein Data Bank",
+    "slug": "rcsb-protein-data-bank",
+    "url": "https://www.rcsb.org/",
+    "short_description": "The RCSB Protein Data Bank (PDB) is a comprehensive database providing access to 3D structural data of biological macromolecules, enabling researchers in chemistry and related fields to study protein structures and their functions.",
+    "long_description": "The RCSB Protein Data Bank (PDB) is an essential resource for researchers in the fields of chemistry, biology, and biochemistry, offering a vast and curated collection of 3D structural data of proteins, nucleic acids, and complex assemblies. Established in 1971, the PDB serves as a central repository for macromolecular structures determined through experimental methods such as X-ray crystallography, NMR spectroscopy, and cryo-electron microscopy. Users can easily access detailed information about each entry, including the molecular structure, experimental data, and biological context. The PDB also provides tools for visualization and analysis, allowing researchers to explore the intricate details of molecular interactions and conformational dynamics. With its user-friendly interface and extensive educational resources, the RCSB PDB promotes collaboration and innovation in structural biology, helping scientists to advance their understanding of molecular mechanisms and to facilitate drug design, protein engineering, and other applications in life sciences. As a key component of the global structural biology community, the RCSB PDB continues to evolve, integrating new technologies and fostering international collaborations.",
+    "tags": [
+      "protein structure",
+      "repository",
+      "3D structures",
+      "drug discovery",
+      "research"
+    ],
+    "category": "database",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751777643/chem-ai-tools/rcsb-protein-data-bank.png"
+  },
+  {
+    "name": "KNIME",
+    "slug": "knime",
+    "url": "https://www.knime.com/",
+    "short_description": "KNIME is an open-source data analytics platform that enables chemists to visualize, analyze, and model chemical data using a user-friendly interface. It supports various data formats and offers extensive integration with other tools for enhanced research capabilities.",
+    "long_description": "KNIME (Konstanz Information Miner) is a powerful open-source data analytics platform widely utilized in the field of chemistry. It provides chemists with a visual programming interface that allows them to create data workflows without extensive coding knowledge. Users can easily import, preprocess, and analyze chemical data from diverse sources, facilitating the exploration of datasets ranging from molecular structures to experimental results. KNIME supports various file formats, including SDF, SMILES, and CSV, ensuring seamless integration with existing workflows. The platform also boasts a rich library of nodes designed specifically for chemical data analysis, enabling users to perform tasks such as molecular descriptor calculations, cheminformatics, and machine learning model building. Furthermore, KNIME's ability to integrate with other software tools and libraries, such as RDKit and TensorFlow, enhances its functionality, making it an invaluable asset for researchers in chemistry. By streamlining the data analysis process, KNIME empowers chemists to focus on interpretation and innovation, ultimately accelerating the pace of discovery in the field.",
+    "tags": [
+      "data analytics",
+      "open source",
+      "cheminformatics",
+      "machine learning",
+      "drug discovery"
+    ],
+    "category": "software",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751777647/chem-ai-tools/knime.png"
   }
 ]
