@@ -101,12 +101,19 @@ Respond only with the JSON array.
       });
 
       const data = await res.json();
+      if (!data?.choices?.[0]?.message?.content) {
+      error('❌ DeepSeek API-Antwort unvollständig oder leer:', JSON.stringify(data, null, 2));
+      throw new Error('"message.content" fehlt in der DeepSeek-Antwort');
+
+      const data = await res.json();
       const raw = data.choices?.[0]?.message?.content?.trim() || '';
+        if (!raw) {
+          throw new Error(`DeepSeek-Antwort enthält kein content-Feld. Vollständige Antwort:\n${JSON.stringify(data, null, 2)}`);
+        }
       const jsonStart = raw.indexOf('[');
       const jsonEnd = raw.lastIndexOf(']');
       if (jsonStart === -1 || jsonEnd === -1) throw new Error('DeepSeek: Kein JSON erkannt');
-
-      tools = JSON.parse(raw.substring(jsonStart, jsonEnd + 1));
+      const tools = JSON.parse(raw.substring(jsonStart, jsonEnd + 1));
       log(`✅ Tools gefunden mit DeepSeek (${tools.length} Tools)`);
     } catch (e) {
       error(`❌ DeepSeek-Fehler: ${e.message}`);
