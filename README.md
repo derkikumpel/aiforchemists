@@ -1,6 +1,6 @@
 # 🧪 AI Tools for Chemists
 
-Ein automatisch gepflegtes Verzeichnis moderner AI-Tools für die Chemie – erstellt mit GPT, Jamba, Playwright und GitHub Actions.
+Ein automatisch gepflegtes Verzeichnis moderner AI-Tools für die Chemie – erstellt mit GPT, DeepSeek, Playwright und GitHub Actions.
 
 🌐 **Live Website**: [https://aiforchemists.info](https://aiforchemists.info)
 
@@ -15,7 +15,7 @@ Ein automatisch gepflegtes Verzeichnis moderner AI-Tools für die Chemie – ers
   - Live-Screenshot der Website
   - Tags, Kategorien & Beschreibung
 - Vollständig statische Seite, gehostet via GitHub Pages
-- Automatischer Fallback bei API-Limits (OpenAI → AI21 Jamba)
+- Automatischer Fallback bei API-Limits (OpenAI → DeepSeek)
 - Automatische Ausführung per CI (GitHub Actions)
 
 ---
