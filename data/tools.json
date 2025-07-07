@@ -13,7 +13,7 @@
       "open-source"
     ],
     "category": "analysis",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751777542/chem-ai-tools/deepchem.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751881775/chem-ai-tools/deepchem.png"
   },
   {
     "name": "ChemAxon",
@@ -43,7 +43,7 @@
       "3D modeling"
     ],
     "category": "analysis",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751444659/chem-ai-tools/cresset.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751881786/chem-ai-tools/cresset.png"
   },
   {
     "name": "Insilico Medicine",
@@ -118,7 +118,7 @@
       "compound libraries"
     ],
     "category": "database",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751608532/chem-ai-tools/zinc-database.png"
   },
   {
     "name": "Atomwise",
@@ -149,7 +149,7 @@
       "chemoinformatics"
     ],
     "category": "database",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751444640/chem-ai-tools/chembl.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751881829/chem-ai-tools/chembl.png"
   },
   {
     "name": "OpenEye Scientific Software",
@@ -165,7 +165,7 @@
       "drug discovery"
     ],
     "category": "software",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751777620/chem-ai-tools/openeye-scientific-software.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751881834/chem-ai-tools/openeye-scientific-software.png"
   },
   {
     "name": "Chemotools",
@@ -197,7 +197,7 @@
       "drug discovery"
     ],
     "category": "analysis",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751634917/chem-ai-tools/molprobity.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751881839/chem-ai-tools/molprobity.png"
   },
   {
     "name": "Bioinformatics.org",
@@ -213,7 +213,7 @@
       "tools"
     ],
     "category": "community",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751777631/chem-ai-tools/bioinformatics-org.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751881846/chem-ai-tools/bioinformatics-org.png"
   },
   {
     "name": "ChemSpider",
@@ -293,6 +293,6 @@
       "drug discovery"
     ],
     "category": "software",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751777647/chem-ai-tools/knime.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751881865/chem-ai-tools/knime.png"
   }
 ]
