@@ -54,8 +54,7 @@ Return as JSON:
 {
   "short_description": "...",
   "long_description": "..."
-}
-`;
+}`;
 
     let description = null;
 
@@ -68,7 +67,9 @@ Return as JSON:
           temperature: 0.7,
         });
 
-        description = JSON.parse(completion.choices[0].message.content.trim());
+        const raw = completion.choices?.[0]?.message?.content?.trim();
+        if (!raw) throw new Error('Keine Antwort erhalten');
+        description = JSON.parse(raw);
         log(`✅ Beschreibung erhalten für ${tool.name} mit ${model}`);
         break;
       } catch (e) {
@@ -93,7 +94,12 @@ Return as JSON:
         });
 
         const data = await res.json();
-        description = JSON.parse(data.choices?.[0]?.message?.content?.trim());
+        const raw = data.choices?.[0]?.message?.content?.trim() || '';
+        if (!raw) {
+          throw new Error(`DeepSeek-Antwort leer oder ungültig:\n${JSON.stringify(data, null, 2)}`);
+        }
+
+        description = JSON.parse(raw);
         log(`✅ Beschreibung mit DeepSeek erhalten für ${tool.name}`);
       } catch (e) {
         error(`❌ DeepSeek Fehler für ${tool.name}: ${e.message}`);
