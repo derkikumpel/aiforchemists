@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 import fetch from 'node-fetch';
 
-const HF_MODEL_URL = 'https://api-inference.huggingface.co/models/your-username/your-hf-model';
+const HF_MODEL_URL = 'https://api-inference.huggingface.co/models/derkikumpel/aiforchemists';
 const cacheFile = './data/discover-cache.json';
 const toolsFile = './data/tools.json';
 
@@ -31,7 +31,7 @@ async function main() {
   const existing = await loadArr(toolsFile);
   const exclusion = existing.map(t => `- ${t.name} (${t.slug})`).slice(0,50).join('\n');
   const prompt = `
-Please list 10 current AI tools in cheminformatics or drug discovery not in:
+Please list 10 current AI tools in chemistry or cheminformatics or drug discovery not in:
 ${exclusion||'-'}
 Return JSON array with name,slug,url,short_description(30–50w),long_description>=150w,tags(≤6),category.
 Respond only JSON array.
