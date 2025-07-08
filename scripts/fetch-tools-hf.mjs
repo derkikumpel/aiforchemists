@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 import fetch from 'node-fetch';
 
-const HF_MODEL_URL = 'https://api-inference.huggingface.co/models/your-username/your-hf-model';
+const HF_MODEL_URL = 'https://api-inference.huggingface.co/models/derkikumpel/aiforchemists';
 const toolsFile = './data/tools.json';
 const cacheFile = './data/description-cache.json';
 
