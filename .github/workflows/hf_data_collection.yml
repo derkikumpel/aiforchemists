@@ -1,8 +1,8 @@
-name: Data Collection
+name: Hugging Face Data Collection
 
 on:
   schedule:
-    - cron: '0 3 * * 0'  # Sonntag 3 Uhr
+    - cron: '0 3 * * 0,2,4,6'  # Sonntag 3 Uhr
   workflow_dispatch:
 
 permissions:
