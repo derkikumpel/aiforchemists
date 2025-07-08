@@ -1,0 +1,50 @@
+name: Data Collection
+
+on:
+  schedule:
+    - cron: '0 3 * * 0'  # Sonntag 3 Uhr
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  collect-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Discover tools via HF model
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN_AICHEMIST }}
+        run: node scripts/discover-tools-hf.mjs | tee output.log
+
+      - name: Screenshots & cleanup
+        env:
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+        run: npm run screenshot
+
+      - name: Fetch descriptions via HF model
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN_AICHEMIST }}
+        run: node scripts/fetch-tools-hf.mjs | tee fetch.log
+
+      - name: Commit & push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/*.json tools/*.html
+          git diff --quiet || git commit -m "Automatic update via HF model"
+          git push
