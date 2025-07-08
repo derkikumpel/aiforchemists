@@ -168,22 +168,6 @@
     "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751888089/chem-ai-tools/openeye-scientific-software.png"
   },
   {
-    "name": "Chemotools",
-    "slug": "chemotools",
-    "url": "https://chemotools.com/",
-    "short_description": "Chemotools is an innovative AI-driven platform designed to streamline chemical research, enabling scientists to analyze complex data, predict molecular behavior, and optimize chemical processes with enhanced accuracy and efficiency.",
-    "long_description": "Chemotools is a cutting-edge AI-powered platform tailored for the chemistry community, facilitating advanced research and development across various chemical disciplines. By harnessing machine learning algorithms and sophisticated data analysis techniques, Chemotools empowers researchers to interpret complex chemical data, predict molecular interactions, and optimize chemical syntheses. The platform features an intuitive user interface that allows chemists, both experienced and novice, to easily access a suite of tools designed for modeling molecular structures, simulating chemical reactions, and analyzing experimental results. Chemotools also offers collaborative features that enable teams to share insights and findings seamlessly, fostering innovation and accelerating the pace of discovery. With its robust database of chemical compounds and reactions, Chemotools serves as an invaluable resource for drug discovery, materials science, and environmental chemistry. By integrating artificial intelligence into the chemistry workflow, Chemotools not only enhances the accuracy of predictions and analyses but also significantly reduces the time required to bring new chemical products to market, making it an essential tool for modern chemists.",
-    "tags": [
-      "molecular modeling",
-      "cheminformatics",
-      "cloud-based",
-      "drug discovery",
-      "collaboration"
-    ],
-    "category": "software",
-    "screenshot": "assets/placeholder.png"
-  },
-  {
     "name": "MolProbity",
     "slug": "molprobity",
     "url": "http://molprobity.biochem.duke.edu/",
@@ -214,38 +198,6 @@
     ],
     "category": "community",
     "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751881846/chem-ai-tools/bioinformatics-org.png"
-  },
-  {
-    "name": "ChemSpider",
-    "slug": "chemspider",
-    "url": "http://www.chemspider.com/",
-    "short_description": "A free chemical structure database providing access to over 58 million compounds.",
-    "long_description": "ChemSpider is a free-to-access chemical structure database that provides researchers with a wealth of information on over 58 million chemical compounds. Operated by the Royal Society of Chemistry, ChemSpider aggregates data from various sources, offering users an extensive library of chemical information, including molecular structures, properties, and bibliographic data. Researchers can search for compounds by various identifiers, such as names, structures, or molecular formulas, making it easy to find relevant information quickly. ChemSpider is particularly valuable for drug discovery, as it allows scientists to explore chemical space and identify potential drug candidates based on their properties. The database also offers tools for structure visualization and comparison, enabling users to analyze compounds in detail. Furthermore, ChemSpider's commitment to open access ensures that researchers worldwide can benefit from its resources, fostering collaboration and innovation across the scientific community. This makes ChemSpider an indispensable tool for anyone working in the fields of chemistry and drug discovery.",
-    "tags": [
-      "database",
-      "chemical structures",
-      "open access",
-      "drug discovery",
-      "research"
-    ],
-    "category": "database",
-    "screenshot": "assets/placeholder.png"
-  },
-  {
-    "name": "pKa Calculator",
-    "slug": "pka-calculator",
-    "url": "http://www.pKaCalculator.com/",
-    "short_description": "An online tool for calculating pKa values of organic compounds.",
-    "long_description": "The pKa Calculator is a powerful online tool designed to assist researchers in calculating the pKa values of organic compounds. Understanding the acidity and basicity of compounds is crucial in fields such as drug discovery and environmental chemistry, as pKa values influence the solubility, permeability, and overall behavior of molecules in biological systems. This tool allows scientists to input molecular structures and receive accurate pKa predictions based on established algorithms and databases. The user-friendly interface enables researchers to easily navigate the tool, making it accessible for both experienced chemists and those new to the field. Additionally, the pKa Calculator provides valuable insights into the chemical properties of compounds, allowing researchers to make informed decisions about compound selection and optimization. By streamlining the process of pKa determination, this tool significantly contributes to the efficiency of drug design and development, ultimately aiding in the discovery of new therapeutic agents.",
-    "tags": [
-      "pKa",
-      "calculator",
-      "organic chemistry",
-      "drug discovery",
-      "research"
-    ],
-    "category": "analysis",
-    "screenshot": "assets/placeholder.png"
   },
   {
     "name": "CADD Group",
@@ -296,23 +248,6 @@
     "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751888115/chem-ai-tools/knime.png"
   },
   {
-    "name": "AIDD",
-    "slug": "aidd",
-    "url": "https://aidd.ai",
-    "short_description": "AIDD is an advanced AI tool designed for chemists, enabling rapid analysis, prediction, and optimization of chemical reactions. It streamlines research workflows, enhances data interpretation, and accelerates the discovery of new compounds and materials.",
-    "long_description": "AIDD (Artificial Intelligence for Drug Discovery) is a cutting-edge AI tool tailored specifically for the field of chemistry. It leverages machine learning algorithms to assist chemists in analyzing complex data sets, predicting reaction outcomes, and optimizing synthetic pathways. By integrating vast amounts of chemical knowledge and data, AIDD empowers researchers to make informed decisions quickly, reducing the time and resources typically required in the R&D phase. The tool supports various applications, including drug design, materials discovery, and reaction optimization, making it invaluable for both academic and industrial chemists. With AIDD, users can visualize chemical structures, simulate reactions, and receive real-time feedback on experimental designs, enhancing both productivity and innovation. Its user-friendly interface and robust analytical capabilities make AIDD a crucial asset for anyone looking to advance their research in chemistry, driving the future of chemical discovery and development.",
-    "tags": [
-      "AI",
-      "drug discovery",
-      "machine learning",
-      "predictive modeling",
-      "molecular interactions",
-      "pharmaceuticals"
-    ],
-    "category": "drug discovery",
-    "screenshot": "assets/placeholder.png"
-  },
-  {
     "name": "MolGen",
     "slug": "molgen",
     "url": "https://molgen.ai",
@@ -347,57 +282,6 @@
     "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751888124/chem-ai-tools/curemetrix.png"
   },
   {
-    "name": "Chemoinformatics",
-    "slug": "chemoinformatics",
-    "url": "https://chemoinformatics.org",
-    "short_description": "Chemoinformatics provides tools for analyzing chemical data and predicting molecular properties using AI.",
-    "long_description": "Chemoinformatics is a comprehensive platform dedicated to the analysis and interpretation of chemical data through advanced computational methods. It leverages artificial intelligence and machine learning to predict molecular properties, optimize chemical reactions, and facilitate the discovery of new compounds. The platform offers a variety of tools that allow researchers to analyze large datasets of chemical information, uncovering hidden patterns and relationships that can inform drug discovery and development processes. By automating routine analyses and employing predictive modeling, Chemoinformatics significantly reduces the time and effort required for computational chemistry tasks. Users can input chemical structures, experimental data, or specific queries to receive insights into potential biological activities, ADMET (absorption, distribution, metabolism, excretion, and toxicity) properties, and other critical factors influencing drug design. Chemoinformatics is particularly valuable for academic and industrial researchers alike, enhancing their ability to make data-driven decisions and accelerate the drug development timeline.",
-    "tags": [
-      "chemoinformatics",
-      "AI",
-      "data analysis",
-      "predictive modeling",
-      "drug discovery",
-      "computational chemistry"
-    ],
-    "category": "analysis",
-    "screenshot": "assets/placeholder.png"
-  },
-  {
-    "name": "PandaChem",
-    "slug": "pandachem",
-    "url": "https://pandachem.com",
-    "short_description": "PandaChem is an innovative AI-driven tool designed to streamline chemistry research and education. It offers a user-friendly interface for data analysis, molecular modeling, and chemical simulations, empowering users to discover new insights and enhance their understanding of chemical processes.",
-    "long_description": "PandaChem is a cutting-edge AI tool tailored for chemists, researchers, and students aiming to elevate their work in the field of chemistry. With its intuitive interface, PandaChem simplifies complex data analysis and molecular modeling, making it accessible to users at all levels of expertise. The platform harnesses advanced algorithms to provide predictive insights into chemical reactions, optimize molecular structures, and simulate experimental conditions. Users can effortlessly input chemical formulas and parameters to receive real-time feedback and visualizations, enhancing their ability to explore various chemical phenomena. PandaChem also features a robust library of educational resources, including tutorials and interactive simulations, designed to enrich learning experiences and foster a deeper understanding of chemical principles. By integrating AI with traditional chemistry practices, PandaChem not only accelerates research and development but also encourages collaborative learning among students and professionals. Whether you are conducting experiments, studying molecular interactions, or teaching complex concepts, PandaChem is your essential companion for all your chemistry endeavors.",
-    "tags": [
-      "cloud computing",
-      "molecular modeling",
-      "simulation",
-      "drug discovery",
-      "user-friendly",
-      "collaboration"
-    ],
-    "category": "synthesis",
-    "screenshot": "assets/placeholder.png"
-  },
-  {
-    "name": "ChemAI",
-    "slug": "chem-ai",
-    "url": "https://chem-ai.com",
-    "short_description": "ChemAI is an advanced AI tool designed to assist chemists in molecular modeling, reaction prediction, and data analysis, enhancing research efficiency and accuracy in chemical studies.",
-    "long_description": "ChemAI is a cutting-edge artificial intelligence tool tailored for the field of chemistry, enabling researchers and professionals to streamline their workflows and enhance their analytical capabilities. With its robust algorithms, ChemAI excels at molecular modeling, allowing users to visualize and manipulate complex chemical structures with ease. It also offers reaction prediction features, helping chemists anticipate the outcomes of chemical reactions based on input parameters and historical data. By harnessing vast databases and machine learning techniques, ChemAI can analyze chemical data more efficiently, providing insights that may be overlooked in traditional methods. This tool not only increases the accuracy of research but also significantly reduces the time required for experimental iterations, making it an invaluable resource in both academic and industrial settings. Whether you're a seasoned chemist or a student, ChemAI empowers you to explore chemical interactions and innovations like never before, paving the way for breakthroughs in material science, pharmaceuticals, and beyond.",
-    "tags": [
-      "deep learning",
-      "chemical reactions",
-      "synthetic routes",
-      "drug discovery",
-      "prediction",
-      "chemistry"
-    ],
-    "category": "synthesis",
-    "screenshot": "assets/placeholder.png"
-  },
-  {
     "name": "PharmaSeek",
     "slug": "pharmaseek",
     "url": "https://pharmaseek.com",
@@ -413,23 +297,6 @@
     ],
     "category": "drug discovery",
     "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751888162/chem-ai-tools/pharmaseek.png"
-  },
-  {
-    "name": "PredictiveChem",
-    "slug": "predictivechem",
-    "url": "https://predictivechem.com",
-    "short_description": "PredictiveChem is an advanced AI tool designed for chemists, leveraging machine learning algorithms to predict molecular behavior, optimize chemical reactions, and accelerate drug discovery, ultimately enhancing research efficiency and accuracy in the field of chemistry.",
-    "long_description": "PredictiveChem is a cutting-edge AI tool tailored for the chemistry domain, harnessing the power of machine learning to provide chemists with accurate predictions of molecular behavior and properties. By analyzing vast datasets of chemical compounds and reactions, PredictiveChem can forecast outcomes, optimize reaction conditions, and identify potential pathways for synthesis. This innovative platform not only streamlines the research process but also significantly reduces the time and resources required for experimentation. With features such as predictive modeling, data visualization, and automated reporting, PredictiveChem empowers researchers to make informed decisions and enhances collaboration in drug discovery and material science. Its user-friendly interface allows chemists at all levels of expertise to leverage advanced computational techniques without needing extensive programming knowledge. As the demand for faster and more efficient research in chemistry grows, PredictiveChem stands out as an essential tool for academic institutions, pharmaceutical companies, and research laboratories, driving innovation and fostering breakthroughs in chemical research.",
-    "tags": [
-      "AI",
-      "molecular properties",
-      "chemical reactions",
-      "predictive modeling",
-      "drug discovery",
-      "cheminformatics"
-    ],
-    "category": "analysis",
-    "screenshot": "assets/placeholder.png"
   },
   {
     "name": "BioAI",
