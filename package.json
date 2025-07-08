@@ -1,0 +1,34 @@
+{
+  "name": "ai-tool-discovery",
+  "version": "1.0.0",
+  "description": "Discovery and description of AI tools for chemistry using OpenAI and DeepSeek as fallback.",
+  "type": "module",
+  "main": "scripts/discover-tools-hf.mjs",
+  "scripts": {
+    "discover": "node scripts/discover-tools-hf.mjs",
+    "fetch": "node scripts/fetch-tools-hf.mjs",
+    "screenshot": "node scripts/screenshot-tools.mjs",
+    "generate": "node scripts/generate-detail-pages.js",
+    "update-data": "npm run discover && npm run screenshot && npm run fetch"
+  },
+  "author": "AI Tools for Chemists",
+  "license": "MIT",
+  "dependencies": {
+    "handlebars": "^4.7.8",
+    "openai": "^4.9.0",
+    "node-fetch": "^3.3.2",
+    "fs-extra": "^11.1.1",
+    "playwright": "^1.44.0",
+    "cloudinary": "^1.37.1"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "openai",
+    "deepseek",
+    "cheminformatics",
+    "drug-discovery",
+    "ai-tools"
+  ]
+}
