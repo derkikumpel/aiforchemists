@@ -33,6 +33,9 @@ jobs:
       - name: Playwright Browser installieren
         run: npx playwright install --with-deps
 
+      - name: Gradio installieren
+        run: npm i -D @gradio/client
+
       - name: Discover tools via HF model
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN_AICHEMIST }}
