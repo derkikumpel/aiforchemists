@@ -34,7 +34,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Gradio installieren
-        run: npm i -D @gradio/client
+        run: npm install @gradio/client
 
       - name: Discover tools via HF model
         env:
