@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 import fetch from 'node-fetch';
 
-const HF_MODEL_URL = 'https://api-inference.huggingface.co/models/microsoft/DialoGPT-medium';
+const HF_MODEL_URL = 'https://derkikumpel-aiforchemists.hf.space/api/predict';
 const cacheFile = './data/discover-cache.json';
 const toolsFile = './data/tools.json';
 
