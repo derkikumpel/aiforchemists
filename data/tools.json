@@ -13,7 +13,7 @@
       "open-source"
     ],
     "category": "analysis",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752068422/chem-ai-tools/deepchem.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752068902/chem-ai-tools/deepchem.png"
   },
   {
     "name": "ChemAxon",
@@ -165,7 +165,7 @@
       "drug discovery"
     ],
     "category": "software",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752068484/chem-ai-tools/openeye-scientific-software.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752068955/chem-ai-tools/openeye-scientific-software.png"
   },
   {
     "name": "MolProbity",
@@ -181,7 +181,7 @@
       "drug discovery"
     ],
     "category": "analysis",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752068489/chem-ai-tools/molprobity.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752068960/chem-ai-tools/molprobity.png"
   },
   {
     "name": "Bioinformatics.org",
@@ -245,7 +245,7 @@
       "drug discovery"
     ],
     "category": "software",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752068514/chem-ai-tools/knime.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752068982/chem-ai-tools/knime.png"
   },
   {
     "name": "MolGen",
@@ -279,7 +279,7 @@
       "pharmaceuticals"
     ],
     "category": "drug discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752068523/chem-ai-tools/curemetrix.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752068990/chem-ai-tools/curemetrix.png"
   },
   {
     "name": "PharmaSeek",
@@ -296,7 +296,7 @@
       "pharmaceuticals"
     ],
     "category": "drug discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752048253/chem-ai-tools/pharmaseek.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752068995/chem-ai-tools/pharmaseek.png"
   },
   {
     "name": "BioAI",
