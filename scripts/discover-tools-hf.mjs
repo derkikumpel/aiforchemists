@@ -32,9 +32,7 @@ async function callHF(prompt) {
 
     log('🔄 Calling predict API...');
 
-    const result = await client.predict("/predict", {
-      prompt: prompt
-    });
+    const result = await client.predict("/predict", { prompt });
 
     log(`📡 Response received`);
     log('📝 Raw response:', result.data);
