@@ -23,6 +23,12 @@ async function loadArr(file) {
 async function callHF(prompt) {
   try {
     log('🔄 Connecting to Gradio client...');
+
+    // Try with authentication if token is available
+    const connectOptions = {};
+    if (process.env.HF_TOKEN_AICHEMIST) {
+      connectOptions.hf_token = process.env.HF_TOKEN_AICHEMIST;
+    }
     
     const client = await Client.connect(HF_SPACE_URL);
     
