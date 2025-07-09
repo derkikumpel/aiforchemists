@@ -1,9 +1,7 @@
 import fs from 'fs-extra';
 import { Client } from '@gradio/client';
-import fetch from 'node-fetch';
 
 const HF_SPACE_URL = 'derkikumpel/aiforchemists';
-const HF_MODEL_URL = 'https://derkikumpel-aiforchemists.hf.space/api/predict';
 const cacheFile = './data/discover-cache.json';
 const toolsFile = './data/tools.json';
 
@@ -22,17 +20,11 @@ async function loadArr(file) {
   }
 }
 
-async function callHFWithGradio(prompt) {
+async function callHF(prompt) {
   try {
     log('🔄 Connecting to Gradio client...');
     
-    // Try with authentication if token is available
-    const connectOptions = {};
-    if (process.env.HF_TOKEN_AICHEMIST) {
-      connectOptions.hf_token = process.env.HF_TOKEN_AICHEMIST;
-    }
-    
-    const client = await Client.connect(HF_SPACE_URL, connectOptions);
+    const client = await Client.connect(HF_SPACE_URL);
     
     log('🔄 Calling predict API...');
     
@@ -57,89 +49,6 @@ async function callHFWithGradio(prompt) {
   } catch (err) {
     error('❌ Gradio API Error:', err.message);
     throw err;
-  }
-}
-
-async function callHFWithREST(prompt) {
-  try {
-    log('🔄 Calling HF REST API...');
-    
-    const res = await fetch(HF_MODEL_URL, {
-      method: 'POST',
-      headers: { 
-        'Authorization': `Bearer ${process.env.HF_TOKEN_AICHEMIST}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ 
-        inputs: prompt, 
-        parameters: { 
-          temperature: 0.7,
-          max_new_tokens: 2000,
-          do_sample: true
-        } 
-      })
-    });
-    
-    log(`📡 Response status: ${res.status}`);
-    
-    if (!res.ok) {
-      const errorText = await res.text();
-      log('❌ Error response:', errorText.substring(0, 200));
-      throw new Error(`HTTP ${res.status}: ${errorText.substring(0, 100)}`);
-    }
-    
-    const rawResponse = await res.text();
-    log('📝 Raw response length:', rawResponse.length);
-    log('📝 Raw response preview:', rawResponse.substring(0, 200));
-    
-    // Check if it's HTML (error page)
-    if (rawResponse.trim().startsWith('<!DOCTYPE') || rawResponse.trim().startsWith('<html')) {
-      throw new Error('Received HTML instead of JSON - Space might be loading or unavailable');
-    }
-    
-    let j;
-    try {
-      j = JSON.parse(rawResponse);
-    } catch (parseError) {
-      log('❌ JSON parse error:', parseError.message);
-      log('❌ Raw response:', rawResponse);
-      throw new Error(`Invalid JSON response: ${parseError.message}`);
-    }
-    
-    // Handle different response formats
-    const text = j.generated_text || 
-                 (j[0] && j[0].generated_text) || 
-                 (j.data && j.data[0]) ||
-                 (Array.isArray(j) && j[0]);
-    
-    if (!text) {
-      log('❌ Unexpected response format:', JSON.stringify(j, null, 2));
-      throw new Error('No generated_text in response');
-    }
-    
-    log('✅ Got response text length:', text.length);
-    return text;
-    
-  } catch (err) {
-    error('❌ HF REST API Error:', err.message);
-    throw err;
-  }
-}
-
-async function callHF(prompt) {
-  // Try Gradio client first, fall back to REST API
-  try {
-    return await callHFWithGradio(prompt);
-  } catch (gradioError) {
-    log('⚠️ Gradio client failed, trying REST API fallback...');
-    try {
-      return await callHFWithREST(prompt);
-    } catch (restError) {
-      error('❌ Both Gradio and REST API failed');
-      error('❌ Gradio error:', gradioError.message);
-      error('❌ REST error:', restError.message);
-      throw new Error(`Both APIs failed. Gradio: ${gradioError.message}, REST: ${restError.message}`);
-    }
   }
 }
 
