@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 import fetch from 'node-fetch';
 
-const HF_MODEL_URL = 'https://derkikumpel-aiforchemists.hf.space/run/predict';
+const HF_MODEL_URL = 'https://derkikumpel-aiforchemists.hf.space/api/generate';
 const cacheFile = './data/discover-cache.json';
 const toolsFile = './data/tools.json';
 
