@@ -31,10 +31,24 @@ async function main() {
   const existing = await loadArr(toolsFile);
   const exclusion = existing.map(t => `- ${t.name} (${t.slug})`).slice(0,50).join('\n');
   const prompt = `
-Please list 10 current AI tools in chemistry or cheminformatics or drug discovery not in:
-${exclusion||'-'}
-Return JSON array with name,slug,url,short_description(30–50w),long_description>=150w,tags(≤6),category.
-Respond only JSON array.
+Please list 10 current AI tools in the field of chemistry or cheminformatics or drug discovery that are NOT in the following list:
+
+${exclusionList || '- (none listed)'}
+
+For each tool, return a JSON object with the following fields:
+- name
+- slug (lowercase, dash-separated)
+- url
+- short_description (30–50 words)
+- long_description (must be at least 150 words – this is required and will be checked)
+- tags (maximum of 6 relevant tags)
+- category (e.g., synthesis, analysis, database, etc.)
+
+⚠️ IMPORTANT:
+- Ensure the long_description has a minimum of 150 words. Do not summarize or skip this requirement.
+- Return only a valid JSON array of tool objects. No commentary, no code block syntax.
+
+Respond only with the JSON array.
 `;
 
   let raw;
