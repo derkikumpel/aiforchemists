@@ -28,8 +28,8 @@ async function callHFWithGradio(prompt) {
     
     // Try with authentication if token is available
     const connectOptions = {};
-    if (process.env.HF_TOKEN) {
-      connectOptions.hf_token = process.env.HF_TOKEN;
+    if (process.env.HF_TOKEN_AICHEMIST) {
+      connectOptions.hf_token = process.env.HF_TOKEN_AICHEMIST;
     }
     
     const client = await Client.connect(HF_SPACE_URL, connectOptions);
