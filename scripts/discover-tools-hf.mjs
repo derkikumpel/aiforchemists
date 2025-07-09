@@ -31,6 +31,9 @@ async function callHF(prompt) {
     const client = await Client.connect(HF_SPACE_URL, connectOptions);
     log('✅ Connected to HF Space:', HF_SPACE_URL);
 
+    // Debug: zeige alle Endpunkte/Funktionen
+    log('📊 Available functions:', client.config);
+
     log('🔄 Calling predict API...');
 
     const result = await client.predict("/predict", { prompt });
