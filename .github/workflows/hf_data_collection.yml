@@ -38,7 +38,7 @@ jobs:
 
       - name: Discover tools via HF model
         env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN_AICHEMIST }}
+          HF_TOKEN_AICHEMIST: ${{ secrets.HF_TOKEN_AICHEMIST }}
         run: node scripts/discover-tools-hf.mjs | tee output.log
 
       - name: Screenshots & cleanup
@@ -50,7 +50,7 @@ jobs:
 
       - name: Fetch descriptions via HF model
         env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN_AICHEMIST }}
+          HF_TOKEN_AICHEMIST: ${{ secrets.HF_TOKEN_AICHEMIST }}
         run: node scripts/fetch-tools-hf.mjs | tee fetch.log
 
       - name: Commit & push
