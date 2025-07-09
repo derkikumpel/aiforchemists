@@ -48,7 +48,7 @@ async function callHF(prompt) {
     return text;
 
   } catch (err) {
-    error('❌ Gradio API Error:', err.message);
+    error('❌ Gradio API Error:', err);
     throw err;
   }
 }
