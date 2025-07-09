@@ -13,7 +13,7 @@
       "open-source"
     ],
     "category": "analysis",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752040875/chem-ai-tools/deepchem.png"
   },
   {
     "name": "ChemAxon",
@@ -28,7 +28,7 @@
       "molecular modeling"
     ],
     "category": "synthesis",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751444635/chem-ai-tools/chemaxon.png"
   },
   {
     "name": "Cresset",
@@ -43,7 +43,7 @@
       "3D modeling"
     ],
     "category": "analysis",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751888046/chem-ai-tools/cresset.png"
   },
   {
     "name": "Insilico Medicine",
@@ -58,7 +58,7 @@
       "preclinical research"
     ],
     "category": "synthesis",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751526226/chem-ai-tools/insilico-medicine.png"
   },
   {
     "name": "IBM RXN for Chemistry",
@@ -73,7 +73,7 @@
       "reaction prediction"
     ],
     "category": "synthesis",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751608518/chem-ai-tools/ibm-rxn-for-chemistry.png"
   },
   {
     "name": "Schrödinger",
@@ -88,7 +88,7 @@
       "virtual screening"
     ],
     "category": "analysis",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751444653/chem-ai-tools/schrodinger.png"
   },
   {
     "name": "MolSoft",
@@ -103,7 +103,7 @@
       "bioinformatics"
     ],
     "category": "analysis",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751444665/chem-ai-tools/molsoft.png"
   },
   {
     "name": "Zinc Database",
@@ -118,7 +118,7 @@
       "compound libraries"
     ],
     "category": "database",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751608532/chem-ai-tools/zinc-database.png"
   },
   {
     "name": "Atomwise",
@@ -133,7 +133,7 @@
       "structure-based modeling"
     ],
     "category": "synthesis",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751526221/chem-ai-tools/atomwise.png"
   },
   {
     "name": "ChEMBL",
@@ -149,7 +149,7 @@
       "chemoinformatics"
     ],
     "category": "database",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751888084/chem-ai-tools/chembl.png"
   },
   {
     "name": "OpenEye Scientific Software",
@@ -165,7 +165,7 @@
       "drug discovery"
     ],
     "category": "software",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752040934/chem-ai-tools/openeye-scientific-software.png"
   },
   {
     "name": "MolProbity",
@@ -181,7 +181,7 @@
       "drug discovery"
     ],
     "category": "analysis",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751888094/chem-ai-tools/molprobity.png"
   },
   {
     "name": "Bioinformatics.org",
@@ -197,7 +197,7 @@
       "tools"
     ],
     "category": "community",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752040945/chem-ai-tools/bioinformatics-org.png"
   },
   {
     "name": "CADD Group",
@@ -213,7 +213,7 @@
       "tools"
     ],
     "category": "community",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751777638/chem-ai-tools/cadd-group.png"
   },
   {
     "name": "RCSB Protein Data Bank",
@@ -229,7 +229,7 @@
       "research"
     ],
     "category": "database",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752040957/chem-ai-tools/rcsb-protein-data-bank.png"
   },
   {
     "name": "KNIME",
@@ -245,7 +245,7 @@
       "drug discovery"
     ],
     "category": "software",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752040961/chem-ai-tools/knime.png"
   },
   {
     "name": "MolGen",
@@ -262,7 +262,7 @@
       "cheminformatics"
     ],
     "category": "molecule design",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751888120/chem-ai-tools/molgen.png"
   },
   {
     "name": "CureMetrix",
@@ -279,7 +279,7 @@
       "pharmaceuticals"
     ],
     "category": "drug discovery",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752040970/chem-ai-tools/curemetrix.png"
   },
   {
     "name": "PharmaSeek",
@@ -296,7 +296,7 @@
       "pharmaceuticals"
     ],
     "category": "drug discovery",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752040974/chem-ai-tools/pharmaseek.png"
   },
   {
     "name": "BioAI",
@@ -313,6 +313,6 @@
       "pharmaceuticals"
     ],
     "category": "drug discovery",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751888166/chem-ai-tools/bioai.png"
   }
 ]
