@@ -30,7 +30,7 @@ async function callHF(prompt) {
       connectOptions.hf_token = process.env.HF_TOKEN_AICHEMIST;
     }
     
-    const client = await Client.connect(HF_SPACE_URL);
+    const client = await Client.connect(HF_SPACE_URL, connectOptions);
     
     log('🔄 Calling predict API...');
     
