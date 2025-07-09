@@ -13,7 +13,7 @@
       "open-source"
     ],
     "category": "analysis",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752068902/chem-ai-tools/deepchem.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752069928/chem-ai-tools/deepchem.png"
   },
   {
     "name": "ChemAxon",
@@ -149,7 +149,7 @@
       "chemoinformatics"
     ],
     "category": "database",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752067687/chem-ai-tools/chembl.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752069985/chem-ai-tools/chembl.png"
   },
   {
     "name": "OpenEye Scientific Software",
@@ -165,7 +165,7 @@
       "drug discovery"
     ],
     "category": "software",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752068955/chem-ai-tools/openeye-scientific-software.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752069990/chem-ai-tools/openeye-scientific-software.png"
   },
   {
     "name": "MolProbity",
@@ -245,7 +245,7 @@
       "drug discovery"
     ],
     "category": "software",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752068982/chem-ai-tools/knime.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752070022/chem-ai-tools/knime.png"
   },
   {
     "name": "MolGen",
@@ -279,7 +279,7 @@
       "pharmaceuticals"
     ],
     "category": "drug discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752068990/chem-ai-tools/curemetrix.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752070032/chem-ai-tools/curemetrix.png"
   },
   {
     "name": "PharmaSeek",
