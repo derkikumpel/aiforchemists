@@ -16,7 +16,7 @@ async function loadDesc() {
 async function callHF(prompt) {
   const res = await fetch(HF_MODEL_URL, {
     method:'POST',
-    headers:{ Authorization:`Bearer ${process.env.HF_TOKEN}`, 'Content-Type':'application/json' },
+    headers:{ Authorization:`Bearer ${process.env.HF_TOKEN_AICHEMIST}`, 'Content-Type':'application/json' },
     body: JSON.stringify({ inputs: prompt, parameters: { temperature:0.7 } })
   });
   const j = await res.json();
