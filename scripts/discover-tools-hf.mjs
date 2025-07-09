@@ -5,18 +5,13 @@ const HF_SPACE_URL = 'derkikumpel/aiforchemists';
 const cacheFile = './data/discover-cache.json';
 const toolsFile = './data/tools.json';
 
-function log(...args) {
-  console.log(new Date().toISOString(), ...args);
-}
-
-function error(...args) {
-  console.error(new Date().toISOString(), ...args);
-}
+function log(...a) { console.log(new Date().toISOString(), ...a); }
+function error(...a) { console.error(new Date().toISOString(), ...a); }
 
 async function loadArr(file) {
   try {
     const j = JSON.parse(await fs.readFile(file));
-    if (!Array.isArray(j)) throw new Error('Invalid array');
+    if (!Array.isArray(j)) throw new Error('File does not contain an array');
     return j;
   } catch {
     log('⚠️ Reset', file);
@@ -27,6 +22,7 @@ async function loadArr(file) {
 async function callHF(prompt) {
   try {
     log('🔄 Connecting to Gradio client...');
+
     const connectOptions = {};
     if (process.env.HF_TOKEN_AICHEMIST) {
       connectOptions.hf_token = process.env.HF_TOKEN_AICHEMIST;
@@ -35,28 +31,20 @@ async function callHF(prompt) {
     const client = await Client.connect(HF_SPACE_URL, connectOptions);
     log('✅ Connected to HF Space');
 
-    const dep = client.config.dependencies.find(d => d.api_name === 'predict');
-    if (!dep) throw new Error("No 'predict' function found in Space");
-    const fnIndex = dep.id;
+    const fn_index = 2;
+    log(`🔄 Calling predict with fn_index = ${fn_index}`);
 
-    log(`🔄 Calling predict with fn_index = ${fnIndex}`);
+    const result = await client.predict("/predict", [prompt], { fn_index });
 
-    const result = await client.predict(fnIndex, [prompt]);
-
-    log('▶️ Raw result:', result);
-
-    if (!result || !('data' in result)) {
-      throw new Error('Result missing .data');
-    }
-
-    if (result.data == null) {
-      throw new Error('Result .data is null');
-    }
+    log(`📡 Response received`);
+    log('📝 Raw response:', result.data);
 
     const text = result.data;
-    log('✅ Got response text length:', text.length);
+    if (!text) throw new Error('No data in response');
 
+    log('✅ Got response text length:', text.length);
     return text;
+
   } catch (err) {
     error('❌ Gradio API Error:', err);
     throw err;
@@ -89,33 +77,23 @@ For each tool, return a JSON object with the following fields:
 
 Respond only with the JSON array:`;
 
+  let raw;
   try {
-    const raw = await callHF(prompt);
+    raw = await callHF(prompt);
 
-    const jsonText = raw.replace(/```json\n?|```\n?/g, '');
+    let jsonText = raw.replace(/```json\n?|```\n?/g, '');
     const jsonMatch = jsonText.match(/\[([\s\S]*?)\]/);
-    if (!jsonMatch) {
-      throw new Error('No JSON array found in response');
-    }
+    if (!jsonMatch) throw new Error('No JSON array found in response');
 
     const arr = JSON.parse(jsonMatch[0]);
-
-    if (!Array.isArray(arr)) {
-      throw new Error('Parsed result is not an array');
-    }
+    if (!Array.isArray(arr)) throw new Error('Parsed result is not an array');
 
     log(`✅ Got ${arr.length} tools`);
 
     const validTools = arr.filter(t => {
-      const isValid =
-        t.name &&
-        t.slug &&
-        t.url &&
-        t.short_description &&
-        t.long_description &&
-        t.tags &&
-        t.category &&
-        t.long_description.length >= 150;
+      const isValid = t.name && t.slug && t.url && t.short_description &&
+                      t.long_description && t.tags && t.category &&
+                      t.long_description.length >= 150;
 
       if (!isValid) {
         log(`⚠️ Invalid tool: ${t.name || 'Unknown'}`);
@@ -141,7 +119,7 @@ Respond only with the JSON array:`;
     });
 
   } catch (e) {
-    error('❌ Main error:', e?.message || e);
+    error('❌ Main error:', e.message ?? e);
 
     await fs.writeJson(toolsFile, existing, { spaces: 2 });
 
@@ -154,6 +132,6 @@ Respond only with the JSON array:`;
 }
 
 main().catch(e => {
-  error('💥 Fatal error:', e?.message || e);
+  error('💥 Fatal error:', e);
   process.exit(1);
 });
