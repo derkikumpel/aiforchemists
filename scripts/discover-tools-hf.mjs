@@ -5,14 +5,19 @@ const HF_SPACE_URL = 'derkikumpel/aiforchemists';
 const cacheFile = './data/discover-cache.json';
 const toolsFile = './data/tools.json';
 
-function log(...a) { console.log(new Date().toISOString(), ...a); }
-function error(...a) { console.error(new Date().toISOString(), ...a); }
+function log(...args) {
+  console.log(new Date().toISOString(), ...args);
+}
+
+function error(...args) {
+  console.error(new Date().toISOString(), ...args);
+}
 
 async function loadArr(file) {
   try {
-    const j = JSON.parse(await fs.readFile(file));
-    if (!Array.isArray(j)) throw new Error('File does not contain an array');
-    return j;
+    const json = JSON.parse(await fs.readFile(file));
+    if (!Array.isArray(json)) throw new Error('File does not contain an array');
+    return json;
   } catch {
     log('⚠️ Reset', file);
     return [];
@@ -31,26 +36,16 @@ async function callHF(prompt) {
     const client = await Client.connect(HF_SPACE_URL, connectOptions);
     log('✅ Connected to HF Space:', HF_SPACE_URL);
 
-    // Debug: zeige alle Endpunkte/Funktionen
-    log('📊 Available functions:', client.config);
+    // log('📊 Available functions:', client.config);
 
     log('🔄 Calling predict API...');
-
     const result = await client.predict("/predict", { prompt });
 
-    log(`📡 Response received`);
-    log('📝 Raw response:', result.data);
-
     const text = result.data;
-
-    if (!text) {
-      log('❌ No data in response:', result);
-      throw new Error('No data in response');
-    }
+    if (!text) throw new Error('No data in response');
 
     log('✅ Got response text length:', text.length);
     return text;
-
   } catch (err) {
     error('❌ Gradio API Error:', err);
     throw err;
@@ -63,7 +58,10 @@ async function main() {
   const cache = await loadArr(cacheFile);
   const existing = await loadArr(toolsFile);
 
-  const exclusion = existing.map(t => `- ${t.name} (${t.slug})`).slice(0, 50).join('\n');
+  const exclusion = existing
+    .map(t => `- ${t.name} (${t.slug})`)
+    .slice(0, 50)
+    .join('\n');
 
   const prompt = `Please list 10 current AI tools in the field of chemistry or cheminformatics or drug discovery that are NOT in the following list:
 ${exclusion || '- (none listed)'}
@@ -83,42 +81,36 @@ For each tool, return a JSON object with the following fields:
 
 Respond only with the JSON array:`;
 
-  let raw;
   try {
-    raw = await callHF(prompt);
-
-    // Remove any markdown code blocks
-    let jsonText = raw.replace(/```json\n?|```\n?/g, '');
-
-    // Try to find JSON array
+    const raw = await callHF(prompt);
+    const jsonText = raw.replace(/```json\n?|```\n?/g, '');
     const jsonMatch = jsonText.match(/\[([\s\S]*?)\]/);
-    if (!jsonMatch) {
-      throw new Error('No JSON array found in response');
-    }
+
+    if (!jsonMatch) throw new Error('No JSON array found in response');
 
     const arr = JSON.parse(jsonMatch[0]);
-
-    if (!Array.isArray(arr)) {
-      throw new Error('Parsed result is not an array');
-    }
+    if (!Array.isArray(arr)) throw new Error('Parsed result is not an array');
 
     log(`✅ Got ${arr.length} tools`);
 
-    const validTools = arr.filter(t => {
-      const isValid = t.name && t.slug && t.url && t.short_description &&
-                      t.long_description && t.tags && t.category &&
-                      t.long_description.length >= 150;
-
-      if (!isValid) {
-        log(`⚠️ Invalid tool: ${t.name || 'Unknown'}`);
-      }
-
-      return isValid;
-    });
+    const validTools = arr.filter(t =>
+      t.name &&
+      t.slug &&
+      t.url &&
+      t.short_description &&
+      t.long_description &&
+      t.long_description.length >= 150 &&
+      Array.isArray(t.tags) &&
+      t.tags.length <= 6 &&
+      t.category
+    );
 
     log(`✅ ${validTools.length} valid tools out of ${arr.length}`);
 
-    const newTools = validTools.filter(t => !existing.find(e => e.slug === t.slug));
+    const newTools = validTools.filter(
+      t => !existing.some(e => e.slug === t.slug)
+    );
+
     log(`📝 ${newTools.length} new tools (${validTools.length - newTools.length} already exist)`);
 
     const updated = existing.concat(newTools);
@@ -131,10 +123,8 @@ Respond only with the JSON array:`;
     newTools.forEach((tool, i) => {
       log(`${i + 1}. ${tool.name} (${tool.category})`);
     });
-
   } catch (e) {
     error('❌ Main error:', e.message);
-
     await fs.writeJson(toolsFile, existing, { spaces: 2 });
 
     if (process.env.CI) {
