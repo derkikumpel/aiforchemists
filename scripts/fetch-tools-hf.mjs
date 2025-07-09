@@ -1,9 +1,11 @@
 import fs from 'fs-extra';
 import { Client } from '@gradio/client';
+import path from 'path';
 
 const HF_SPACE_URL = 'derkikumpel/aiforchemists';
 const toolsFile = './data/tools.json';
 const cacheFile = './data/description-cache.json';
+const screenshotDir = './tools'; // hier liegt z. B. slug.html oder slug.png
 
 function log(...a) { console.log(new Date().toISOString(), ...a); }
 function error(...a) { console.error(new Date().toISOString(), ...a); }
@@ -42,6 +44,12 @@ async function callHF(prompt) {
   }
 }
 
+function hasScreenshot(slug) {
+  const htmlPath = path.join(screenshotDir, `${slug}.html`);
+  const pngPath = path.join('./screenshots', `${slug}.png`);
+  return fs.existsSync(htmlPath) || fs.existsSync(pngPath);
+}
+
 async function main() {
   log('🚀 Start fetch descriptions');
   const tools = await fs.readJson(toolsFile);
@@ -67,19 +75,26 @@ for AI tool "${t.name}". Only return JSON.`;
       const jsonMatch = jsonText.match(/\{[\s\S]*?\}/);
       const desc = JSON.parse(jsonMatch ? jsonMatch[0] : raw);
 
-      updated.push({ ...t, ...desc });
+      const fullTool = { ...t, ...desc };
+
+      if (!hasScreenshot(t.slug)) {
+        log(`🚫 Skipped (no screenshot): ${t.slug}`);
+        continue;
+      }
+
+      updated.push(fullTool);
       cache[t.slug] = desc;
-      log('✅ Fetched', t.slug);
+      log('✅ Fetched + Screenshot OK:', t.slug);
 
     } catch (e) {
-      error(`⚠️ Use fallback:`, t.slug, e.message);
-      updated.push(t);
+      error(`⚠️ Skipped (error):`, t.slug, e.message);
+      // Tool wird nicht übernommen
     }
   }
 
   await fs.writeJson(toolsFile, updated, { spaces: 2 });
   await fs.writeJson(cacheFile, cache, { spaces: 2 });
-  log('✅ Done descriptions:', updated.length);
+  log('✅ Final valid tools:', updated.length);
 }
 
 main().catch(e => { error(e); process.exit(1); });
