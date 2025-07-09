@@ -1,7 +1,10 @@
 import fs from 'fs-extra';
-import { Client } from '@gradio/client';
+import fetch from 'node-fetch';
 
-const HF_SPACE_URL = 'derkikumpel/aiforchemists';
+const HF_SPACE = 'derkikumpel-aiforchemists';
+const HF_URL = `https://${HF_SPACE.replace('/', '-')}.hf.space/run/predict`;
+const FN_INDEX = 2;
+
 const cacheFile = './data/discover-cache.json';
 const toolsFile = './data/tools.json';
 
@@ -21,32 +24,37 @@ async function loadArr(file) {
 
 async function callHF(prompt) {
   try {
-    log('🔄 Connecting to Gradio client...');
+    log('🔄 Calling HF Space via HTTP POST...');
 
-    const connectOptions = {};
+    const headers = {
+      'Content-Type': 'application/json',
+    };
     if (process.env.HF_TOKEN_AICHEMIST) {
-      connectOptions.hf_token = process.env.HF_TOKEN_AICHEMIST;
+      headers.Authorization = `Bearer ${process.env.HF_TOKEN_AICHEMIST}`;
     }
 
-    const client = await Client.connect(HF_SPACE_URL, connectOptions);
-    log('✅ Connected to HF Space');
+    const res = await fetch(HF_URL, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({
+        data: [prompt],
+        fn_index: FN_INDEX
+      })
+    });
 
-    const fn_index = 2;
-    log(`🔄 Calling predict with fn_index = ${fn_index}`);
+    const json = await res.json();
+    log('📡 HTTP response received');
 
-    const result = await client.predict("/predict", [prompt], { fn_index });
+    if (!json || !Array.isArray(json.data) || !json.data[0]) {
+      throw new Error('No usable data in response');
+    }
 
-    log(`📡 Response received`);
-    log('📝 Raw response:', result.data);
-
-    const text = result.data;
-    if (!text) throw new Error('No data in response');
-
+    const text = json.data[0];
     log('✅ Got response text length:', text.length);
     return text;
 
   } catch (err) {
-    error('❌ Gradio API Error:', err);
+    error('❌ Gradio HTTP Error:', err);
     throw err;
   }
 }
@@ -77,16 +85,21 @@ For each tool, return a JSON object with the following fields:
 
 Respond only with the JSON array:`;
 
-  let raw;
   try {
-    raw = await callHF(prompt);
+    const raw = await callHF(prompt);
 
     let jsonText = raw.replace(/```json\n?|```\n?/g, '');
+
     const jsonMatch = jsonText.match(/\[([\s\S]*?)\]/);
-    if (!jsonMatch) throw new Error('No JSON array found in response');
+    if (!jsonMatch) {
+      throw new Error('No JSON array found in response');
+    }
 
     const arr = JSON.parse(jsonMatch[0]);
-    if (!Array.isArray(arr)) throw new Error('Parsed result is not an array');
+
+    if (!Array.isArray(arr)) {
+      throw new Error('Parsed result is not an array');
+    }
 
     log(`✅ Got ${arr.length} tools`);
 
@@ -119,12 +132,11 @@ Respond only with the JSON array:`;
     });
 
   } catch (e) {
-    error('❌ Main error:', e.message ?? e);
-
+    error('❌ Main error:', e.message);
     await fs.writeJson(toolsFile, existing, { spaces: 2 });
 
     if (process.env.CI) {
-      log('🔄 CI detected, skipping error');
+      log('🔄 CI detected, continuing despite error');
     } else {
       throw e;
     }
