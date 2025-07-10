@@ -2,7 +2,7 @@ import { promises as fs } from 'fs';
 import https from 'https';
 
 const HF_API_URL = 'https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.1';
-const OUTPUT_FILE = 'docs/_data/tools.json';
+const OUTPUT_FILE = 'data/tools.json';
 
 function buildPrompt(exclusions = []) {
   return `List 10 current AI tools in chemistry NOT in: ${JSON.stringify(exclusions)}.
@@ -46,7 +46,7 @@ async function queryHFAPI(prompt) {
 
 async function main() {
   try {
-    const exclusions = await fs.readFile('docs/_data/exclusions.json', 'utf8')
+    const exclusions = await fs.readFile('data/exclusions.json', 'utf8')
       .then(JSON.parse)
       .catch(() => []);
 
