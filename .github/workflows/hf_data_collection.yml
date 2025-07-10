@@ -36,10 +36,10 @@ jobs:
       - name: Gradio installieren
         run: npm install fs-extra node-fetch
 
-      - name: Test Script HTTP ausführen
+      - name: Test Script ausführen
         env:
           HF_TOKEN_AICHEMIST: ${{ secrets.HF_TOKEN_AICHEMIST }}
-        run: node scripts/test-http.mjs | tee test-http.log
+        run: node scripts/test.mjs | tee test.log
       
       - name: Discover tools via HF model
         env:
