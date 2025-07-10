@@ -23,7 +23,7 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          node .github/scripts/discover-tools-hf.mjs
+          node scripts/discover-tools-hf.mjs
           
       - name: Commit Changes
         run: |
