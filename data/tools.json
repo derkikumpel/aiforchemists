@@ -13,7 +13,7 @@
       "open-source"
     ],
     "category": "analysis",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752131941/chem-ai-tools/deepchem.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752134518/chem-ai-tools/deepchem.png"
   },
   {
     "name": "ChemAxon",
@@ -165,7 +165,7 @@
       "drug discovery"
     ],
     "category": "software",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752131995/chem-ai-tools/openeye-scientific-software.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752134572/chem-ai-tools/openeye-scientific-software.png"
   },
   {
     "name": "MolProbity",
@@ -197,7 +197,7 @@
       "tools"
     ],
     "category": "community",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752046508/chem-ai-tools/bioinformatics-org.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752134583/chem-ai-tools/bioinformatics-org.png"
   },
   {
     "name": "CADD Group",
@@ -245,7 +245,7 @@
       "drug discovery"
     ],
     "category": "software",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752130461/chem-ai-tools/knime.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752134600/chem-ai-tools/knime.png"
   },
   {
     "name": "MolGen",
@@ -279,7 +279,7 @@
       "pharmaceuticals"
     ],
     "category": "drug discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752132030/chem-ai-tools/curemetrix.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752134608/chem-ai-tools/curemetrix.png"
   },
   {
     "name": "PharmaSeek",
