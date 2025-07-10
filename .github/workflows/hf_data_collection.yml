@@ -33,14 +33,6 @@ jobs:
       - name: Playwright Browser installieren
         run: npx playwright install --with-deps
 
-      - name: Gradio installieren
-        run: npm install @gradio/client
-
-      - name: Test Script ausführen
-        env:
-          HF_TOKEN_AICHEMIST: ${{ secrets.HF_TOKEN_AICHEMIST }}
-        run: node scripts/test.mjs | tee test.log
-      
       - name: Discover tools via HF model
         env:
           HF_TOKEN_AICHEMIST: ${{ secrets.HF_TOKEN_AICHEMIST }}
