@@ -1,19 +1,20 @@
-import { Client } from '@gradio/client';
+import { Client } from "@gradio/client";
 
-(async () => {
-  const client = await Client.connect('derkikumpel/aiforchemists', {
-    hf_token: process.env.HF_TOKEN_AICHEMIST
+const space = "derkikumpel/aiforchemists";
+
+try {
+  console.log("🔄 Connecting to", space);
+  const client = await Client.connect(space);
+
+  const prompt = "Hello world";
+  console.log("📤 Sending prompt:", prompt);
+
+  const result = await client.predict("/predict", {
+    prompt
   });
-  const dep = client.config.dependencies.find(d => d.api_name === 'predict');
-  console.log('fn_index:', dep.id);
 
-  for (const inp of [["Hello world"], "Hello world", ["Hello",""]]) {
-    try {
-      console.log("Sende:", inp);
-      const res = await client.predict(dep.id, inp);
-      console.log("Antwort:", res.data);
-    } catch (e) {
-      console.error("Error bei input", inp, e);
-    }
-  }
-})();
+  console.log("✅ Received result:");
+  console.log(result.data);
+} catch (err) {
+  console.error("❌ Error occurred:", err);
+}
