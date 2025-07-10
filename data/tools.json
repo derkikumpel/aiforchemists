@@ -13,7 +13,7 @@
       "open-source"
     ],
     "category": "analysis",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752134518/chem-ai-tools/deepchem.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752158577/chem-ai-tools/deepchem.png"
   },
   {
     "name": "ChemAxon",
@@ -149,7 +149,7 @@
       "chemoinformatics"
     ],
     "category": "database",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752130429/chem-ai-tools/chembl.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752158638/chem-ai-tools/chembl.png"
   },
   {
     "name": "OpenEye Scientific Software",
@@ -165,7 +165,7 @@
       "drug discovery"
     ],
     "category": "software",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752134572/chem-ai-tools/openeye-scientific-software.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752158643/chem-ai-tools/openeye-scientific-software.png"
   },
   {
     "name": "MolProbity",
@@ -181,7 +181,7 @@
       "drug discovery"
     ],
     "category": "analysis",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752130439/chem-ai-tools/molprobity.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752158649/chem-ai-tools/molprobity.png"
   },
   {
     "name": "Bioinformatics.org",
@@ -197,7 +197,7 @@
       "tools"
     ],
     "category": "community",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752134583/chem-ai-tools/bioinformatics-org.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752158656/chem-ai-tools/bioinformatics-org.png"
   },
   {
     "name": "CADD Group",
@@ -245,7 +245,7 @@
       "drug discovery"
     ],
     "category": "software",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752134600/chem-ai-tools/knime.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752158675/chem-ai-tools/knime.png"
   },
   {
     "name": "MolGen",
@@ -279,7 +279,7 @@
       "pharmaceuticals"
     ],
     "category": "drug discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752134608/chem-ai-tools/curemetrix.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752158684/chem-ai-tools/curemetrix.png"
   },
   {
     "name": "PharmaSeek",
@@ -296,7 +296,7 @@
       "pharmaceuticals"
     ],
     "category": "drug discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752132035/chem-ai-tools/pharmaseek.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752158690/chem-ai-tools/pharmaseek.png"
   },
   {
     "name": "BioAI",
@@ -314,5 +314,165 @@
     ],
     "category": "drug discovery",
     "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1751888166/chem-ai-tools/bioai.png"
+  },
+  {
+    "name": "ChemBERTa",
+    "slug": "chemberta",
+    "url": "https://www.aclweb.org/anthology/2020.emnlp-demos.6/",
+    "short_description": "ChemBERTa is a powerful AI tool that leverages advanced natural language processing techniques to analyze chemical texts and data, enabling efficient extraction of insights, predictions, and relationships in the field of chemistry.",
+    "long_description": "ChemBERTa is an innovative AI tool specifically designed for the field of chemistry, utilizing cutting-edge natural language processing (NLP) techniques to analyze and interpret chemical texts and data. By employing a transformer-based architecture similar to BERT (Bidirectional Encoder Representations from Transformers), ChemBERTa is capable of understanding the intricate relationships between chemical compounds, reactions, and properties. This tool facilitates the efficient extraction of meaningful insights from vast datasets, making it invaluable for researchers and professionals in chemistry. ChemBERTa can assist in various applications, including predicting molecular properties, classifying compounds, and identifying trends in chemical literature. Its ability to process and understand complex chemical language allows for enhanced data mining and information retrieval, ultimately accelerating research and development in the chemical sciences. By streamlining the analysis of chemical data, ChemBERTa empowers scientists to make informed decisions and discoveries, promoting innovation and advancing the understanding of chemical phenomena.",
+    "tags": [
+      "machine learning",
+      "molecular modeling",
+      "transformer",
+      "property prediction",
+      "cheminformatics"
+    ],
+    "category": "analysis",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752158700/chem-ai-tools/chemberta.png"
+  },
+  {
+    "name": "Synthia",
+    "slug": "synthia",
+    "url": "https://www.synthia.com/",
+    "short_description": "Synthia is a chemical synthesis planning tool that uses AI to suggest synthetic pathways.",
+    "long_description": "Synthia is an advanced AI-driven tool designed for chemical synthesis planning. It employs machine learning algorithms to predict viable synthetic routes for a given set of molecular targets. By analyzing vast databases of chemical reactions and synthesis methods, Synthia can generate multiple synthetic pathways, taking into account factors such as availability of reagents, reaction conditions, and yields. This capability is particularly valuable in drug discovery, where the efficiency of synthesis can significantly influence the timeline and costs associated with developing new compounds. Synthia not only streamlines the planning process but also enhances the creativity of chemists by proposing novel routes that may not be immediately obvious. The platform is user-friendly, allowing chemists to input molecular structures easily and receive comprehensive reports on potential synthesis strategies. This facilitates faster decision-making and reduces the time spent on trial-and-error experiments, ultimately accelerating the drug development process.",
+    "tags": [
+      "synthesis",
+      "AI",
+      "chemical pathways",
+      "drug discovery",
+      "machine learning"
+    ],
+    "category": "synthesis",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752158705/chem-ai-tools/synthia.png"
+  },
+  {
+    "name": "MolNet",
+    "slug": "molnet",
+    "url": "https://molnet.org/",
+    "short_description": "MolNet is an advanced AI tool designed for chemists, enabling predictive modeling and analysis of molecular properties. It streamlines research by providing insights into molecular interactions, reactivity, and synthesis pathways.",
+    "long_description": "MolNet is a cutting-edge AI tool tailored for the chemistry community, offering innovative solutions for molecular modeling and analysis. By leveraging machine learning algorithms and vast chemical databases, MolNet predicts molecular properties, reactivity, and synthesis pathways with remarkable accuracy. Researchers can input molecular structures and receive detailed insights, including potential interactions, stability, and optimization strategies. This accelerates the discovery process, allowing chemists to focus on experimental validation rather than computational overhead. Additionally, MolNet features user-friendly interfaces and visualization tools that enhance the understanding of complex chemical phenomena. Ideal for both academic and industrial applications, MolNet empowers chemists to make informed decisions, streamline research workflows, and ultimately foster advancements in chemical science. By facilitating seamless collaboration and data sharing, it positions itself as an indispensable resource in the modern chemistry landscape.",
+    "tags": [
+      "networking",
+      "visualization",
+      "chemical compounds",
+      "cheminformatics",
+      "drug discovery"
+    ],
+    "category": "analysis",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "CANDID",
+    "slug": "candid",
+    "url": "https://candid.com/",
+    "short_description": "CANDID is an advanced AI tool designed for chemists, enabling efficient data analysis and interpretation. It accelerates research by predicting chemical properties, enhancing material design, and facilitating the discovery of new compounds through machine learning algorithms.",
+    "long_description": "CANDID is a cutting-edge AI tool tailored for the field of chemistry, transforming the way researchers approach chemical data analysis and compound discovery. By leveraging sophisticated machine learning algorithms, CANDID allows chemists to predict chemical properties with remarkable accuracy, which can significantly expedite research and development processes. The tool enhances material design by providing insights into the behavior and interactions of various compounds, enabling innovation in fields such as pharmaceuticals, materials science, and environmental chemistry. CANDID's user-friendly interface ensures that both experienced scientists and those new to computational chemistry can effectively utilize its capabilities. By streamlining data interpretation, CANDID not only saves time but also fosters collaboration among researchers, allowing them to focus on creative problem-solving and groundbreaking discoveries. Whether it's optimizing existing materials or uncovering novel compounds, CANDID stands as an indispensable resource for the modern chemist, driving advancements in chemical research and application.",
+    "tags": [
+      "AI",
+      "drug discovery",
+      "compound prediction",
+      "machine learning",
+      "toxicity"
+    ],
+    "category": "analysis",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752158741/chem-ai-tools/candid.png"
+  },
+  {
+    "name": "BioSym",
+    "slug": "biosym",
+    "url": "https://www.biosym.com/",
+    "short_description": "BioSym is an advanced AI tool designed for chemists, enabling rapid molecular design, analysis, and optimization. It harnesses machine learning algorithms to predict chemical properties and reactions, streamlining research and development in pharmaceuticals and materials science.",
+    "long_description": "BioSym is a cutting-edge AI tool tailored for the field of chemistry, empowering chemists with sophisticated algorithms that enhance molecular design, analysis, and optimization. By leveraging machine learning techniques, BioSym predicts chemical properties and potential reactions with remarkable accuracy, significantly accelerating the research and development process. Whether in pharmaceuticals, materials science, or other chemical domains, BioSym provides users with intuitive interfaces and robust data analysis capabilities. Researchers can quickly explore vast chemical spaces, identify promising candidates, and optimize existing compounds, all while minimizing resource expenditure and time. BioSym also integrates seamlessly with existing laboratory data and workflows, allowing for a smooth transition to AI-assisted research. Designed with both novice and experienced chemists in mind, BioSym fosters collaboration, innovation, and efficiency in chemical research, making it an indispensable tool for modern scientific inquiry. With its ability to generate actionable insights from complex datasets, BioSym is set to revolutionize how chemists approach molecular challenges, paving the way for breakthroughs in various applications.",
+    "tags": [
+      "molecular modeling",
+      "drug design",
+      "computational chemistry",
+      "cheminformatics",
+      "simulation"
+    ],
+    "category": "synthesis",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752158745/chem-ai-tools/biosym.png"
+  },
+  {
+    "name": "Chemprop",
+    "slug": "chemprop",
+    "url": "https://chemprop.readthedocs.io/en/latest/",
+    "short_description": "Chemprop is an AI-driven tool designed for predicting molecular properties using deep learning techniques. It streamlines chemical data analysis, enabling researchers to make informed decisions in drug discovery and material science rapidly.",
+    "long_description": "Chemprop is an advanced artificial intelligence tool that leverages deep learning techniques to predict molecular properties with high accuracy. By utilizing a graph neural network architecture, Chemprop transforms molecular structures into informative representations, allowing it to analyze complex chemical data efficiently. This tool is particularly valuable in fields such as drug discovery and material science, where understanding molecular behavior is crucial. Chemprop not only accelerates the research process by providing rapid predictions, but it also enhances decision-making by offering insights into molecular stability, reactivity, and other critical properties. Researchers can input molecular graphs or SMILES representations and receive predictions on a range of chemical characteristics. With its user-friendly interface and robust performance, Chemprop is an essential resource for chemists and materials scientists looking to harness the power of AI to enhance their research capabilities and drive innovation in their respective fields.",
+    "tags": [
+      "deep learning",
+      "molecular prediction",
+      "graph neural networks",
+      "drug discovery",
+      "toxicity"
+    ],
+    "category": "analysis",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752158750/chem-ai-tools/chemprop.png"
+  },
+  {
+    "name": "Sage",
+    "slug": "sage",
+    "url": "https://www.sage.com/",
+    "short_description": "Sage is an advanced AI tool designed for chemists, offering predictive modeling, data analysis, and simulation capabilities. It enhances research efficiency by providing insights into chemical reactions, molecular properties, and compound behavior, facilitating informed decision-making in various chemistry applications.",
+    "long_description": "Sage is a cutting-edge AI tool tailored for the field of chemistry, aimed at accelerating research and development processes. Leveraging machine learning algorithms and vast chemical databases, Sage provides researchers with predictive modeling capabilities that help forecast chemical reactions, understand molecular properties, and evaluate compound behavior in diverse environments. With its intuitive user interface, Sage allows chemists to easily input data, run simulations, and visualize results, making complex analysis accessible and efficient. The tool supports various chemistry applications, including drug discovery, materials science, and environmental chemistry, enabling scientists to explore uncharted territories and optimize their experiments. Additionally, Sage continually learns from user interactions, improving its predictive accuracy and expanding its knowledge base over time. By integrating Sage into their workflows, chemists can enhance their decision-making processes, reduce experimental costs, and accelerate innovation, paving the way for groundbreaking discoveries and advancements in the field.",
+    "tags": [
+      "AI",
+      "lead optimization",
+      "drug discovery",
+      "machine learning",
+      "predictive modeling"
+    ],
+    "category": "synthesis",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "ChemEye",
+    "slug": "chemeeye",
+    "url": "https://www.chemeeye.com/",
+    "short_description": "ChemEye is an advanced AI tool designed to assist chemists in molecular analysis, compound identification, and predictive modeling. Its intuitive interface enhances research efficiency, enabling users to make informed decisions quickly.",
+    "long_description": "ChemEye is a cutting-edge AI tool tailored for the chemistry domain, revolutionizing how researchers and professionals approach molecular analysis and compound identification. By leveraging advanced algorithms and machine learning techniques, ChemEye enables users to analyze complex chemical structures with remarkable accuracy. The tool can predict the properties and behaviors of various compounds, streamlining the research process and enhancing decision-making. With its user-friendly interface, ChemEye allows chemists to easily input data, visualize molecular interactions, and generate comprehensive reports. This facilitates collaboration among teams and accelerates the pace of discovery in both academic and industrial settings. ChemEye's unique capabilities make it an invaluable asset for chemists looking to optimize their workflows, reduce experimental costs, and drive innovation in material science, pharmaceuticals, and beyond. By integrating ChemEye into their research toolkit, chemists can unlock new possibilities and gain deeper insights into the molecular world.",
+    "tags": [
+      "AI",
+      "image analysis",
+      "cheminformatics",
+      "molecular structures",
+      "image recognition"
+    ],
+    "category": "analysis",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "D3R",
+    "slug": "d3r",
+    "url": "https://www.d3r.org/",
+    "short_description": "D3R is an advanced AI tool for chemistry that accelerates drug discovery by predicting molecular interactions and optimizing compound libraries, enhancing research efficiency and accuracy in the pharmaceutical industry.",
+    "long_description": "D3R (Data-Driven Drug Discovery) is a cutting-edge AI tool designed to revolutionize the field of chemistry, particularly in drug discovery and development. By leveraging sophisticated machine learning algorithms, D3R analyzes vast datasets to predict molecular interactions and optimize compound libraries efficiently. This tool empowers researchers to identify promising candidates for drug development more quickly and accurately than traditional methods. D3R streamlines the experimental process, minimizing time and resource expenditure while maximizing the potential for successful outcomes. Its user-friendly interface and robust analytical capabilities make it accessible to both seasoned chemists and newcomers to the field. With D3R, scientists can explore complex chemical interactions and generate insights that would be challenging to achieve through conventional means. As the pharmaceutical landscape continues to evolve, D3R stands at the forefront, offering innovative solutions to accelerate the journey from initial discovery to market-ready therapies. By harnessing the power of AI, D3R not only enhances research efficiency but also contributes to the development of safer and more effective drugs, ultimately benefiting patients worldwide.",
+    "tags": [
+      "collaboration",
+      "data sharing",
+      "drug discovery",
+      "community engagement",
+      "computational methods"
+    ],
+    "category": "database",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "Chemotext",
+    "slug": "chemotext",
+    "url": "https://chemotext.com/",
+    "short_description": "Chemotext is a natural language processing tool for extracting chemical information from literature.",
+    "long_description": "Chemotext is an advanced natural language processing (NLP) tool designed to extract chemical information from scientific literature. This platform leverages state-of-the-art machine learning algorithms to analyze text from research papers, patents, and other publications, identifying relevant chemical entities, reactions, and properties. Chemotext facilitates the extraction of structured data from unstructured text, making it easier for researchers to gather insights and information pertinent to their work in cheminformatics and drug discovery. The tool’s ability to process large volumes of literature quickly allows scientists to stay updated on the latest advancements in their fields without the need for exhaustive manual reviews. Furthermore, Chemotext’s integration with existing databases enhances its utility, enabling users to connect extracted information with relevant datasets for deeper analysis. By streamlining the literature review process and enhancing data accessibility, Chemotext significantly contributes to accelerating research in drug discovery and molecular design.",
+    "tags": [
+      "NLP",
+      "data extraction",
+      "literature analysis",
+      "chemical information",
+      "drug discovery"
+    ],
+    "category": "analysis",
+    "screenshot": "assets/placeholder.png"
   }
 ]
