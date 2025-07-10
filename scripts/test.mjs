@@ -1,20 +1,27 @@
 import { Client } from "@gradio/client";
 
-const space = "derkikumpel/aiforchemists";
+// Hole Token aus ENV
+const token = process.env.HF_TOKEN_AICHEMIST;
+
+if (!token) {
+  console.error("❌ Kein HF_TOKEN_AICHEMIST gefunden!");
+  process.exit(1);
+}
+
+console.log("🔐 Token gefunden, verbinde...");
 
 try {
-  console.log("🔄 Connecting to", space);
-  const client = await Client.connect(space);
-
-  const prompt = "Hello world";
-  console.log("📤 Sending prompt:", prompt);
-
-  const result = await client.predict("/predict", {
-    prompt
+  const client = await Client.connect("derkikumpel/aiforchemists", {
+    hf_token: token,
   });
 
-  console.log("✅ Received result:");
-  console.log(result.data);
+  console.log("✅ Verbunden");
+
+  const result = await client.predict("/predict", {
+    prompt: "Hallo Welt",
+  });
+
+  console.log("📦 Ergebnis:", result.data);
 } catch (err) {
-  console.error("❌ Error occurred:", err);
+  console.error("❌ Fehler beim Zugriff:", err);
 }
