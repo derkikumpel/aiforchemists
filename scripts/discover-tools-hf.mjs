@@ -1,73 +1,65 @@
-// .github/scripts/generate_tools.mjs
 import { promises as fs } from 'fs';
-import { get } from 'https';
+import https from 'https';
 
-// Konfiguration
 const HF_API_URL = 'https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.1';
-const HF_TOKEN = process.env.HF_TOKEN_AICHEMIST; // Als GitHub Secret setzen
-const OUTPUT_FILE = 'data/tools.json';
+const OUTPUT_FILE = 'docs/_data/tools.json';
 
-// Prompt-Generator
-function buildPrompt(exclusions = '') {
-  return `
-  List 10 current AI tools in chemistry/cheminformatics/drug discovery NOT in: ${exclusions}.
-  Return STRICT JSON array with:
-  - name
-  - slug (lowercase, dash-separated)
-  - url
-  - short_description (30-50 words)
-  - long_description (EXACTLY 150+ words, required!)
-  - tags (max 6)
-  - category
-  Respond ONLY with the JSON array, no Markdown or commentary.`;
+function buildPrompt(exclusions = []) {
+  return `List 10 current AI tools in chemistry NOT in: ${JSON.stringify(exclusions)}.
+  Return JSON array with: name, slug, url, short_description (30-50 words),
+  long_description (≥150 words), tags (max 6), category.
+  Respond ONLY with valid JSON array:`;
 }
 
-// API-Abfrage
 async function queryHFAPI(prompt) {
   const data = JSON.stringify({ inputs: prompt });
 
   return new Promise((resolve, reject) => {
-    const req = get(HF_API_URL, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${HF_TOKEN}`,
-        'Content-Type': 'application/json'
+    const req = https.request(
+      HF_API_URL,
+      {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${process.env.HF_TOKEN_AICHEMIST}`,
+          'Content-Type': 'application/json',
+          'Content-Length': data.length
+        }
+      },
+      (res) => {
+        let response = '';
+        res.on('data', (chunk) => response += chunk);
+        res.on('end', () => {
+          try {
+            resolve(JSON.parse(response));
+          } catch (e) {
+            reject(new Error(`JSON parse error: ${e.message}`));
+          }
+        });
       }
-    }, (res) => {
-      let response = '';
-      res.on('data', (chunk) => response += chunk);
-      res.on('end', () => resolve(JSON.parse(response)));
-    });
+    );
 
     req.on('error', reject);
-    req.write(data);
+    req.write(data); // Wichtig: Daten VOR req.end() schreiben
     req.end();
   });
 }
 
-// Hauptfunktion
 async function main() {
   try {
-    // 1. Exclusions einlesen (falls vorhanden)
     const exclusions = await fs.readFile('docs/_data/exclusions.json', 'utf8')
-      .catch(() => '[]');
+      .then(JSON.parse)
+      .catch(() => []);
 
-    // 2. Prompt generieren
-    const prompt = buildPrompt(exclusions);
-
-    // 3. API aufrufen
-    const tools = await queryHFAPI(prompt);
+    const response = await queryHFAPI(buildPrompt(exclusions));
     
-    // 4. Validieren und speichern
-    if (Array.isArray(tools)) {
-      await fs.writeFile(OUTPUT_FILE, JSON.stringify(tools, null, 2));
-      console.log('✅ Tools erfolgreich generiert');
-    } else {
-      throw new Error('API antwortete nicht mit einem JSON-Array');
+    if (!Array.isArray(response)) {
+      throw new Error('API returned non-array response');
     }
+
+    await fs.writeFile(OUTPUT_FILE, JSON.stringify(response, null, 2));
+    console.log('✅ Tools saved to', OUTPUT_FILE);
   } catch (error) {
-    console.error('❌ Fehler:', error.message);
-    // Fallback: Leeres Array schreiben
+    console.error('❌ Error:', error.message);
     await fs.writeFile(OUTPUT_FILE, '[]');
     process.exit(1);
   }
