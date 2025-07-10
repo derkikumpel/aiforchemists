@@ -34,7 +34,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Gradio installieren
-        run: npm install fs-extra node-fetch
+        run: npm install @gradio/client
 
       - name: Test Script ausführen
         env:
