@@ -13,7 +13,7 @@
       "open-source"
     ],
     "category": "analysis",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752073948/chem-ai-tools/deepchem.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752122800/chem-ai-tools/deepchem.png"
   },
   {
     "name": "ChemAxon",
@@ -165,7 +165,7 @@
       "drug discovery"
     ],
     "category": "software",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752074007/chem-ai-tools/openeye-scientific-software.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752122856/chem-ai-tools/openeye-scientific-software.png"
   },
   {
     "name": "MolProbity",
@@ -245,7 +245,7 @@
       "drug discovery"
     ],
     "category": "software",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752074038/chem-ai-tools/knime.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752122882/chem-ai-tools/knime.png"
   },
   {
     "name": "MolGen",
@@ -279,7 +279,7 @@
       "pharmaceuticals"
     ],
     "category": "drug discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752074047/chem-ai-tools/curemetrix.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752122891/chem-ai-tools/curemetrix.png"
   },
   {
     "name": "PharmaSeek",
@@ -296,7 +296,7 @@
       "pharmaceuticals"
     ],
     "category": "drug discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752074051/chem-ai-tools/pharmaseek.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752122895/chem-ai-tools/pharmaseek.png"
   },
   {
     "name": "BioAI",
