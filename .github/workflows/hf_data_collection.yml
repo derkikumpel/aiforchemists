@@ -47,7 +47,7 @@ jobs:
           git config user.email "actions@github.com"
           
           if [[ `git status --porcelain` ]]; then
-            git add data/tools.json data/discover-cache.json
+            git add data/tools.json data/discover-cache.json data/gpt-output.txt
             git commit -m "Auto-update tools"
             git push
           else
