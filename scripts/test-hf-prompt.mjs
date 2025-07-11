@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 import fetch from 'node-fetch';
 
-const HF_MODEL_NAME = 'google/flan-t5-large';
+const HF_MODEL_NAME = 'HuggingFaceH4/zephyr-7b-beta';
 const HF_API_URL = `https://api-inference.huggingface.co/models/${HF_MODEL_NAME}`;
 const rawOutputFile = './data/gpt-output.txt';
 
