@@ -9,10 +9,10 @@ const cacheFile = './data/description-cache.json';
 const toolsFile = './data/tools.json';
 
 function log(...args) {
-  process.stdout.write(new Date().toISOString() + ' LOG: ' + args.map(String).join(' ') + '\n');
+  console.log(new Date().toISOString(), 'LOG:', ...args);
 }
 function error(...args) {
-  process.stderr.write(new Date().toISOString() + ' ERROR: ' + args.map(String).join(' ') + '\n');
+  console.error(new Date().toISOString(), 'ERROR:', ...args);
 }
 
 async function loadCache(file) {
