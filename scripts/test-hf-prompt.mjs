@@ -1,7 +1,8 @@
 import fs from 'fs-extra';
 import fetch from 'node-fetch';
 
-const HF_API_URL = 'https://api-inference.huggingface.co/models/google/flan-t5-large';
+const HF_MODEL_NAME = 'google/flan-t5-large';
+const HF_API_URL = `https://api-inference.huggingface.co/models/${HF_MODEL_NAME}`;
 const rawOutputFile = './data/gpt-output.txt';
 
 function log(...args) {
@@ -11,24 +12,24 @@ function error(...args) {
   process.stderr.write(new Date().toISOString() + ' ERROR: ' + args.map(String).join(' ') + '\n');
 }
 
-async function checkModelAvailability() {
+async function checkModelAvailability(modelName) {
   log('🔍 Überprüfe Modellverfügbarkeit...');
 
+  const url = `https://huggingface.co/api/models/${modelName}`;
   try {
-    const res = await fetch(HF_API_URL, {
-      method: 'GET',
+    const res = await fetch(url, {
       headers: {
         'Authorization': `Bearer ${process.env.HF_TOKEN}`,
       },
     });
 
     if (!res.ok) {
-      throw new Error(`HTTP Fehler ${res.status} ${res.statusText}`);
+      throw new Error(`Modell-Check fehlgeschlagen: HTTP Fehler ${res.status} ${res.statusText}`);
     }
 
-    const data = await res.json();
-    const tag = data?.pipeline_tag || 'unbekannt';
-    log(`✅ Modell verfügbar: ${data?.modelId || '(kein Name)'} (${tag})`);
+    const info = await res.json();
+    const tag = info?.pipeline_tag || 'unbekannt';
+    log(`✅ Modell "${modelName}" gefunden. Pipeline: ${tag}, SHA: ${info?.sha || 'unbekannt'}`);
 
     if (tag !== 'text-generation') {
       error(`⚠️ Achtung: Modell unterstützt keine text-generation (pipeline_tag = ${tag})`);
@@ -46,7 +47,7 @@ async function main() {
     process.exit(1);
   }
 
-  await checkModelAvailability(); // <-- Neu eingebaut
+  await checkModelAvailability(HF_MODEL_NAME);
 
   log('🚀 Starte Anfrage an Hugging Face Inference API...');
   log('📥 Prompt:');
