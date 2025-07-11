@@ -1,5 +1,5 @@
 import fs from 'fs-extra';
-import { InferenceClient } from '@huggingface/inference';
+import { HfInference } from '@huggingface/inference';
 import YAML from 'yaml';
 
 const HF_MODEL_NAME = 'mistralai/Mistral-7B-Instruct-v0.3';
