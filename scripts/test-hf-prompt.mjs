@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 import { InferenceClient } from '@huggingface/inference';
 
-const HF_MODEL_NAME = 'HuggingFaceH4/zephyr-7b-beta';
+const HF_MODEL_NAME = 'mistralai/Mistral-7B-Instruct-v0.3';
 const rawOutputFile = './data/gpt-output.txt';
 
 function log(...args) {
