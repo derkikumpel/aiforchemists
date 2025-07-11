@@ -1,38 +1,42 @@
+import readline from 'readline';
 import fs from 'fs-extra';
 import fetch from 'node-fetch';
-import readline from 'readline';
 
-const MODEL_URL = 'https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2';
-const OUTPUT_FILE = './data/debug-output.txt';
-const RAW_FILE = './data/debug-raw-response.txt';
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
-function ask(question) {
-  return new Promise(resolve => rl.question(question, resolve));
-}
+const HF_API_URL = 'https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2';
+const outputFile = './data/debug-raw-response.txt';
 
 function log(...args) {
-  process.stdout.write(new Date().toISOString() + ' LOG: ' + args.map(String).join(' ') + '\n');
+  console.log(new Date().toISOString(), 'LOG:', ...args);
 }
 function error(...args) {
-  process.stderr.write(new Date().toISOString() + ' ERROR: ' + args.map(String).join(' ') + '\n');
+  console.error(new Date().toISOString(), 'ERROR:', ...args);
 }
 
-async function run() {
-  const prompt = await ask('\n🧠 Prompt eingeben (mehrzeilig beenden mit Strg+D):\n\n');
-  rl.close();
+function readPromptFromStdin() {
+  return new Promise((resolve) => {
+    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+    const lines = [];
+    log('🧠 Prompt eingeben (mehrzeilig beenden mit Strg+D):');
 
-  log('📡 Sende Prompt an HF...');
-  let responseText = '';
+    rl.on('line', (line) => lines.push(line));
+    rl.on('close', () => resolve(lines.join('\n')));
+  });
+}
+
+async function main() {
   try {
-    const res = await fetch(MODEL_URL, {
+    const prompt = await readPromptFromStdin();
+
+    if (!prompt.trim()) {
+      error('⚠️ Kein Prompt eingegeben.');
+      process.exit(1);
+    }
+
+    log('→ Sende Anfrage an HF...');
+    const res = await fetch(HF_API_URL, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${process.env.HF_TOKEN}`,
+        Authorization: `Bearer ${process.env.HF_TOKEN}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -44,27 +48,22 @@ async function run() {
       }),
     });
 
-    log(`HTTP ${res.status} ${res.statusText}`);
-    responseText = await res.text();
-
-    await fs.outputFile(RAW_FILE, responseText);
-    log(`📝 Rohantwort gespeichert unter ${RAW_FILE}`);
-
-    let data;
-    try {
-      data = JSON.parse(responseText);
-    } catch {
-      throw new Error('Antwort ist kein JSON. Inhalt siehe debug-raw-response.txt');
+    if (!res.ok) {
+      const text = await res.text();
+      error(`❌ HF-Fehler: ${res.status} ${res.statusText}\n${text}`);
+      process.exit(1);
     }
 
-    const output = data?.[0]?.generated_text || data?.generated_text || '';
-    await fs.outputFile(OUTPUT_FILE, output);
-    log(`✅ Antwort gespeichert unter ${OUTPUT_FILE}\n`);
-    console.log('\n🧾 Antwort:\n' + output + '\n');
+    const data = await res.json();
+    const output =
+      data?.[0]?.generated_text || data?.generated_text || JSON.stringify(data, null, 2);
 
+    await fs.outputFile(outputFile, output);
+    log(`✅ Antwort gespeichert in: ${outputFile}`);
   } catch (e) {
-    error('❌ Fehler bei der Anfrage:', e.message);
+    error('❌ Unbekannter Fehler:', e);
+    process.exit(1);
   }
 }
 
-run();
+main();
