@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 import fetch from 'node-fetch';
 
-const HF_API_URL = 'https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2';
+const HF_API_URL = 'https://api-inference.huggingface.co/models/google/flan-t5-xxl';
 const cacheFile = './data/discover-cache.json';
 const toolsFile = './data/tools.json';
 const rawOutputFile = './data/gpt-output.txt';
