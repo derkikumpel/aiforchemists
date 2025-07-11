@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 import fetch from 'node-fetch';
 
-const HF_API_URL = 'https://api-inference.huggingface.co/models/tiiuae/falcon-7b-instruct';
+const HF_API_URL = 'https://api-inference.huggingface.co/models/HuggingFaceH4/zephyr-7b-alpha';
 const rawOutputFile = './data/gpt-output.txt';
 
 function log(...args) {
