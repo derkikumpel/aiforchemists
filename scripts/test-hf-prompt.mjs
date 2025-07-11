@@ -1,5 +1,6 @@
 import fs from 'fs-extra';
 import { InferenceClient } from '@huggingface/inference';
+import YAML from 'yaml';
 
 const HF_MODEL_NAME = 'mistralai/Mistral-7B-Instruct-v0.3';
 const rawOutputFile = './data/gpt-output.txt';
@@ -48,32 +49,43 @@ async function main() {
     log(message.substring(0, 500));
 
     // JSON-Array im Text suchen und parsen
-    const jsonStart = message.indexOf('[');
-    const jsonEnd = message.lastIndexOf(']');
-    if (jsonStart === -1 || jsonEnd === -1) {
-      throw new Error('Kein JSON-Array im generierten Text gefunden');
-    }
+const jsonStart = message.indexOf('[');
+const jsonEnd = message.lastIndexOf(']');
+let tools;
 
-    const jsonString = message.substring(jsonStart, jsonEnd + 1);
-    let tools;
-    try {
-      tools = JSON.parse(jsonString);
-    } catch (e) {
-      throw new Error('Fehler beim Parsen des JSON-Arrays: ' + e.message);
-    }
-
+if (jsonStart !== -1 && jsonEnd !== -1) {
+  const jsonString = message.substring(jsonStart, jsonEnd + 1);
+  try {
+    tools = JSON.parse(jsonString);
     log(`✅ JSON-Array mit ${tools.length} Tools erfolgreich geparst.`);
-
-    // Nummerierung im "name"-Feld entfernen, z.B. "1. RDKit" → "RDKit"
-    tools = tools.map(tool => ({
-      ...tool,
-      name: tool.name.replace(/^\s*\d+\.\s*/, '')
-    }));
-
   } catch (e) {
-    error(`❌ Fehler: ${e.message}`);
-    process.exit(1);
+    throw new Error('Fehler beim Parsen des JSON-Arrays: ' + e.message);
   }
+} else {
+  log('⚠️ Kein JSON-Array gefunden – versuche stattdessen YAML zu parsen');
+  try {
+    const parsed = YAML.parse(message);
+    if (Array.isArray(parsed)) {
+      tools = parsed;
+      log(`✅ YAML erfolgreich geparst mit ${tools.length} Tools.`);
+    } else {
+      throw new Error('YAML enthält kein Array.');
+    }
+  } catch (e) {
+    throw new Error('Fehler beim YAML-Parsing: ' + e.message);
+  }
+}
+
+// Optional: name-Feld bereinigen
+tools = tools.map((tool) => ({
+  ...tool,
+  name: tool.name.replace(/^\d+[\.\)]?\s*/, '').trim(),
+}));
+
+// Tools speichern
+const toolsFile = './data/tools.json';
+await fs.writeJson(toolsFile, tools, { spaces: 2 });
+log(`💾 Tools-Daten gespeichert in ${toolsFile}`);
 }
 
 main();
