@@ -1,5 +1,6 @@
 import fs from 'fs-extra';
-import { InferenceClient } from '@huggingface/inference';
+import YAML from 'yaml';
+import { HfInference } from '@huggingface/inference';
 
 const HF_MODEL_NAME = 'mistralai/Mistral-7B-Instruct-v0.3';
 const toolsFile = './data/tools.json';
@@ -23,8 +24,7 @@ async function loadJSON(file, fallback) {
 export async function fetchToolDescriptions() {
   const tools = await loadJSON(toolsFile, []);
   const cache = await loadJSON(cacheFile, {});
-  const client = new InferenceClient(process.env.HF_TOKEN);
-
+  const client = new HfInference(process.env.HF_TOKEN);
   const updated = [];
 
   for (const tool of tools) {
@@ -36,18 +36,30 @@ export async function fetchToolDescriptions() {
     const prompt = `Write two descriptions for the AI tool "${tool.name}" used in chemistry:\n\n1. Short description (30–50 words)\n2. Long description (150–250 words)\n\nReturn JSON with:\n{\n  "short_description": "...",\n  "long_description": "..." \n}`;
 
     try {
-      log(`🔎 Hole Beschreibung für: ${tool.name}`);
+      log(`🔎 Beschreibung für: ${tool.name}`);
+
       const res = await client.chatCompletion({
         model: HF_MODEL_NAME,
         messages: [{ role: 'user', content: prompt }],
       });
 
       const message = res.choices?.[0]?.message?.content?.trim();
-      const parsed = JSON.parse(message);
+      const jsonStart = message.indexOf('{');
+      const jsonEnd = message.lastIndexOf('}');
+      let parsed;
+
+      try {
+        parsed = JSON.parse(message.substring(jsonStart, jsonEnd + 1));
+      } catch {
+        parsed = YAML.parse(message);
+      }
+
+      if (!parsed?.short_description || !parsed?.long_description) {
+        throw new Error('Antwort enthält keine gültige Beschreibung');
+      }
 
       cache[tool.slug] = parsed;
       updated.push({ ...tool, ...parsed });
-
       await fs.writeJson(cacheFile, cache, { spaces: 2 });
     } catch (e) {
       error(`⚠️ ${tool.name} fehlgeschlagen: ${e.message}`);
@@ -64,5 +76,8 @@ export async function fetchToolDescriptions() {
 }
 
 if (import.meta.url === process.argv[1]) {
-  fetchToolDescriptions();
+  fetchToolDescriptions().catch((e) => {
+    error(`❌ Fehler: ${e.message}`);
+    process.exit(1);
+  });
 }
