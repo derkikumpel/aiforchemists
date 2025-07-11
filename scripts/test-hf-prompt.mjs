@@ -7,6 +7,7 @@ const rawOutputFile = './data/gpt-output.txt';
 function log(...args) {
   process.stdout.write(new Date().toISOString() + ' LOG: ' + args.map(String).join(' ') + '\n');
 }
+
 function error(...args) {
   process.stderr.write(new Date().toISOString() + ' ERROR: ' + args.map(String).join(' ') + '\n');
 }
