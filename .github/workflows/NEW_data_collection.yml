@@ -13,20 +13,20 @@ jobs:
   collect-data:
     runs-on: ubuntu-latest
     steps:
-      - name: Repository auschecken
+      - name: Checkout Repo
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.PAT_TOKEN }}
+          persist-credentials: true  # wichtig für git push
 
-      - name: Node.js einrichten
-        uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
           node-version: '20'
-
-      - name: Abhängigkeiten installieren
+      
+      - name: Install dependencies
         run: npm ci
 
-      - name: HF Interferenzen installieren
+      - name: Install interferences
         run: npm install @huggingface/inference
 
       - name: Install yaml
