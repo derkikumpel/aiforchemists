@@ -24,7 +24,13 @@ jobs:
           node-version: '20'
 
       - name: Abhängigkeiten installieren
-        run: npm install
+        run: npm ci
+
+      - name: HF Interferenzen installieren
+        run: npm install @huggingface/inference
+
+      - name: Install yaml
+        run: npm install yaml
 
       - name: Tools entdecken mit Hugging Face
         env:
