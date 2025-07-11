@@ -78,8 +78,9 @@ Respond only with the JSON array.
       }),
     });
 
-    const data = await res.json();
-    await fs.writeFile('./data/api-response.json', JSON.stringify(data, null, 2));
+    log(`HTTP-Status: ${res.status} ${res.statusText}`);
+    const text = await res.text(); // NICHT .json()
+    await fs.writeFile('./data/api-raw.txt', text);
 
     if (!Array.isArray(data) && !data?.generated_text && !data?.[0]?.generated_text) {
       throw new Error(`HF-Antwort ist kein gültiges JSON:\n${JSON.stringify(data, null, 2)}`);
