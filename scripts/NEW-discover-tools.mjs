@@ -43,53 +43,102 @@ export async function discoverTools() {
   const cache = await loadCache(cacheFile);
   const knownSlugs = new Set(existingTools.map(t => t.slug));
 
-  log('🧠 Anfrage an Mistral-Modell wird gesendet...');
-  const response = await client.chatCompletion({
-    model: HF_MODEL_NAME,
-    messages: [{ role: 'user', content: prompt }],
-  });
+  log(`🧠 Starte Tool-Discovery mit ${knownSlugs.size} bekannten Tools.`);
 
-  const message = response.choices?.[0]?.message?.content?.trim();
-  if (!message) throw new Error('Leere Antwort vom Modell');
+  const MAX_NEW_TOOLS = 10;
+  const MAX_ATTEMPTS = 5;
+  let allNewTools = [];
 
-  await fs.writeFile(outputFile, message);
-  log(`📝 Modellantwort gespeichert in ${outputFile}`);
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+    log(`🔄 Versuch ${attempt} um neue Tools zu finden...`);
 
-  let parsed;
-  const jsonStart = message.indexOf('[');
-  const jsonEnd = message.lastIndexOf(']');
-  if (jsonStart !== -1 && jsonEnd !== -1) {
     try {
-      parsed = JSON.parse(message.substring(jsonStart, jsonEnd + 1));
-      log(`✅ JSON erfolgreich geparst mit ${parsed.length} Tools.`);
+      const response = await client.chatCompletion({
+        model: HF_MODEL_NAME,
+        messages: [{ role: 'user', content: prompt }],
+      });
+
+      const message = response.choices?.[0]?.message?.content?.trim();
+      if (!message) throw new Error('Leere Antwort vom Modell');
+
+      await fs.writeFile(outputFile, message);
+      log(`📝 Modellantwort gespeichert in ${outputFile}`);
+
+      let parsed;
+
+      // Versuche JSON-Array aus Antwort zu extrahieren
+      const jsonStart = message.indexOf('[');
+      const jsonEnd = message.lastIndexOf(']');
+      if (jsonStart !== -1 && jsonEnd !== -1) {
+        try {
+          parsed = JSON.parse(message.substring(jsonStart, jsonEnd + 1));
+          log(`✅ JSON erfolgreich geparst mit ${parsed.length} Tools.`);
+        } catch (e) {
+          error('❌ JSON-Parsing fehlgeschlagen:', e.message);
+        }
+      }
+
+      if (!parsed) {
+        try {
+          parsed = YAML.parse(message);
+          if (!Array.isArray(parsed)) throw new Error('Kein Array in YAML');
+          log(`✅ YAML erfolgreich geparst mit ${parsed.length} Tools.`);
+        } catch (e) {
+          throw new Error('Fehler beim Parsen von YAML: ' + e.message);
+        }
+      }
+
+      parsed = parsed.map(tool => ({
+        ...tool,
+        name: tool.name.replace(/^\d+[\.\)]?\s*/, '').trim(),
+      }));
+
+      // Filter neue Tools: Noch nicht bekannt & nicht in diesem Lauf schon gesammelt
+      const newTools = parsed.filter(t => {
+        if (!t.slug) {
+          log(`⚠️ Tool ohne slug übersprungen: ${t.name}`);
+          return false;
+        }
+        if (knownSlugs.has(t.slug)) {
+          log(`ℹ️ Tool bereits bekannt: ${t.slug} (${t.name})`);
+          return false;
+        }
+        if (allNewTools.find(existing => existing.slug === t.slug)) {
+          log(`ℹ️ Tool bereits in diesem Lauf gefunden: ${t.slug} (${t.name})`);
+          return false;
+        }
+        return true;
+      });
+
+      log(`➕ Neue Tools in diesem Versuch: ${newTools.length}`);
+
+      allNewTools = [...allNewTools, ...newTools];
+
+      log(`🔢 Insgesamt neue Tools bisher: ${allNewTools.length}`);
+
+      if (allNewTools.length >= MAX_NEW_TOOLS) {
+        log(`✅ Genug neue Tools gefunden (${allNewTools.length}), breche Suche ab.`);
+        break;
+      }
+
     } catch (e) {
-      error('❌ JSON-Parsing fehlgeschlagen:', e.message);
+      error('❌ Fehler beim Tool-Discovery:', e.message);
     }
   }
 
-  if (!parsed) {
-    try {
-      parsed = YAML.parse(message);
-      if (!Array.isArray(parsed)) throw new Error('Kein Array in YAML');
-      log(`✅ YAML erfolgreich geparst mit ${parsed.length} Tools.`);
-    } catch (e) {
-      throw new Error('Fehler beim Parsen von YAML: ' + e.message);
-    }
+  if (allNewTools.length === 0) {
+    log('ℹ️ Keine neuen Tools gefunden nach allen Versuchen.');
+    return;
   }
 
-  parsed = parsed.map(tool => ({
-    ...tool,
-    name: tool.name.replace(/^\d+[\.\)]?\s*/, '').trim(),
-  }));
-
-  const newTools = parsed.filter(t => !knownSlugs.has(t.slug));
-  const updatedTools = [...existingTools, ...newTools];
-  const updatedCache = [...cache, ...newTools];
+  const updatedTools = [...existingTools, ...allNewTools];
+  const updatedCache = [...cache, ...allNewTools];
 
   await fs.writeJson(toolsFile, updatedTools, { spaces: 2 });
   await fs.writeJson(cacheFile, updatedCache, { spaces: 2 });
 
-  log(`✅ Tools aktualisiert: ${newTools.length} neu, ${updatedTools.length} gesamt.`);
+  log(`✅ Tools-Datei aktualisiert: jetzt insgesamt ${updatedTools.length} Tools.`);
+  log(`✅ Cache-Datei aktualisiert: jetzt insgesamt ${updatedCache.length} Einträge.`);
 }
 
 if (import.meta.url === process.argv[1]) {
@@ -98,4 +147,3 @@ if (import.meta.url === process.argv[1]) {
     process.exit(1);
   });
 }
-
