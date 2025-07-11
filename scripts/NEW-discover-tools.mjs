@@ -30,16 +30,10 @@ async function main() {
   log(prompt);
 
   const client = new HfInference(process.env.HF_TOKEN);
-
-  const chatCompletion = await client.chatCompletion({
-    model: HF_MODEL_NAME,
-    messages: [
-      {
-        role: 'user',
-        content: prompt,
-      },
-    ],
-  });
+  const result = await client.textGeneration({ 
+    model: HF_MODEL_NAME, 
+    inputs: prompt 
+  }); 
 
   const message = chatCompletion.choices?.[0]?.message?.content || '';
   if (!message) {
