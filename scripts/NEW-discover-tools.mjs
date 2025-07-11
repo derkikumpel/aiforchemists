@@ -1,5 +1,6 @@
 import fs from 'fs-extra';
-import { InferenceClient } from '@huggingface/inference';
+import YAML from 'yaml';
+import { HfInference } from '@huggingface/inference';
 
 const HF_MODEL_NAME = 'mistralai/Mistral-7B-Instruct-v0.3';
 const toolsFile = './data/tools.json';
@@ -15,10 +16,8 @@ function error(...args) {
 
 async function loadTools(file) {
   try {
-    const raw = await fs.readFile(file, 'utf-8');
-    const parsed = JSON.parse(raw);
-    if (!Array.isArray(parsed)) throw new Error('Tools-Datei ist kein Array');
-    return parsed;
+    const parsed = await fs.readJson(file);
+    return Array.isArray(parsed) ? parsed : [];
   } catch {
     log(`⚠️ Tools-Datei ${file} ungültig oder leer – wird als leeres Array behandelt.`);
     return [];
@@ -27,12 +26,10 @@ async function loadTools(file) {
 
 async function loadCache(file) {
   try {
-    const raw = await fs.readFile(file, 'utf-8');
-    const parsed = JSON.parse(raw);
-    if (!Array.isArray(parsed)) throw new Error('Cache ist kein Array');
-    return parsed;
+    const parsed = await fs.readJson(file);
+    return Array.isArray(parsed) ? parsed : [];
   } catch {
-    log(`⚠️ Cache ${file} ungültig oder leer – wird als leeres Array behandelt.`);
+    log(`⚠️ Cache-Datei ${file} ungültig oder leer – wird als leeres Array behandelt.`);
     return [];
   }
 }
@@ -41,39 +38,64 @@ export async function discoverTools() {
   const prompt = process.env.HF_PROMPT;
   if (!prompt) throw new Error('HF_PROMPT Umgebungsvariable fehlt');
 
-  const client = new InferenceClient(process.env.HF_TOKEN);
+  const client = new HfInference(process.env.HF_TOKEN);
   const existingTools = await loadTools(toolsFile);
   const cache = await loadCache(cacheFile);
   const knownSlugs = new Set(existingTools.map(t => t.slug));
 
-  try {
-    const res = await client.chatCompletion({
-      model: HF_MODEL_NAME,
-      messages: [{ role: 'user', content: prompt }],
-    });
+  log('🧠 Anfrage an Mistral-Modell wird gesendet...');
+  const response = await client.chatCompletion({
+    model: HF_MODEL_NAME,
+    messages: [{ role: 'user', content: prompt }],
+  });
 
-    const message = res.choices?.[0]?.message?.content?.trim();
-    if (!message) throw new Error('Leere Antwort vom Modell');
+  const message = response.choices?.[0]?.message?.content?.trim();
+  if (!message) throw new Error('Leere Antwort vom Modell');
 
-    await fs.writeFile(outputFile, message);
-    log(`📝 Modell-Antwort gespeichert in ${outputFile}`);
+  await fs.writeFile(outputFile, message);
+  log(`📝 Modellantwort gespeichert in ${outputFile}`);
 
-    let parsed = JSON.parse(message);
-    if (!Array.isArray(parsed)) throw new Error('Modellantwort ist kein Array');
-
-    const newTools = parsed.filter(t => !knownSlugs.has(t.slug));
-    const updatedTools = [...existingTools, ...newTools];
-    const updatedCache = [...cache, ...newTools];
-
-    await fs.writeJson(toolsFile, updatedTools, { spaces: 2 });
-    await fs.writeJson(cacheFile, updatedCache, { spaces: 2 });
-
-    log(`✅ Tools aktualisiert: ${newTools.length} neu, ${updatedTools.length} gesamt.`);
-  } catch (e) {
-    error('❌ Fehler beim Tool-Fetch:', e.message);
+  let parsed;
+  const jsonStart = message.indexOf('[');
+  const jsonEnd = message.lastIndexOf(']');
+  if (jsonStart !== -1 && jsonEnd !== -1) {
+    try {
+      parsed = JSON.parse(message.substring(jsonStart, jsonEnd + 1));
+      log(`✅ JSON erfolgreich geparst mit ${parsed.length} Tools.`);
+    } catch (e) {
+      error('❌ JSON-Parsing fehlgeschlagen:', e.message);
+    }
   }
+
+  if (!parsed) {
+    try {
+      parsed = YAML.parse(message);
+      if (!Array.isArray(parsed)) throw new Error('Kein Array in YAML');
+      log(`✅ YAML erfolgreich geparst mit ${parsed.length} Tools.`);
+    } catch (e) {
+      throw new Error('Fehler beim Parsen von YAML: ' + e.message);
+    }
+  }
+
+  parsed = parsed.map(tool => ({
+    ...tool,
+    name: tool.name.replace(/^\d+[\.\)]?\s*/, '').trim(),
+  }));
+
+  const newTools = parsed.filter(t => !knownSlugs.has(t.slug));
+  const updatedTools = [...existingTools, ...newTools];
+  const updatedCache = [...cache, ...newTools];
+
+  await fs.writeJson(toolsFile, updatedTools, { spaces: 2 });
+  await fs.writeJson(cacheFile, updatedCache, { spaces: 2 });
+
+  log(`✅ Tools aktualisiert: ${newTools.length} neu, ${updatedTools.length} gesamt.`);
 }
 
 if (import.meta.url === process.argv[1]) {
-  discoverTools();
+  discoverTools().catch((e) => {
+    error(`❌ Fehler: ${e.message}`);
+    process.exit(1);
+  });
 }
+
