@@ -1,7 +1,7 @@
 import fs from 'fs-extra';
 import fetch from 'node-fetch';
 
-const HF_API_URL = 'https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2';
+const HF_API_URL = 'https://api-inference.huggingface.co/models/google/flan-t5-xxl';
 const rawOutputFile = './data/gpt-output.txt';
 
 function log(...args) {
@@ -11,12 +11,42 @@ function error(...args) {
   process.stderr.write(new Date().toISOString() + ' ERROR: ' + args.map(String).join(' ') + '\n');
 }
 
+async function checkModelAvailability() {
+  log('🔍 Überprüfe Modellverfügbarkeit...');
+
+  try {
+    const res = await fetch(HF_API_URL, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${process.env.HF_TOKEN}`,
+      },
+    });
+
+    if (!res.ok) {
+      throw new Error(`HTTP Fehler ${res.status} ${res.statusText}`);
+    }
+
+    const data = await res.json();
+    const tag = data?.pipeline_tag || 'unbekannt';
+    log(`✅ Modell verfügbar: ${data?.modelId || '(kein Name)'} (${tag})`);
+
+    if (tag !== 'text-generation') {
+      error(`⚠️ Achtung: Modell unterstützt keine text-generation (pipeline_tag = ${tag})`);
+    }
+  } catch (e) {
+    error(`❌ Modell-Check fehlgeschlagen: ${e.message}`);
+    process.exit(1);
+  }
+}
+
 async function main() {
   const prompt = process.env.HF_PROMPT;
   if (!prompt) {
     error('⚠️ Kein Prompt gefunden in HF_PROMPT');
     process.exit(1);
   }
+
+  await checkModelAvailability(); // <-- Neu eingebaut
 
   log('🚀 Starte Anfrage an Hugging Face Inference API...');
   log('📥 Prompt:');
@@ -46,7 +76,6 @@ async function main() {
     await fs.writeFile(rawOutputFile, JSON.stringify(data, null, 2));
     log(`📝 Roh-Antwort gespeichert in ${rawOutputFile}`);
 
-    // Extrahiere Text aus der API-Antwort
     const rawText = (data?.[0]?.generated_text || data?.generated_text || '').trim();
 
     if (!rawText) {
@@ -56,7 +85,6 @@ async function main() {
     log('📄 Generierter Text (erste 500 Zeichen):');
     log(rawText.substring(0, 500));
 
-    // Suche JSON-Array im Text
     const jsonStart = rawText.indexOf('[');
     const jsonEnd = rawText.lastIndexOf(']');
     if (jsonStart === -1 || jsonEnd === -1) {
@@ -72,8 +100,6 @@ async function main() {
     }
 
     log(`✅ JSON-Array mit ${tools.length} Tools erfolgreich geparst.`);
-
-    // Hier könntest du die Tools weiterverarbeiten oder speichern
 
   } catch (e) {
     error(`❌ Fehler: ${e.message}`);
