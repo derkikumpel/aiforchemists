@@ -1,10 +1,12 @@
 import fs from 'fs-extra';
+import { InferenceClient } from '@huggingface/inference';
 import YAML from 'yaml';
-import { HfInference } from '@huggingface/inference';
 
 const HF_MODEL_NAME = 'mistralai/Mistral-7B-Instruct-v0.3';
-const toolsFile = './data/tools.json';
+const HF_TOKEN = process.env.HF_TOKEN;
+
 const cacheFile = './data/description-cache.json';
+const toolsFile = './data/tools.json';
 
 function log(...args) {
   process.stdout.write(new Date().toISOString() + ' LOG: ' + args.map(String).join(' ') + '\n');
@@ -13,93 +15,108 @@ function error(...args) {
   process.stderr.write(new Date().toISOString() + ' ERROR: ' + args.map(String).join(' ') + '\n');
 }
 
-async function loadJSON(file, fallback) {
+async function loadCache(file) {
   try {
-    const data = await fs.readJson(file);
-    log(`📂 Datei geladen: ${file} (${Array.isArray(data) ? data.length : Object.keys(data).length} Einträge)`);
-    return data;
+    const raw = await fs.readFile(file, 'utf-8');
+    const parsed = JSON.parse(raw);
+    if (typeof parsed !== 'object' || Array.isArray(parsed)) throw new Error('Beschreibungscache ist kein Objekt');
+    log(`Cache geladen: ${file}`);
+    return parsed;
   } catch {
-    log(`⚠️ Datei ${file} nicht gefunden oder ungültig, verwende Fallback.`);
-    return fallback;
+    log(`⚠️ Beschreibungscache ${file} ungültig oder leer – wird neu erstellt.`);
+    return {};
   }
 }
 
-export async function fetchToolDescriptions() {
-  const tools = await loadJSON(toolsFile, []);
-  const cache = await loadJSON(cacheFile, {});
-  const client = new HfInference(process.env.HF_TOKEN);
-  const updated = [];
+async function fetchToolDescriptions(tools) {
+  const client = new InferenceClient(HF_TOKEN);
+  const cache = await loadCache(cacheFile);
+  const updatedTools = [];
 
   for (const tool of tools) {
     if (!tool.slug) {
-      log(`⚠️ Tool ohne slug übersprungen: ${tool.name}`);
-      updated.push(tool);
+      log(`⚠️ Ungültiges Tool: ${tool.name}`);
+      updatedTools.push(tool);
       continue;
     }
 
     if (cache[tool.slug]) {
-      log(`ℹ️ Beschreibung aus Cache für Tool: ${tool.slug} (${tool.name})`);
-      updated.push({ ...tool, ...cache[tool.slug] });
+      log(`✔️ ${tool.name} bereits im Cache.`);
+      updatedTools.push({ ...tool, ...cache[tool.slug] });
       continue;
     }
 
-    const prompt = `Write two descriptions for the AI tool "${tool.name}" used in chemistry:\n\n1. Short description (30–50 words)\n2. Long description (150–250 words)\n\nReturn JSON with:\n{\n  "short_description": "...",\n  "long_description": "..." \n}`;
+    const prompt = `Write two descriptions for the AI tool "${tool.name}" used in chemistry:
+
+1. Short description (30–50 words)
+2. Long description (150–250 words)
+
+Return as JSON or YAML with fields "short_description" and "long_description". No other text.`;
+
+    let description = null;
 
     try {
-      log(`🔎 Hole Beschreibung für: ${tool.name}`);
-
-      const res = await client.chatCompletion({
+      log(`→ Anfrage an HF/Mistral für ${tool.name}`);
+      const completion = await client.chatCompletion({
         model: HF_MODEL_NAME,
         messages: [{ role: 'user', content: prompt }],
+        temperature: 0.7,
       });
 
-      const message = res.choices?.[0]?.message?.content?.trim();
-      log(`📝 Antwort erhalten (${message.length} Zeichen)`);
+      const raw = completion.choices?.[0]?.message?.content?.trim() || '';
+      let parsed = null;
 
-      const jsonStart = message.indexOf('{');
-      const jsonEnd = message.lastIndexOf('}');
-      let parsed;
-
-      try {
-        if (jsonStart !== -1 && jsonEnd !== -1) {
-          const jsonString = message.substring(jsonStart, jsonEnd + 1);
-          parsed = JSON.parse(jsonString);
-          log(`✅ JSON erfolgreich geparst für: ${tool.slug}`);
-        } else {
-          throw new Error('Kein JSON-Objekt gefunden');
-        }
-      } catch (jsonErr) {
-        log(`⚠️ JSON Parsing fehlgeschlagen, versuche YAML für: ${tool.slug}`);
-        parsed = YAML.parse(message);
-        log(`✅ YAML erfolgreich geparst für: ${tool.slug}`);
+      if (raw.startsWith('{')) {
+        parsed = JSON.parse(raw);
+      } else {
+        parsed = YAML.parse(raw);
       }
 
       if (!parsed?.short_description || !parsed?.long_description) {
-        throw new Error('Antwort enthält keine gültige Beschreibung');
+        throw new Error('Unvollständige Beschreibung');
       }
 
-      cache[tool.slug] = parsed;
-      updated.push({ ...tool, ...parsed });
-
-      await fs.writeJson(cacheFile, cache, { spaces: 2 });
-      log(`💾 Cache gespeichert für: ${tool.slug}`);
+      description = parsed;
+      log(`✅ Beschreibung erhalten für ${tool.name}`);
     } catch (e) {
-      error(`⚠️ Beschreibung für ${tool.name} fehlgeschlagen: ${e.message}`);
-      updated.push({
-        ...tool,
+      error(`❌ Fehler für ${tool.name}: ${e.message}`);
+      description = {
         short_description: tool.short_description || 'No description available.',
         long_description: tool.long_description || 'No long description available.',
-      });
+      };
+    }
+
+    cache[tool.slug] = description;
+    updatedTools.push({ ...tool, ...description });
+
+    try {
+      await fs.writeJson(cacheFile, cache, { spaces: 2 });
+      log(`💾 Cache aktualisiert: ${tool.slug}`);
+    } catch (e) {
+      error(`⚠️ Fehler beim Cache-Schreiben: ${e.message}`);
     }
   }
 
-  await fs.writeJson(toolsFile, updated, { spaces: 2 });
-  log(`✅ ${updated.length} Toolbeschreibungen aktualisiert.`);
+  return updatedTools;
 }
 
-if (import.meta.url === process.argv[1]) {
-  fetchToolDescriptions().catch((e) => {
-    error(`❌ Fehler: ${e.message}`);
+async function main() {
+  try {
+    const tools = await fs.readJson(toolsFile);
+    if (!Array.isArray(tools) || !tools.length) {
+      log('⚠️ Keine Tools gefunden.');
+      return;
+    }
+
+    const updatedTools = await fetchToolDescriptions(tools);
+    await fs.writeJson(toolsFile, updatedTools, { spaces: 2 });
+    log(`💾 Alle Beschreibungen aktualisiert (${updatedTools.length} Tools).`);
+  } catch (e) {
+    error('❌ Fehler:', e.message || e);
     process.exit(1);
-  });
+  }
+}
+
+if (import.meta.url === process.argv[1] || process.argv[1].endsWith('fetch-tools-gpt.mjs')) {
+  main();
 }
