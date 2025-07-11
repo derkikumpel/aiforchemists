@@ -37,8 +37,17 @@ jobs:
             - tool1
             - tool2
 
-            Please return ONLY a JSON array of 10 objects with the fields: name, slug, url, short_description, long_description, tags, category.
-            Do NOT include any surrounding object or any explanatory text.
+            Return ONLY a valid JSON array of exactly 10 objects with the following fields:
+            - name
+            - slug
+            - url
+            - short_description
+            - long_description
+            - tags
+            - category
+
+            Each object's "name" must NOT start with a number or a bullet.
+            Do NOT include any explanations, headings, bullets, or surrounding text.
         run: node scripts/test-hf-prompt.mjs
 
       - name: Commit & Push Changes
