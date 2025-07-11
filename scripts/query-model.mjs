@@ -79,8 +79,16 @@ Respond only with the JSON array.
     });
 
     log(`HTTP-Status: ${res.status} ${res.statusText}`);
-    const text = await res.text(); // NICHT .json()
+    const text = await res.text();
     await fs.writeFile('./data/api-raw.txt', text);
+
+    let data;
+    try {
+      data = JSON.parse(text);
+      await fs.writeFile('./data/api-response.json', JSON.stringify(data, null, 2));
+    } catch (e) {
+      throw new Error('Antwort ist kein JSON: ' + text.slice(0, 200) + '...');
+    }
 
     if (!Array.isArray(data) && !data?.generated_text && !data?.[0]?.generated_text) {
       throw new Error(`HF-Antwort ist kein gültiges JSON:\n${JSON.stringify(data, null, 2)}`);
