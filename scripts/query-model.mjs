@@ -4,6 +4,7 @@ import fetch from 'node-fetch';
 const HF_API_URL = 'https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.2';
 const cacheFile = './data/discover-cache.json';
 const toolsFile = './data/tools.json';
+const rawOutputFile = './data/gpt-output.txt';
 
 function log(...args) {
   process.stdout.write(new Date().toISOString() + ' LOG: ' + args.map(String).join(' ') + '\n');
@@ -32,7 +33,10 @@ export async function discoverTools() {
   const existingTools = await loadCache(toolsFile);
   const knownSlugs = new Set(existingTools.map(t => t.slug));
 
-  const exclusionList = existingTools.map(t => `- ${t.name} (${t.slug})`).slice(0, 50).join('\n');
+  const exclusionList = existingTools
+    .map(t => `- ${t.name} (${t.slug})`)
+    .slice(0, 100)
+    .join('\n');
 
   const prompt = `
 Please list 10 current AI tools in the field of cheminformatics or drug discovery that are NOT in the following list:
@@ -81,12 +85,16 @@ Respond only with the JSON array.
     }
 
     const raw = (data?.[0]?.generated_text || data?.generated_text || '').trim();
+    await fs.writeFile(rawOutputFile, raw);
+    log(`📝 GPT-Rohantwort gespeichert unter ${rawOutputFile}`);
+
     const jsonStart = raw.indexOf('[');
     const jsonEnd = raw.lastIndexOf(']');
-    if (jsonStart === -1 || jsonEnd === -1) throw new Error('Kein JSON erkannt');
+    if (jsonStart === -1 || jsonEnd === -1) throw new Error('❌ Kein JSON erkannt');
 
-    tools = JSON.parse(raw.substring(jsonStart, jsonEnd + 1));
-    log(`✅ Tools gefunden via Hugging Face API (${tools.length} Tools)`);
+    const rawJson = raw.substring(jsonStart, jsonEnd + 1);
+    tools = JSON.parse(rawJson);
+    log(`✅ Tools gefunden via Hugging Face API (${tools.length} Tools insgesamt)`);
   } catch (e) {
     error(`❌ HF-Fehler: ${e.message}`);
   }
@@ -98,13 +106,15 @@ Respond only with the JSON array.
   }
 
   const newTools = tools.filter(t => !knownSlugs.has(t.slug));
+  log(`📊 Neue Tools entdeckt: ${newTools.length} von ${tools.length}`);
+
   const updatedTools = [...existingTools, ...newTools];
   const updatedCache = [...cache, ...newTools];
 
   await fs.writeJson(toolsFile, updatedTools, { spaces: 2 });
   await fs.writeJson(cacheFile, updatedCache, { spaces: 2 });
 
-  log(`💾 Tools gespeichert: ${updatedTools.length} Einträge (davon neu: ${newTools.length})`);
+  log(`💾 Tools gespeichert: ${updatedTools.length} gesamt (neu: ${newTools.length})`);
   return updatedTools;
 }
 
