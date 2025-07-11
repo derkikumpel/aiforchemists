@@ -26,7 +26,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-       - name: Run HF Prompt Script
+      - name: Run HF Prompt Script
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
           HF_PROMPT: |
