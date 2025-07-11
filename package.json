@@ -3,20 +3,19 @@
   "version": "1.1.0",
   "description": "Discovery and description of AI tools for chemistry using Hugging Face and Mistral.",
   "type": "module",
-  "main": "scripts/discover-tools-hf.mjs",
+  "main": "scripts/NEW-discover-tools.mjs",
   "scripts": {
     "discover": "node scripts/NEW-discover-tools.mjs",
     "fetch": "node scripts/NEW-fetch-tools.mjs.mjs",
     "screenshot": "node scripts/screenshot-tools.mjs",
     "generate": "node scripts/generate-detail-pages.js",
     "update-data": "npm run discover && npm run screenshot && npm run fetch"
-    "hf-prompt": "node scripts/test-hf-prompt.mjs"
   },
   "author": "AI Tools for Chemists",
   "license": "MIT",
   "dependencies": {
-    "@huggingface/inference": "^2.6.0",           // HF API
-    "yaml": "^2.3.4",                              // für mögliche YAML-Verarbeitung
+    "@huggingface/inference": "^2.6.0",
+    "yaml": "^2.3.4",
     "handlebars": "^4.7.8",
     "node-fetch": "^3.3.2",
     "fs-extra": "^11.2.0",
