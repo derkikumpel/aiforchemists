@@ -1,5 +1,5 @@
 import fs from 'fs-extra';
-import { InferenceClient } from '@huggingface/inference';
+import { HfInference } from '@huggingface/inference';
 import YAML from 'yaml';
 
 const HF_MODEL_NAME = 'mistralai/Mistral-7B-Instruct-v0.3';
@@ -29,21 +29,15 @@ async function main() {
   log('📨 Prompt wird an HF gesendet...');
   log(prompt);
 
-  const client = new InferenceClient(process.env.HF_TOKEN);
-  const chatCompletion = await client.chatCompletion({
+  const client = new HfInference(process.env.HF_TOKEN);
+
+  const response = await client.textGeneration({
     model: HF_MODEL_NAME,
-    messages: [
-      {
-        role: 'user',
-        content: prompt,
-      },
-    ],
+    inputs: prompt,
   });
 
-  const message = chatCompletion.choices?.[0]?.message?.content || '';
-  if (!message) {
-    throw new Error('❌ Keine Antwort vom Modell erhalten');
-  }
+  const message = response.generated_text;
+  if (!message) throw new Error('❌ Keine Antwort vom Modell erhalten');
 
   await fs.writeFile(rawOutputFile, message);
   log('📬 Antwort erhalten. Gespeichert in:', rawOutputFile);
