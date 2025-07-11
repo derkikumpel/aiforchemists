@@ -37,7 +37,8 @@ jobs:
             - tool1
             - tool2
 
-            Return a JSON array of objects with fields: name, slug, url, short_description, long_description, tags, category.
+            Return ONLY a JSON array of objects with fields: name, slug, url, short_description, long_description, tags, category.
+            Do NOT include any numbered lists, bullets, or any text outside the JSON array.
         run: node scripts/test-hf-prompt.mjs
 
       - name: Commit & Push Changes
