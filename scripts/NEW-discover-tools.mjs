@@ -3,72 +3,52 @@ import { HfInference } from '@huggingface/inference';
 import YAML from 'yaml';
 
 const HF_MODEL_NAME = 'mistralai/Mistral-7B-Instruct-v0.3';
-const HF_TOKEN = process.env.HF_TOKEN;
-
-const cacheFile = './data/discover-cache.json';
-const toolsFile = './data/tools.json';
 const rawOutputFile = './data/gpt-output.txt';
+const toolsFile = './data/tools.json';
+const cacheFile = './data/discover-cache.json';
 
 function log(...args) {
   console.log(new Date().toISOString(), 'LOG:', ...args);
 }
+
 function error(...args) {
   console.error(new Date().toISOString(), 'ERROR:', ...args);
 }
 
-async function loadCache(file) {
-  try {
-    const raw = await fs.readFile(file, 'utf-8');
-    const parsed = JSON.parse(raw);
-    if (!Array.isArray(parsed)) throw new Error('Cache ist kein Array');
-    log(`Cache geladen: ${file} (${parsed.length} Einträge)`);
-    return parsed;
-  } catch {
-    log(`⚠️ Cache ${file} ungültig oder leer – wird neu erstellt.`);
-    return [];
+async function main() {
+  log('🛠️  discover-tools gestartet...');
+  log('📦 Modell:', HF_MODEL_NAME);
+  log('📁 Tools-Datei:', toolsFile);
+  log('📁 Cache-Datei:', cacheFile);
+
+  const prompt = process.env.HF_PROMPT;
+  if (!prompt) {
+    throw new Error('⚠️ Kein Prompt gefunden in HF_PROMPT');
   }
-}
 
-export async function discoverTools() {
-  log('🚀 Starte GPT-basierte Tool-Suche...');
+  log('📨 Prompt wird an HF gesendet...');
+  log(prompt);
 
-  const client = new InferenceClient(HF_TOKEN);
-  const cache = await loadCache(cacheFile);
-  const existingTools = await loadCache(toolsFile);
-  const knownSlugs = new Set(existingTools.map(t => t.slug));
-
-  const exclusionList = existingTools.map(t => `- ${t.name} (${t.slug})`).slice(0, 50).join('\n');
-
-  const prompt = `
-Please list 10 current AI tools in the field of cheminformatics or drug discovery that are NOT in the following list:
-
-${exclusionList || '- (none listed)'}
-
-For each tool, return:
-- name
-- slug (lowercase, dash-separated)
-- url
-- short_description (30–50 words)
-- long_description (min. 150 words – required)
-- tags (max. 6 relevant)
-- category
-
-Return either a valid JSON array or valid YAML list. No extra text, no commentary.
-`;
+  const client = new InferenceClient(process.env.HF_TOKEN);
 
   const chatCompletion = await client.chatCompletion({
     model: HF_MODEL_NAME,
-    messages: [{ role: 'user', content: prompt }],
+    messages: [
+      {
+        role: 'user',
+        content: prompt,
+      },
+    ],
   });
 
   const message = chatCompletion.choices?.[0]?.message?.content || '';
   if (!message) {
-    throw new Error('Keine Antwort vom Modell erhalten');
+    throw new Error('❌ Keine Antwort vom Modell erhalten');
   }
 
   await fs.writeFile(rawOutputFile, message);
-  log(`📝 Roh-Antwort gespeichert in ${rawOutputFile}`);
-  log('📄 Generierter Text (erste 500 Zeichen):');
+  log('📬 Antwort erhalten. Gespeichert in:', rawOutputFile);
+  log('📄 Vorschau (erste 500 Zeichen):');
   log(message.substring(0, 500));
 
   let tools;
@@ -76,22 +56,22 @@ Return either a valid JSON array or valid YAML list. No extra text, no commentar
   const jsonEnd = message.lastIndexOf(']');
 
   if (jsonStart !== -1 && jsonEnd !== -1) {
+    const jsonString = message.substring(jsonStart, jsonEnd + 1);
     try {
-      const jsonString = message.substring(jsonStart, jsonEnd + 1);
       tools = JSON.parse(jsonString);
-      log(`✅ JSON erfolgreich geparst mit ${tools.length} Tools.`);
+      log(`✅ JSON erfolgreich! Anzahl Tools: ${tools.length}`);
     } catch (e) {
-      error('❌ Fehler beim JSON-Parsing: ' + e.message);
+      log('⚠️ JSON-Parsing fehlgeschlagen, versuche YAML...');
+      tools = null;
     }
   }
 
   if (!tools) {
-    log('⚠️ Kein JSON gefunden – versuche YAML');
     try {
       const parsed = YAML.parse(message);
       if (Array.isArray(parsed)) {
         tools = parsed;
-        log(`✅ YAML erfolgreich geparst mit ${tools.length} Tools.`);
+        log(`✅ YAML erfolgreich geparst mit ${tools.length} Tools`);
       } else {
         throw new Error('YAML enthält kein Array.');
       }
@@ -102,23 +82,28 @@ Return either a valid JSON array or valid YAML list. No extra text, no commentar
 
   tools = tools.map(tool => ({
     ...tool,
-    name: tool.name?.replace(/^\d+[\.\)]?\s*/, '').trim(),
+    name: tool.name.replace(/^\d+[\.\)]?\s*/, '').trim(),
   }));
 
-  const newTools = tools.filter(t => !knownSlugs.has(t.slug));
-  const updatedTools = [...existingTools, ...newTools];
-  const updatedCache = [...cache, ...newTools];
+  let existing = [];
+  try {
+    existing = await fs.readJson(toolsFile);
+  } catch {
+    log('📄 tools.json nicht gefunden, wird neu erstellt.');
+  }
 
-  await fs.writeJson(toolsFile, updatedTools, { spaces: 2 });
-  await fs.writeJson(cacheFile, updatedCache, { spaces: 2 });
-
-  log(`💾 Tools gespeichert: ${updatedTools.length} (neu: ${newTools.length})`);
-  return updatedTools;
+  const newTools = tools.filter(t => !existing.find(e => e.slug === t.slug));
+  if (newTools.length === 0) {
+    log('ℹ️  Keine neuen Tools gefunden');
+  } else {
+    const updated = [...existing, ...newTools];
+    await fs.writeJson(toolsFile, updated, { spaces: 2 });
+    log(`💾 Neue Tools gespeichert: ${newTools.length}`);
+  }
 }
 
-if (import.meta.url === process.argv[1] || process.argv[1].endsWith('discover-tools-gpt.mjs')) {
-  discoverTools().catch(e => {
-    error('Uncaught Error:', e.message || e);
-    process.exit(1);
-  });
-}
+main().catch((e) => {
+  error(`❌ Fehler: ${e.message}`);
+  process.exit(1);
+});
+
