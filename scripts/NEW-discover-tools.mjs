@@ -29,7 +29,7 @@ async function main() {
   log('📨 Prompt wird an HF gesendet...');
   log(prompt);
 
-  const client = new InferenceClient(process.env.HF_TOKEN);
+  const client = new HfInference(process.env.HF_TOKEN);
 
   const chatCompletion = await client.chatCompletion({
     model: HF_MODEL_NAME,
