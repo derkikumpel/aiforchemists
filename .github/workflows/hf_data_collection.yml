@@ -26,6 +26,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install interferences
+        run: npm install @huggingface/inference
+
       - name: Run HF Prompt Script
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
