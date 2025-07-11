@@ -1,1 +1,85 @@
-
+```
+[
+  {
+    "name": "RDKit",
+    "slug": "rdkit",
+    "url": "https://www.rdkit.org/",
+    "short_description": "Open-source cheminformatics library written in Python",
+    "long_description": "RDKit is an open-source library used for pharamacological research, providing tools for molecule representation, prediction, and conversion.",
+    "tags": ["cheminformatics", "drug discovery", "machine learning", "python"],
+    "category": "software"
+  },
+  {
+    "name": "Chemistry Development Kit",
+    "slug": "cdk",
+    "url": "https://cdk.io/",
+    "short_description": "JAVA-based open-source cheminformatics library",
+    "long_description": "CDK is a Java-based open-source library used for storing, retrieving, and performing computations on chemical structures as well as compound property calculations.",
+    "tags": ["cheminformatics", "chemistry", "Java"],
+    "category": "software"
+  },
+  {
+    "name": "OpenEye",
+    "slug": "opeye",
+    "url": "https://www.eye.com/",
+    "short_description": "Commercial cheminformatics package provides tools for molecular mechanics, pharmacophore modeling, and database searching.",
+    "long_description": "OpenEye offers the industry-leading solution for computational chemistry problems, providing tools for 3D structure prediction, analysis, and discovery.",
+    "tags": ["cheminformatics", "drug discovery", "commercial"],
+    "category": "software"
+  },
+  {
+    "name": "Schrödinger",
+    "slug": "schrodinger",
+    "url": "https://www.schrodinger.com/",
+    "short_description": "Commercial software suite for drug discovery and structural biology simulations",
+    "long_description": "Schrödinger is a commercial software suite offering tools for small-molecule and biomolecular simulations, providing insights into the molecular structure nature and interactions.",
+    "tags": ["drug discovery", "structural biology", "commercial"],
+    "category": "software"
+  },
+  {
+    "name": "DOCK",
+    "slug": "dock",
+    "url": "https://dock.compbio.washington.edu/",
+    "short_description": "Software for flexible docking between proteins and ligands.",
+    "long_description": "DOCK predicts and optimizes protein-ligand interactions dynamically for drug discovery and structure-based ligand design.",
+    "tags": ["drug discovery", "molecular dynamics", "protein-ligand docking"],
+    "category": "software"
+  },
+  {
+    "name": "MolSSI",
+    "slug": "molssi",
+    "url": "http://molssi.org",
+    "short_description": "Molecular Simulation Software for Integrated Investigations.",
+    "long_description": "MolSSI is a free, open-source collection of molecular simulation packages for short range classical molecular dynamics, Monte Carlo simulations, and equation of state calculations.",
+    "tags": ["molecular dynamics", "classical molecular dynamics", "Monte Carlo simulations"],
+    "category": "software"
+  },
+  {
+    "name": "PhysiFlow",
+    "slug": "physiflow",
+    "url": "http://physiflow.sourceforge.net/",
+    "short_description": "Open-source software for automating biochemical research.",
+    "long_description": "PhysiFlow is an open-source workflow system for automating biochemical research, allowing for repeatable and shareable experiments, ACL analysis, and modeling.",
+    "tags": ["automated biochemical research", "ACL analysis", "modeling"],
+    "category": "software"
+  },
+  {
+    "name": "OBO Better AntiConcept Identification Tool (OBI-TOOL)",
+    "slug": "obi-tool",
+    "url": "http://obidata.genahub.org/obi-tool.shtml",
+    "short_description": "Tool for identifying the best anti-concept for cross-project harmonization.",
+    "long_description": "OBI-Tool is a software tool for identifying the best anti-concept in biochemical pathways, enabling cross-project harmonization, and providing a standard vocabulary across various biological systems.",
+    "tags": ["biochemical pathway harmonization", "anti-concept"],
+    "category": "software"
+  },
+  {
+    "name": "Open Targets Platform",
+    "slug": "opentargets",
+    "url": "https://www.opentargets.org/",
+    "short_description": "A collaborative platform for drug target identification and repurposing.",
+    "long_description": "Open Targets Platform provides a collaborative space for drug target identification and repurposing by integrating experimental and computation models to predict the therapeutic potential of drugs.",
+    "tags": ["drug discovery", "drug repurposing", "collaboration"],
+    "category": "software"
+  }
+]
+```
