@@ -1,122 +1,61 @@
 import fs from 'fs-extra';
-import { HfInference } from '@huggingface/inference';
-import YAML from 'yaml';
+import fetch from 'node-fetch';
 
-const HF_MODEL_NAME = 'mistralai/Mistral-7B-Instruct-v0.3';
-const HF_TOKEN = process.env.HF_TOKEN;
-
-const cacheFile = './data/description-cache.json';
 const toolsFile = './data/tools.json';
+const resultsDir = './data/tool-pages';
+const failedLog = './data/fetch-failed.log';
 
 function log(...args) {
   console.log(new Date().toISOString(), 'LOG:', ...args);
 }
+
 function error(...args) {
   console.error(new Date().toISOString(), 'ERROR:', ...args);
 }
 
-async function loadCache(file) {
+async function fetchTool(tool) {
+  const filename = `${resultsDir}/${tool.slug}.html`;
   try {
-    const raw = await fs.readFile(file, 'utf-8');
-    const parsed = JSON.parse(raw);
-    if (typeof parsed !== 'object' || Array.isArray(parsed)) throw new Error('Beschreibungscache ist kein Objekt');
-    log(`Cache geladen: ${file}`);
-    return parsed;
-  } catch {
-    log(`⚠️ Beschreibungscache ${file} ungültig oder leer – wird neu erstellt.`);
-    return {};
+    log(`🌐 Hole ${tool.url} → ${filename}`);
+    const res = await fetch(tool.url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; ToolFetcher/1.0)',
+      },
+      timeout: 10000,
+    });
+
+    if (!res.ok) {
+      throw new Error(`Status ${res.status}`);
+    }
+
+    const html = await res.text();
+    await fs.outputFile(filename, html);
+    log(`✅ Gespeichert: ${tool.slug}`);
+  } catch (e) {
+    error(`❌ Fehler bei ${tool.slug}: ${e.message}`);
+    await fs.appendFile(failedLog, `${tool.slug} (${tool.url}) – ${e.message}\n`);
   }
-}
-
-async function fetchToolDescriptions(tools) {
-  const client = new InferenceClient(HF_TOKEN);
-  const cache = await loadCache(cacheFile);
-  const updatedTools = [];
-
-  for (const tool of tools) {
-    if (!tool.slug) {
-      log(`⚠️ Ungültiges Tool: ${tool.name}`);
-      updatedTools.push(tool);
-      continue;
-    }
-
-    if (cache[tool.slug]) {
-      log(`✔️ ${tool.name} bereits im Cache.`);
-      updatedTools.push({ ...tool, ...cache[tool.slug] });
-      continue;
-    }
-
-    const prompt = `Write two descriptions for the AI tool "${tool.name}" used in chemistry:
-
-1. Short description (30–50 words)
-2. Long description (150–250 words)
-
-Return as JSON or YAML with fields "short_description" and "long_description". No other text.`;
-
-    let description = null;
-
-    try {
-      log(`→ Anfrage an HF/Mistral für ${tool.name}`);
-      const completion = await client.chatCompletion({
-        model: HF_MODEL_NAME,
-        messages: [{ role: 'user', content: prompt }],
-        temperature: 0.7,
-      });
-
-      const raw = completion.choices?.[0]?.message?.content?.trim() || '';
-      let parsed = null;
-
-      if (raw.startsWith('{')) {
-        parsed = JSON.parse(raw);
-      } else {
-        parsed = YAML.parse(raw);
-      }
-
-      if (!parsed?.short_description || !parsed?.long_description) {
-        throw new Error('Unvollständige Beschreibung');
-      }
-
-      description = parsed;
-      log(`✅ Beschreibung erhalten für ${tool.name}`);
-    } catch (e) {
-      error(`❌ Fehler für ${tool.name}: ${e.message}`);
-      description = {
-        short_description: tool.short_description || 'No description available.',
-        long_description: tool.long_description || 'No long description available.',
-      };
-    }
-
-    cache[tool.slug] = description;
-    updatedTools.push({ ...tool, ...description });
-
-    try {
-      await fs.writeJson(cacheFile, cache, { spaces: 2 });
-      log(`💾 Cache aktualisiert: ${tool.slug}`);
-    } catch (e) {
-      error(`⚠️ Fehler beim Cache-Schreiben: ${e.message}`);
-    }
-  }
-
-  return updatedTools;
 }
 
 async function main() {
-  try {
-    const tools = await fs.readJson(toolsFile);
-    if (!Array.isArray(tools) || !tools.length) {
-      log('⚠️ Keine Tools gefunden.');
-      return;
-    }
+  log('📦 fetch-tools gestartet...');
+  log('📁 Tools-Quelle:', toolsFile);
+  log('📁 Ergebnisverzeichnis:', resultsDir);
 
-    const updatedTools = await fetchToolDescriptions(tools);
-    await fs.writeJson(toolsFile, updatedTools, { spaces: 2 });
-    log(`💾 Alle Beschreibungen aktualisiert (${updatedTools.length} Tools).`);
-  } catch (e) {
-    error('❌ Fehler:', e.message || e);
-    process.exit(1);
+  const tools = await fs.readJson(toolsFile);
+  log(`🔍 Tools geladen: ${tools.length}`);
+
+  await fs.ensureDir(resultsDir);
+  await fs.remove(failedLog); // Clear old log
+
+  for (const tool of tools) {
+    await fetchTool(tool);
   }
+
+  log('✅ Alle Tools verarbeitet');
 }
 
-if (import.meta.url === process.argv[1] || process.argv[1].endsWith('fetch-tools-gpt.mjs')) {
-  main();
-}
+main().catch((e) => {
+  error(`❌ Fehler: ${e.message}`);
+  process.exit(1);
+});
