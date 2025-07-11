@@ -1,8 +1,7 @@
 import fs from 'fs-extra';
-import fetch from 'node-fetch';
+import { InferenceClient } from '@huggingface/inference';
 
 const HF_MODEL_NAME = 'HuggingFaceH4/zephyr-7b-beta';
-const HF_API_URL = `https://api-inference.huggingface.co/models/${HF_MODEL_NAME}`;
 const rawOutputFile = './data/gpt-output.txt';
 
 function log(...args) {
@@ -12,12 +11,11 @@ function error(...args) {
   process.stderr.write(new Date().toISOString() + ' ERROR: ' + args.map(String).join(' ') + '\n');
 }
 
-async function checkModelAvailability(modelName) {
+async function checkModelAvailability(client, modelName) {
   log('🔍 Überprüfe Modellverfügbarkeit...');
-
-  const url = `https://huggingface.co/api/models/${modelName}`;
   try {
-    const res = await fetch(url, {
+    // Nutze die offizielle Models API ohne Auth, HF API liefert hier genug Infos
+    const res = await fetch(`https://huggingface.co/api/models/${modelName}`, {
       headers: {
         'Authorization': `Bearer ${process.env.HF_TOKEN}`,
       },
@@ -31,7 +29,7 @@ async function checkModelAvailability(modelName) {
     const tag = info?.pipeline_tag || 'unbekannt';
     log(`✅ Modell "${modelName}" gefunden. Pipeline: ${tag}, SHA: ${info?.sha || 'unbekannt'}`);
 
-    if (tag !== 'text-generation') {
+    if (tag !== 'text-generation' && tag !== 'text2text-generation' && tag !== 'text-to-text') {
       error(`⚠️ Achtung: Modell unterstützt keine text-generation (pipeline_tag = ${tag})`);
     }
   } catch (e) {
@@ -47,36 +45,30 @@ async function main() {
     process.exit(1);
   }
 
-  await checkModelAvailability(HF_MODEL_NAME);
+  const client = new InferenceClient(process.env.HF_TOKEN);
+
+  await checkModelAvailability(client, HF_MODEL_NAME);
 
   log('🚀 Starte Anfrage an Hugging Face Inference API...');
   log('📥 Prompt:');
   log(prompt);
 
   try {
-    const res = await fetch(HF_API_URL, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${process.env.HF_TOKEN}`,
-        'Content-Type': 'application/json',
+    // Nutze chatCompletion, falls das Modell das unterstützt, sonst textGeneration
+    // Hier probieren wir textGeneration (für Flan-T5, Zephyr etc.)
+    const data = await client.textGeneration({
+      model: HF_MODEL_NAME,
+      inputs: prompt,
+      parameters: {
+        max_new_tokens: 1024,
+        temperature: 0.7,
       },
-      body: JSON.stringify({
-        inputs: prompt,
-        parameters: {
-          max_new_tokens: 1024,
-          temperature: 0.7,
-        },
-      }),
     });
 
-    if (!res.ok) {
-      throw new Error(`HTTP Fehler ${res.status} ${res.statusText}`);
-    }
-
-    const data = await res.json();
     await fs.writeFile(rawOutputFile, JSON.stringify(data, null, 2));
     log(`📝 Roh-Antwort gespeichert in ${rawOutputFile}`);
 
+    // data ist ein Array mit Texten, je nach API Response
     const rawText = (data?.[0]?.generated_text || data?.generated_text || '').trim();
 
     if (!rawText) {
