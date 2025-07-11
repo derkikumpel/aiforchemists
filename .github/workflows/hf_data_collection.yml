@@ -33,11 +33,9 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
           HF_PROMPT: |
-            Please list 10 current AI tools in cheminformatics or drug discovery that are NOT in the following list:
-            - tool1
-            - tool2
+            Please return a valid JSON array of exactly 10 objects representing AI tools in cheminformatics or drug discovery.
 
-            Return ONLY a valid JSON array of exactly 10 objects with the following fields:
+            Each object must include the following fields:
             - name
             - slug
             - url
@@ -46,8 +44,12 @@ jobs:
             - tags
             - category
 
-            Each object's "name" must NOT start with a number or a bullet.
-            Do NOT include any explanations, headings, bullets, or surrounding text.
+            ❗ The output MUST be:
+            - A single valid JSON array (no YAML, no markdown, no list)
+            - No explanation, no introduction, no bullet points
+            - No numbering or prefixes in the "name" field
+            - Do not wrap it in any object (e.g. { "data": [...] } is not allowed)
+            - No text before or after the JSON array
         run: node scripts/test-hf-prompt.mjs
 
       - name: Commit & Push Changes
