@@ -2,7 +2,7 @@ name: Hugging Face Data Collection
 
 on:
   schedule:
-    - cron: '0 3 * * 0,2,4,6'  # Sonntag 3 Uhr
+    - cron: '0 3 * * 0,2,4,6'  # Sonntag, Dienstag, Donnerstag, Samstag um 3 Uhr
   workflow_dispatch:
 
 permissions:
@@ -11,9 +11,13 @@ permissions:
 jobs:
   generate:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true  # wichtig für git push
+
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -24,10 +28,16 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           node scripts/query-models.mjs
-          
-      - name: Commit Changes
+
+      - name: Commit & Push Changes
         run: |
-          git config --global user.name "GitHub Actions"
-          git add data/tools.json
-          git commit -m "Auto-update tools"
-          git push
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          
+          if [[ `git status --porcelain` ]]; then
+            git add data/tools.json data/discover-cache.json
+            git commit -m "Auto-update tools"
+            git push
+          else
+            echo "ℹ️  Keine Änderungen zum Commit."
+          fi
