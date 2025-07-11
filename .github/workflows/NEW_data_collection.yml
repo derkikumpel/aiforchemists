@@ -1,4 +1,4 @@
-name: Data Collection
+name: NEW Data Collection
 
 on:
   schedule:
@@ -47,12 +47,12 @@ jobs:
             - No numbering or prefixes in the "name" field
             - Do not wrap it in any object (e.g. { "data": [...] } is not allowed)
             - No text before or after the JSON array
-        run: node scripts/discover-tools-gpt.mjs
+        run: node scripts/NEW-discover-tools.mjs
 
       - name: Tool-Beschreibungen vervollständigen
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: node scripts/fetch-tools-gpt.mjs
+        run: node scripts/NEW-fetch-tools.mjs
 
       - name: Änderungen committen und pushen
         run: |
