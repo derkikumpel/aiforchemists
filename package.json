@@ -6,7 +6,7 @@
   "main": "scripts/NEW-discover-tools.mjs",
   "scripts": {
     "discover": "node scripts/NEW-discover-tools.mjs",
-    "fetch": "node scripts/NEW-fetch-tools.mjs.mjs",
+    "fetch": "node scripts/NEW-fetch-tools.mjs",
     "screenshot": "node scripts/screenshot-tools.mjs",
     "generate": "node scripts/generate-detail-pages.js",
     "update-data": "npm run discover && npm run screenshot && npm run fetch"
