@@ -1,5 +1,5 @@
 import fs from 'fs-extra';
-import { HfInference } from '@huggingface/inference';
+import { InferenceClient } from '@huggingface/inference';
 import YAML from 'yaml';
 
 const HF_MODEL_NAME = 'mistralai/Mistral-7B-Instruct-v0.3';
@@ -29,11 +29,16 @@ async function main() {
   log('📨 Prompt wird an HF gesendet...');
   log(prompt);
 
-  const client = new HfInference(process.env.HF_TOKEN);
-  const result = await client.textGeneration({ 
-    model: HF_MODEL_NAME, 
-    inputs: prompt 
-  }); 
+  const client = new InferenceClient(process.env.HF_TOKEN);
+  const chatCompletion = await client.chatCompletion({
+    model: HF_MODEL_NAME,
+    messages: [
+      {
+        role: 'user',
+        content: prompt,
+      },
+    ],
+  });
 
   const message = chatCompletion.choices?.[0]?.message?.content || '';
   if (!message) {
@@ -74,6 +79,7 @@ async function main() {
     }
   }
 
+  // Bereinige Tool-Namen
   tools = tools.map(tool => ({
     ...tool,
     name: tool.name.replace(/^\d+[\.\)]?\s*/, '').trim(),
@@ -100,4 +106,3 @@ main().catch((e) => {
   error(`❌ Fehler: ${e.message}`);
   process.exit(1);
 });
-
