@@ -30,7 +30,7 @@ jobs:
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          node scripts/query-model.mjs
+          node scripts/test-hf-prompt.mjs
 
       - name: Commit & Push Changes
         run: |
