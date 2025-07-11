@@ -137,3 +137,15 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# GitHub Action logs/temp
+.github/*.log
+
+# Hugging Face token file (falls du es mal lokal speicherst)
+hf_token.json
+
+# Lokale Output-Daten
+data/discover-cache.json
+
+# Sicher: schließe node_modules/ aus
+node_modules/
