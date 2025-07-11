@@ -64,6 +64,12 @@ async function main() {
 
     log(`✅ JSON-Array mit ${tools.length} Tools erfolgreich geparst.`);
 
+    // Nummerierung im "name"-Feld entfernen, z.B. "1. RDKit" → "RDKit"
+    tools = tools.map(tool => ({
+      ...tool,
+      name: tool.name.replace(/^\s*\d+\.\s*/, '')
+    }));
+
   } catch (e) {
     error(`❌ Fehler: ${e.message}`);
     process.exit(1);
