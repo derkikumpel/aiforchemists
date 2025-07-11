@@ -21,9 +21,9 @@ jobs:
 
       - name: Run Generator
         env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN_AICHEMIST }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          node scripts/discover-tools-hf.mjs
+          node scripts/query-models.mjs
           
       - name: Commit Changes
         run: |
