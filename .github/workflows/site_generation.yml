@@ -1,4 +1,4 @@
-name: Site Generation and Deploy
+name: Screenshot und Seitengenerierung
 
 on:
   schedule:
