@@ -2,7 +2,7 @@ import fs from 'fs-extra';
 import { HfInference } from '@huggingface/inference';
 import YAML from 'yaml';
 
-const HF_MODEL_NAME = 'mistralai/Mistral-7B-Instruct-v0.3';
+const HF_MODEL_NAME = 'HuggingFaceTB/SmolLM3-3B'; // mistralai/Mistral-7B-Instruct-v0.3 
 const rawOutputFile = './data/gpt-output.txt';
 const toolsFile = './data/tools.json';
 const cacheFile = './data/discover-cache.json';
