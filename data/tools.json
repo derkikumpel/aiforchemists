@@ -268,7 +268,7 @@
 "long_description": "ChemCrow is a chemistry-focused large language model agent that integrates over 18 specialized tools to help with retrosynthesis, safety analysis, experimental design, and literature searches in chemical research.",
 "tags": ["language model", "automation", "retrosynthesis", "AI tools"],
 "category": "Cheminformatics"
-}  
+},  
 {
 "name": "PharmaNet",
 "slug": "pharmanet",
