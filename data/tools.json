@@ -89,4 +89,184 @@
 "tags": ["reaction prediction", "retrosynthesis", "AI", "cheminformatics"],
 "category": "Cheminformatics"
 }
+{
+"name": "MolBERT",
+"slug": "molbert",
+"url": "https://github.com/pharmbio/molbert",
+"short_description": "A transformer-based model for molecular representation learning.",
+"long_description": "MolBERT is a BERT-like language model tailored for molecules represented as SMILES strings. It leverages unsupervised pretraining to learn contextualized molecular embeddings that improve downstream tasks such as property prediction and molecule generation.",
+"tags": ["transformer", "SMILES", "molecular representation", "drug discovery"],
+"category": "Cheminformatics"
+},
+{
+"name": "ReLeaSE",
+"slug": "release",
+"url": "https://github.com/insilicomedicine/ReLeaSE",
+"short_description": "Reinforcement learning for de novo drug design.",
+"long_description": "ReLeaSE (Reinforcement Learning for Structural Evolution) is an AI framework that combines deep generative models and reinforcement learning to design novel chemical compounds with desirable biological properties.",
+"tags": ["reinforcement learning", "molecule generation", "drug design", "AI"],
+"category": "Drug Discovery"
+},
+{
+"name": "MolGAN",
+"slug": "molgan",
+"url": "https://github.com/nicola-decao/MolGAN",
+"short_description": "A generative adversarial network for molecular graphs.",
+"long_description": "MolGAN is a generative model for small molecular graphs using GANs and reinforcement learning. It can generate molecules directly as graphs, avoiding limitations of SMILES-based representations.",
+"tags": ["GAN", "molecular generation", "graph neural networks", "cheminformatics"],
+"category": "Cheminformatics"
+},
+{
+"name": "MegaSyn",
+"slug": "megasyn",
+"url": "https://github.com/MolecularAI/MegaSyn",
+"short_description": "Toolset for generative molecular design.",
+"long_description": "MegaSyn is a suite of generative AI tools for creating novel molecules with desirable properties. It includes generative models, property predictors, and synthetic feasibility analysis to streamline early-stage drug discovery.",
+"tags": ["molecular generation", "AI", "synthetic feasibility", "drug discovery"],
+"category": "Drug Discovery"
+},
+{
+"name": "Chematica (Synthia)",
+"slug": "chematica",
+"url": "https://www.sigmaaldrich.com/US/en/product/aldrich/synthia",
+"short_description": "AI-based retrosynthesis planning platform.",
+"long_description": "Chematica, now commercialized as Synthia, is an AI-driven tool that helps chemists plan synthetic routes. It uses reaction databases and expert-curated rules to identify efficient and novel synthesis pathways.",
+"tags": ["retrosynthesis", "reaction planning", "AI", "organic chemistry"],
+"category": "Cheminformatics"
+},
+{
+"name": "AIDrugApp",
+"slug": "aidrugapp",
+"url": "https://github.com/AIDrugApp/AIDrugApp",
+"short_description": "Web-based platform for AI-driven drug discovery.",
+"long_description": "AIDrugApp is a user-friendly web application that integrates deep learning models to predict molecular properties and drug-likeness. It allows researchers without coding experience to harness AI in drug discovery.",
+"tags": ["property prediction", "drug-likeness", "deep learning", "web platform"],
+"category": "Drug Discovery"
+},
+{
+"name": "DeepLigBuilder",
+"slug": "deepligbuilder",
+"url": "https://github.com/deepligbuilder/deepligbuilder",
+"short_description": "Deep learning-based ligand structure generation tool.",
+"long_description": "DeepLigBuilder generates 3D structures of small molecules with deep generative models. It aids in ligand-based drug design by constructing chemically valid molecules based on user input or templates.",
+"tags": ["ligand design", "3D structure generation", "deep learning", "drug discovery"],
+"category": "Drug Discovery"
+},
+{
+"name": "GraphAF",
+"slug": "graphaf",
+"url": "https://github.com/DeepGraphLearning/GraphAF",
+"short_description": "Autoregressive flow-based model for graph generation.",
+"long_description": "GraphAF is a flow-based deep generative model that builds molecular graphs atom-by-atom in an autoregressive manner. It achieves high-quality molecule generation and supports property-constrained design.",
+"tags": ["molecular generation", "flow models", "autoregressive", "graph learning"],
+"category": "Cheminformatics"
+},
+{
+"name": "PathFinder",
+"slug": "pathfinder",
+"url": "https://www.schrodinger.com/products/pathfinder",
+"short_description": "Enumerative AI-based reaction pathway generator.",
+"long_description": "PathFinder by Schrödinger is an AI tool that rapidly enumerates synthetically accessible compound libraries by exploring known reactions. It aids in hit expansion and lead optimization during drug discovery.",
+"tags": ["reaction enumeration", "lead optimization", "virtual screening", "drug discovery"],
+"category": "Drug Discovery"
+},
+{
+"name": "PostEra Manifold",
+"slug": "postera-manifold",
+"url": "https://postera.ai/manifold",
+"short_description": "AI-powered synthesis planning and molecule search platform.",
+"long_description": "Manifold is a tool from PostEra that combines AI and medicinal chemistry to help design synthetically accessible molecules. It predicts reaction routes and matches molecules with suppliers and reagents.",
+"tags": ["synthetic planning", "molecular design", "AI", "drug discovery"],
+"category": "Drug Discovery"
+},
+{
+"name": "MolecularRNN",
+"slug": "molecularrnn",
+"url": "https://github.com/GINK03/MolecularRNN",
+"short_description": "Recurrent neural network for SMILES generation.",
+"long_description": "MolecularRNN is a recurrent neural network trained on SMILES to generate novel molecules. It captures sequential dependencies in molecular strings to create syntactically valid and drug-like structures.",
+"tags": ["SMILES generation", "RNN", "molecular generation", "deep learning"],
+"category": "Cheminformatics"
+},
+{
+"name": "TDC (Therapeutics Data Commons)",
+"slug": "tdc",
+"url": "https://tdcommons.ai/",
+"short_description": "Resource platform for AI in therapeutics.",
+"long_description": "Therapeutics Data Commons (TDC) provides machine learning-ready datasets and evaluation pipelines for drug discovery, covering tasks like ADMET prediction, biomarker discovery, and drug combination prediction.",
+"tags": ["datasets", "benchmarking", "AI", "therapeutics"],
+"category": "Cheminformatics"
+},
+{
+"name": "SMILES Transformer",
+"slug": "smiles-transformer",
+"url": "https://github.com/EBjerrum/SMILESTransformer",
+"short_description": "Transformer-based model for chemical structure embedding.",
+"long_description": "The SMILES Transformer is a pretrained transformer model designed to encode molecular structures in SMILES format. It facilitates transfer learning for downstream QSAR tasks and molecular classification.",
+"tags": ["transformer", "SMILES", "embedding", "QSAR"],
+"category": "Cheminformatics"
+},
+{
+"name": "ChemAI",
+"slug": "chemai",
+"url": "https://chemai.xyz/",
+"short_description": "Machine learning platform for chemical property prediction.",
+"long_description": "ChemAI is a web platform offering tools for predicting chemical and physical properties of compounds using state-of-the-art machine learning models. It supports rapid prototyping for research and development.",
+"tags": ["property prediction", "machine learning", "web platform", "chemistry"],
+"category": "Cheminformatics"
+},
+{
+"name": "DeepSynergy",
+"slug": "deepsynergy",
+"url": "https://github.com/omn-path/DeepSynergy",
+"short_description": "Deep learning model for predicting drug synergy.",
+"long_description": "DeepSynergy is a neural network-based approach to predict the synergistic effects of drug combinations. It integrates molecular and transcriptomic data to model interaction outcomes.",
+"tags": ["drug synergy", "deep learning", "combination therapy", "cheminformatics"],
+"category": "Drug Discovery"
+},
+{
+"name": "ADMETlab 2.0",
+"slug": "admetlab2",
+"url": "https://admetmesh.scbdd.com/service/evaluation/index",
+"short_description": "Online platform for ADMET property prediction.",
+"long_description": "ADMETlab 2.0 is an enhanced online platform that predicts absorption, distribution, metabolism, excretion, and toxicity properties of chemical compounds using machine learning models.",
+"tags": ["ADMET", "property prediction", "toxicity", "machine learning"],
+"category": "Drug Discovery"
+},
+{
+"name": "SAVI",
+"slug": "savi",
+"url": "https://cactus.nci.nih.gov/download/savi/",
+"short_description": "Synthetic accessibility-based virtual inventory.",
+"long_description": "SAVI (Synthetically Accessible Virtual Inventory) is a freely available database of virtual molecules curated for synthetic feasibility. It uses reaction-based enumeration for chemical space exploration.",
+"tags": ["virtual screening", "synthetic accessibility", "cheminformatics", "inventory"],
+"category": "Cheminformatics"
+},
+{
+"name": "TargetNet",
+"slug": "targetnet",
+"url": "http://targetnet.scbdd.com/",
+"short_description": "Bioactivity prediction against multiple targets.",
+"long_description": "TargetNet is a web-based tool that predicts the bioactivity of compounds across a wide range of protein targets using QSAR models trained on large bioactivity datasets.",
+"tags": ["target prediction", "QSAR", "bioactivity", "cheminformatics"],
+"category": "Drug Discovery"
+},
+{
+"name": "MolDesigner",
+"slug": "moldesigner",
+"url": "https://moldesigner.readthedocs.io/",
+"short_description": "Interactive tool for molecular design.",
+"long_description": "MolDesigner is a cheminformatics tool for building and editing molecular structures interactively. It integrates property prediction and fragment-based design to support medicinal chemistry workflows.",
+"tags": ["molecular design", "interactive", "cheminformatics", "structure editor"],
+"category": "Cheminformatics"
+},
+{
+"name": "ChemCrow",
+"slug": "chemcrow",
+"url": "https://github.com/ur-whitelab/ChemCrow",
+"short_description": "Language agent for chemical automation tasks.",
+"long_description": "ChemCrow is a chemistry-focused large language model agent that integrates over 18 specialized tools to help with retrosynthesis, safety analysis, experimental design, and literature searches in chemical research.",
+"tags": ["language model", "automation", "retrosynthesis", "AI tools"],
+"category": "Cheminformatics"
+}  
 ]
