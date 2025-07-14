@@ -1,8 +1,8 @@
 name: Hugging Face Data Collection
 
 on:
-  schedule:
-    - cron: '0 3 * * 0,2,4,6'  # Sonntag, Dienstag, Donnerstag, Samstag um 3 Uhr
+  # schedule:
+    # - cron: '0 3 * * 0,2,4,6'  # Sonntag, Dienstag, Donnerstag, Samstag um 3 Uhr
   workflow_dispatch:
 
 permissions:
