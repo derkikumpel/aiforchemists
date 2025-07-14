@@ -88,7 +88,7 @@
 "long_description": "IBM RXN for Chemistry is a cloud-based platform that uses AI to predict chemical reactions, perform retrosynthesis planning, and assist in reaction optimization. It combines transformer models with intuitive user interfaces for chemists.",
 "tags": ["reaction prediction", "retrosynthesis", "AI", "cheminformatics"],
 "category": "Cheminformatics"
-}
+},
 {
 "name": "MolBERT",
 "slug": "molbert",
