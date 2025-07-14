@@ -27,7 +27,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-       - name: Screenshots erstellen und ungültige Tools entfernen
+      - name: Screenshots erstellen und ungültige Tools entfernen
         env:
           CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
           CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
@@ -35,7 +35,6 @@ jobs:
         run: npm run screenshot
 
       - name: Generate detail pages
-        env:
         run: npm run generate
         
       - name: Last updated setzen
