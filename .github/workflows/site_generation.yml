@@ -27,6 +27,9 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Install Playwright-Browser
+        run: npx playwright install --with-deps
+
       - name: Screenshots erstellen und ungültige Tools entfernen
         env:
           CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
