@@ -1,119 +1,92 @@
 [
-  {
-    "name": "RDKit",
-    "slug": "rdkit",
-    "url": "https://www.rdkit.org/",
-    "short_description": "Open-source cheminformatics library written in Python",
-    "long_description": "RDKit is an open-source library used for pharamacological research, providing tools for molecule representation, prediction, and conversion.",
-    "tags": [
-      "cheminformatics",
-      "drug discovery",
-      "machine learning",
-      "python"
-    ],
-    "category": "software"
-  },
-  {
-    "name": "Chemistry Development Kit",
-    "slug": "cdk",
-    "url": "https://cdk.io/",
-    "short_description": "JAVA-based open-source cheminformatics library",
-    "long_description": "CDK is a Java-based open-source library used for storing, retrieving, and performing computations on chemical structures as well as compound property calculations.",
-    "tags": [
-      "cheminformatics",
-      "chemistry",
-      "Java"
-    ],
-    "category": "software"
-  },
-  {
-    "name": "OpenEye",
-    "slug": "opeye",
-    "url": "https://www.eye.com/",
-    "short_description": "Commercial cheminformatics package provides tools for molecular mechanics, pharmacophore modeling, and database searching.",
-    "long_description": "OpenEye offers the industry-leading solution for computational chemistry problems, providing tools for 3D structure prediction, analysis, and discovery.",
-    "tags": [
-      "cheminformatics",
-      "drug discovery",
-      "commercial"
-    ],
-    "category": "software"
-  },
-  {
-    "name": "Schrödinger",
-    "slug": "schrodinger",
-    "url": "https://www.schrodinger.com/",
-    "short_description": "Commercial software suite for drug discovery and structural biology simulations",
-    "long_description": "Schrödinger is a commercial software suite offering tools for small-molecule and biomolecular simulations, providing insights into the molecular structure nature and interactions.",
-    "tags": [
-      "drug discovery",
-      "structural biology",
-      "commercial"
-    ],
-    "category": "software"
-  },
-  {
-    "name": "DOCK",
-    "slug": "dock",
-    "url": "https://dock.compbio.washington.edu/",
-    "short_description": "Software for flexible docking between proteins and ligands.",
-    "long_description": "DOCK predicts and optimizes protein-ligand interactions dynamically for drug discovery and structure-based ligand design.",
-    "tags": [
-      "drug discovery",
-      "molecular dynamics",
-      "protein-ligand docking"
-    ],
-    "category": "software"
-  },
-  {
-    "name": "MolSSI",
-    "slug": "molssi",
-    "url": "http://molssi.org",
-    "short_description": "Molecular Simulation Software for Integrated Investigations.",
-    "long_description": "MolSSI is a free, open-source collection of molecular simulation packages for short range classical molecular dynamics, Monte Carlo simulations, and equation of state calculations.",
-    "tags": [
-      "molecular dynamics",
-      "classical molecular dynamics",
-      "Monte Carlo simulations"
-    ],
-    "category": "software"
-  },
-  {
-    "name": "PhysiFlow",
-    "slug": "physiflow",
-    "url": "http://physiflow.sourceforge.net/",
-    "short_description": "Open-source software for automating biochemical research.",
-    "long_description": "PhysiFlow is an open-source workflow system for automating biochemical research, allowing for repeatable and shareable experiments, ACL analysis, and modeling.",
-    "tags": [
-      "automated biochemical research",
-      "ACL analysis",
-      "modeling"
-    ],
-    "category": "software"
-  },
-  {
-    "name": "OBO Better AntiConcept Identification Tool (OBI-TOOL)",
-    "slug": "obi-tool",
-    "url": "http://obidata.genahub.org/obi-tool.shtml",
-    "short_description": "Tool for identifying the best anti-concept for cross-project harmonization.",
-    "long_description": "OBI-Tool is a software tool for identifying the best anti-concept in biochemical pathways, enabling cross-project harmonization, and providing a standard vocabulary across various biological systems.",
-    "tags": [
-      "biochemical pathway harmonization",
-      "anti-concept"
-    ],
-    "category": "software"
-  },
-  {
-    "name": "Open Targets Platform",
-    "slug": "opentargets",
-    "url": "https://www.opentargets.org/",
-    "short_description": "A collaborative platform for drug target identification and repurposing.",
-    "long_description": "Open Targets Platform provides a collaborative space for drug target identification and repurposing by integrating experimental and computation models to predict the therapeutic potential of drugs.",
-    "tags": [
-      "drug discovery",
-      "drug repurposing",
-      "collaboration"
-    ],
-    "category": "software"
-  }
+{
+"name": "DeepChem",
+"slug": "deepchem",
+"url": "https://deepchem.io/",
+"short_description": "An open-source toolkit for deep learning in drug discovery and quantum chemistry.",
+"long_description": "DeepChem is a robust Python library that democratizes deep learning for the life sciences. It offers tools for molecular modeling, cheminformatics, and bioinformatics, enabling researchers to build predictive models for molecular properties and biological activities.",
+"tags": ["deep learning", "cheminformatics", "drug discovery", "molecular modeling"],
+"category": "Cheminformatics"
+},
+{
+"name": "Chemprop",
+"slug": "chemprop",
+"url": "https://chemprop.readthedocs.io/",
+"short_description": "A message-passing neural network for molecular property prediction.",
+"long_description": "Chemprop is a machine learning framework for predicting molecular properties using graph neural networks. It is designed to support regression and classification tasks and offers high accuracy across a wide range of chemical datasets.",
+"tags": ["graph neural networks", "molecular property prediction", "QSAR", "cheminformatics"],
+"category": "Drug Discovery"
+},
+{
+"name": "MoleculeNet",
+"slug": "moleculenet",
+"url": "https://moleculenet.org/",
+"short_description": "A benchmark for molecular machine learning.",
+"long_description": "MoleculeNet provides standardized datasets and evaluation protocols for machine learning on molecular data. It includes diverse datasets for tasks like quantum mechanics, physical chemistry, biophysics, and physiology, making it a key resource for model benchmarking.",
+"tags": ["benchmarking", "datasets", "molecular machine learning", "cheminformatics"],
+"category": "Cheminformatics"
+},
+{
+"name": "AutoDock",
+"slug": "autodock",
+"url": "http://autodock.scripps.edu/",
+"short_description": "A suite of automated docking tools.",
+"long_description": "AutoDock is a molecular modeling simulation software especially effective for predicting how small molecules bind to a receptor of known 3D structure. It is widely used in virtual screening and structure-based drug design.",
+"tags": ["molecular docking", "structure-based design", "virtual screening", "drug discovery"],
+"category": "Drug Discovery"
+},
+{
+"name": "RDKit",
+"slug": "rdkit",
+"url": "https://www.rdkit.org/",
+"short_description": "An open-source cheminformatics toolkit.",
+"long_description": "RDKit is a collection of cheminformatics and machine learning tools that supports SMILES parsing, substructure search, molecular fingerprints, and more. It integrates well with Python and is commonly used in both academia and industry.",
+"tags": ["cheminformatics", "SMILES", "fingerprinting", "open source"],
+"category": "Cheminformatics"
+},
+{
+"name": "AlphaFold",
+"slug": "alphafold",
+"url": "https://www.deepmind.com/research/highlighted-research/alphafold",
+"short_description": "AI system that predicts protein structures.",
+"long_description": "AlphaFold is an AI system developed by DeepMind that predicts the 3D structures of proteins from amino acid sequences. It has revolutionized structural biology and is critical in structure-based drug design and target validation.",
+"tags": ["protein folding", "structural biology", "AI", "drug discovery"],
+"category": "Drug Discovery"
+},
+{
+"name": "OpenEye Orion",
+"slug": "openeye-orion",
+"url": "https://www.eyesopen.com/orion",
+"short_description": "Cloud-native platform for drug discovery.",
+"long_description": "OpenEye Orion is a cloud-based computational chemistry platform that supports large-scale modeling, virtual screening, and cheminformatics workflows. It integrates visualization, data management, and high-performance computing capabilities.",
+"tags": ["cloud computing", "virtual screening", "cheminformatics", "drug discovery"],
+"category": "Drug Discovery"
+},
+{
+"name": "Schrödinger Suite",
+"slug": "schrodinger-suite",
+"url": "https://www.schrodinger.com/",
+"short_description": "Comprehensive modeling platform for drug design.",
+"long_description": "The Schrödinger Suite offers molecular modeling, simulation, and cheminformatics tools that support the entire drug discovery pipeline. It includes capabilities for molecular docking, quantum chemistry, and machine learning-enhanced design.",
+"tags": ["molecular modeling", "simulation", "quantum chemistry", "drug discovery"],
+"category": "Drug Discovery"
+},
+{
+"name": "BioSolveIT SeeSAR",
+"slug": "biosolveit-seesar",
+"url": "https://www.biosolveit.de/SeeSAR/",
+"short_description": "Interactive platform for structure-based design.",
+"long_description": "SeeSAR is a visual and interactive platform from BioSolveIT that aids medicinal chemists in structure-based drug design. It enables users to visualize protein-ligand interactions, optimize compounds, and run docking simulations efficiently.",
+"tags": ["structure-based design", "visualization", "docking", "drug discovery"],
+"category": "Drug Discovery"
+},
+{
+"name": "IBM RXN for Chemistry",
+"slug": "ibm-rxn",
+"url": "https://rxn.res.ibm.com/",
+"short_description": "AI-powered platform for chemical reaction prediction.",
+"long_description": "IBM RXN for Chemistry is a cloud-based platform that uses AI to predict chemical reactions, perform retrosynthesis planning, and assist in reaction optimization. It combines transformer models with intuitive user interfaces for chemists.",
+"tags": ["reaction prediction", "retrosynthesis", "AI", "cheminformatics"],
+"category": "Cheminformatics"
+}
 ]
