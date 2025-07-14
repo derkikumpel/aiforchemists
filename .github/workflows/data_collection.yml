@@ -1,8 +1,8 @@
 name: Data Collection
 
 on:
-  schedule:
-    - cron: '0 3 * * 0'  # Sonntags 3 Uhr
+  # schedule:
+    # - cron: '0 3 * * 0'  # Sonntags 3 Uhr
   workflow_dispatch:
 
 permissions:
