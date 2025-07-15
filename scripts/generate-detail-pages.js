@@ -6,25 +6,37 @@ const toolsFile = './data/tools.json';
 const templateFile = './templates/tool-template.html';
 const outputDir = './tools';
 
+function log(...args) {
+  process.stdout.write(new Date().toISOString() + ' LOG: ' + args.map(String).join(' ') + '\n');
+}
+
+function warn(...args) {
+  process.stderr.write(new Date().toISOString() + ' WARN: ' + args.map(String).join(' ') + '\n');
+}
+
+function error(...args) {
+  process.stderr.write(new Date().toISOString() + ' ERROR: ' + args.map(String).join(' ') + '\n');
+}
+
 async function generateDetailPages() {
-  console.log('🚀 Starte Generierung der Detailseiten...');
+  log('🚀 Starte Generierung der Detailseiten...');
 
   let tools;
   try {
     tools = await fs.readJson(toolsFile);
     if (!Array.isArray(tools)) throw new Error('tools.json ist kein Array');
-    console.log(`📦 ${tools.length} Tools geladen.`);
+    log(`📦 ${tools.length} Tools geladen.`);
   } catch (err) {
-    console.error(`❌ Fehler beim Lesen von ${toolsFile}:`, err.message);
+    error(`❌ Fehler beim Lesen von ${toolsFile}:`, err.message);
     process.exit(1);
   }
 
   let rawTemplate;
   try {
     rawTemplate = await fs.readFile(templateFile, 'utf8');
-    console.log(`🧩 Template geladen: ${templateFile}`);
+    log(`🧩 Template geladen: ${templateFile}`);
   } catch (err) {
-    console.error(`❌ Fehler beim Laden des Templates:`, err.message);
+    error(`❌ Fehler beim Laden des Templates:`, err.message);
     process.exit(1);
   }
 
@@ -33,40 +45,48 @@ async function generateDetailPages() {
   try {
     await fs.ensureDir(outputDir);
   } catch (err) {
-    console.error(`❌ Fehler beim Erstellen des Output-Ordners "${outputDir}":`, err.message);
+    error(`❌ Fehler beim Erstellen des Output-Ordners "${outputDir}":`, err.message);
     process.exit(1);
+  }
+
+  // Filter nur Tools mit validem Screenshot
+  const toolsWithScreenshots = tools.filter(tool => tool.hasScreenshot === true);
+
+  if (toolsWithScreenshots.length === 0) {
+    warn('⚠️ Keine Tools mit gültigen Screenshots gefunden. Keine Seiten generiert.');
+    return;
   }
 
   let successCount = 0;
 
-  for (const tool of tools) {
+  for (const tool of toolsWithScreenshots) {
     if (!tool.slug) {
-      console.warn(`⚠️ Übersprungen: Tool ohne "slug": ${tool.name || 'Unbenanntes Tool'}`);
+      warn(`⚠️ Übersprungen: Tool ohne "slug": ${tool.name || 'Unbenanntes Tool'}`);
       continue;
     }
 
-  try {
-    const html = template({
-      name: tool.name,
-      url: tool.url,
-      image: tool.screenshot,
-      long_description: tool.long_description,
-      tags: tool.tags || [],
-    });
+    try {
+      const html = template({
+        name: tool.name,
+        url: tool.url,
+        image: tool.screenshot,
+        long_description: tool.long_description,
+        tags: tool.tags || [],
+      });
 
-    const filePath = path.join(outputDir, `${tool.slug}.html`);
-    await fs.writeFile(filePath, html, 'utf8');
-    console.log(`✅ Generiert: ${filePath}`);
-    successCount++;
-  } catch (err) {
-    console.warn(`⚠️ Fehler beim Generieren von ${tool.slug}:`, err.message);
+      const filePath = path.join(outputDir, `${tool.slug}.html`);
+      await fs.writeFile(filePath, html, 'utf8');
+      log(`✅ Generiert: ${filePath}`);
+      successCount++;
+    } catch (err) {
+      warn(`⚠️ Fehler beim Generieren von ${tool.slug}:`, err.message);
+    }
   }
-}
 
-  console.log(`🎉 Fertig: ${successCount} Seiten erfolgreich generiert.`);
+  log(`🎉 Fertig: ${successCount} Seiten erfolgreich generiert.`);
 }
 
 generateDetailPages().catch(err => {
-  console.error('❌ Unerwarteter Fehler bei der Seitengenerierung:', err);
+  error('❌ Unerwarteter Fehler bei der Seitengenerierung:', err);
   process.exit(1);
 });
