@@ -12,7 +12,7 @@
       "molecular modeling"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752566826/chem-ai-tools/deepchem.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752567617/chem-ai-tools/deepchem.png"
   },
   {
     "name": "Chemprop",
@@ -87,7 +87,7 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752484981/chem-ai-tools/alphafold.png"
+    "screenshot": "assets/placeholder.png"
   },
   {
     "name": "OpenEye Orion",
@@ -387,7 +387,7 @@
       "machine learning"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752566920/chem-ai-tools/admetlab2.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752567702/chem-ai-tools/admetlab2.png"
   },
   {
     "name": "SAVI",
@@ -417,7 +417,7 @@
       "cheminformatics"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752485045/chem-ai-tools/targetnet.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752567711/chem-ai-tools/targetnet.png"
   },
   {
     "name": "MolDesigner",
