@@ -12,7 +12,8 @@
       "molecular modeling"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752567617/chem-ai-tools/deepchem.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752570568/chem-ai-tools/deepchem.png",
+    "hasScreenshot": true
   },
   {
     "name": "Chemprop",
@@ -27,7 +28,8 @@
       "cheminformatics"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752484959/chem-ai-tools/chemprop.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752484959/chem-ai-tools/chemprop.png",
+    "hasScreenshot": true
   },
   {
     "name": "MoleculeNet",
@@ -42,7 +44,8 @@
       "cheminformatics"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752484963/chem-ai-tools/moleculenet.png"
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "AutoDock",
@@ -57,7 +60,8 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752484969/chem-ai-tools/autodock.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752484969/chem-ai-tools/autodock.png",
+    "hasScreenshot": true
   },
   {
     "name": "RDKit",
@@ -72,7 +76,8 @@
       "open source"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752484973/chem-ai-tools/rdkit.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752484973/chem-ai-tools/rdkit.png",
+    "hasScreenshot": true
   },
   {
     "name": "AlphaFold",
@@ -87,7 +92,8 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752484981/chem-ai-tools/alphafold.png",
+    "hasScreenshot": true
   },
   {
     "name": "OpenEye Orion",
@@ -102,7 +108,8 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752484985/chem-ai-tools/openeye-orion.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752484985/chem-ai-tools/openeye-orion.png",
+    "hasScreenshot": true
   },
   {
     "name": "Schrödinger Suite",
@@ -117,7 +124,8 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752484990/chem-ai-tools/schrodinger-suite.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752484990/chem-ai-tools/schrodinger-suite.png",
+    "hasScreenshot": true
   },
   {
     "name": "BioSolveIT SeeSAR",
@@ -132,7 +140,8 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752484995/chem-ai-tools/biosolveit-seesar.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752484995/chem-ai-tools/biosolveit-seesar.png",
+    "hasScreenshot": true
   },
   {
     "name": "IBM RXN for Chemistry",
@@ -147,7 +156,8 @@
       "cheminformatics"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752485004/chem-ai-tools/ibm-rxn.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752485004/chem-ai-tools/ibm-rxn.png",
+    "hasScreenshot": true
   },
   {
     "name": "MolBERT",
@@ -162,7 +172,8 @@
       "drug discovery"
     ],
     "category": "Cheminformatics",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "ReLeaSE",
@@ -177,7 +188,8 @@
       "AI"
     ],
     "category": "Drug Discovery",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "MolGAN",
@@ -192,7 +204,8 @@
       "cheminformatics"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752566890/chem-ai-tools/molgan.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752566890/chem-ai-tools/molgan.png",
+    "hasScreenshot": true
   },
   {
     "name": "MegaSyn",
@@ -207,7 +220,8 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "Chematica (Synthia)",
@@ -222,7 +236,8 @@
       "organic chemistry"
     ],
     "category": "Cheminformatics",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "AIDrugApp",
@@ -237,7 +252,8 @@
       "web platform"
     ],
     "category": "Drug Discovery",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "DeepLigBuilder",
@@ -252,7 +268,8 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "GraphAF",
@@ -267,7 +284,8 @@
       "graph learning"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752485017/chem-ai-tools/graphaf.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752485017/chem-ai-tools/graphaf.png",
+    "hasScreenshot": true
   },
   {
     "name": "PathFinder",
@@ -282,7 +300,8 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752485023/chem-ai-tools/pathfinder.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752485023/chem-ai-tools/pathfinder.png",
+    "hasScreenshot": true
   },
   {
     "name": "PostEra Manifold",
@@ -297,7 +316,8 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "MolecularRNN",
@@ -312,7 +332,8 @@
       "deep learning"
     ],
     "category": "Cheminformatics",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "TDC (Therapeutics Data Commons)",
@@ -327,7 +348,8 @@
       "therapeutics"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752485027/chem-ai-tools/tdc.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752485027/chem-ai-tools/tdc.png",
+    "hasScreenshot": true
   },
   {
     "name": "SMILES Transformer",
@@ -342,7 +364,8 @@
       "QSAR"
     ],
     "category": "Cheminformatics",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "ChemAI",
@@ -357,7 +380,8 @@
       "chemistry"
     ],
     "category": "Cheminformatics",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "DeepSynergy",
@@ -372,7 +396,8 @@
       "cheminformatics"
     ],
     "category": "Drug Discovery",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "ADMETlab 2.0",
@@ -387,7 +412,8 @@
       "machine learning"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752567702/chem-ai-tools/admetlab2.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752570677/chem-ai-tools/admetlab2.png",
+    "hasScreenshot": true
   },
   {
     "name": "SAVI",
@@ -402,7 +428,8 @@
       "inventory"
     ],
     "category": "Cheminformatics",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "TargetNet",
@@ -417,7 +444,8 @@
       "cheminformatics"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752567711/chem-ai-tools/targetnet.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752570685/chem-ai-tools/targetnet.png",
+    "hasScreenshot": true
   },
   {
     "name": "MolDesigner",
@@ -432,7 +460,8 @@
       "structure editor"
     ],
     "category": "Cheminformatics",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "ChemCrow",
@@ -447,7 +476,8 @@
       "AI tools"
     ],
     "category": "Cheminformatics",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "PharmaNet",
@@ -463,7 +493,8 @@
       "RNN"
     ],
     "category": "Drug Discovery",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "DeepTox",
@@ -479,7 +510,8 @@
       "prediction"
     ],
     "category": "Cheminformatics",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "PolypharmDB",
@@ -494,7 +526,8 @@
       "database"
     ],
     "category": "Drug Discovery",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "ChemAIBox",
@@ -509,7 +542,8 @@
       "AI"
     ],
     "category": "Cheminformatics",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "AutoQSAR",
@@ -524,7 +558,8 @@
       "modeling"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752485053/chem-ai-tools/autoqsar.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752485053/chem-ai-tools/autoqsar.png",
+    "hasScreenshot": true
   },
   {
     "name": "MoleculeACE",
@@ -539,7 +574,8 @@
       "generative models"
     ],
     "category": "Cheminformatics",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "ORGANIC",
@@ -554,7 +590,8 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "assets/placeholder.png"
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "RXNMapper",
@@ -569,6 +606,7 @@
       "AI"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752566946/chem-ai-tools/rxnmapper.png"
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752566946/chem-ai-tools/rxnmapper.png",
+    "hasScreenshot": true
   }
 ]
