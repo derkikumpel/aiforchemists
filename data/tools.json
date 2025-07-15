@@ -1,344 +1,574 @@
 [
-{
-"name": "DeepChem",
-"slug": "deepchem",
-"url": "https://deepchem.io/",
-"short_description": "An open-source toolkit for deep learning in drug discovery and quantum chemistry.",
-"long_description": "DeepChem is a robust Python library that democratizes deep learning for the life sciences. It offers tools for molecular modeling, cheminformatics, and bioinformatics, enabling researchers to build predictive models for molecular properties and biological activities.",
-"tags": ["deep learning", "cheminformatics", "drug discovery", "molecular modeling"],
-"category": "Cheminformatics"
-},
-{
-"name": "Chemprop",
-"slug": "chemprop",
-"url": "https://chemprop.readthedocs.io/",
-"short_description": "A message-passing neural network for molecular property prediction.",
-"long_description": "Chemprop is a machine learning framework for predicting molecular properties using graph neural networks. It is designed to support regression and classification tasks and offers high accuracy across a wide range of chemical datasets.",
-"tags": ["graph neural networks", "molecular property prediction", "QSAR", "cheminformatics"],
-"category": "Drug Discovery"
-},
-{
-"name": "MoleculeNet",
-"slug": "moleculenet",
-"url": "https://moleculenet.org/",
-"short_description": "A benchmark for molecular machine learning.",
-"long_description": "MoleculeNet provides standardized datasets and evaluation protocols for machine learning on molecular data. It includes diverse datasets for tasks like quantum mechanics, physical chemistry, biophysics, and physiology, making it a key resource for model benchmarking.",
-"tags": ["benchmarking", "datasets", "molecular machine learning", "cheminformatics"],
-"category": "Cheminformatics"
-},
-{
-"name": "AutoDock",
-"slug": "autodock",
-"url": "http://autodock.scripps.edu/",
-"short_description": "A suite of automated docking tools.",
-"long_description": "AutoDock is a molecular modeling simulation software especially effective for predicting how small molecules bind to a receptor of known 3D structure. It is widely used in virtual screening and structure-based drug design.",
-"tags": ["molecular docking", "structure-based design", "virtual screening", "drug discovery"],
-"category": "Drug Discovery"
-},
-{
-"name": "RDKit",
-"slug": "rdkit",
-"url": "https://www.rdkit.org/",
-"short_description": "An open-source cheminformatics toolkit.",
-"long_description": "RDKit is a collection of cheminformatics and machine learning tools that supports SMILES parsing, substructure search, molecular fingerprints, and more. It integrates well with Python and is commonly used in both academia and industry.",
-"tags": ["cheminformatics", "SMILES", "fingerprinting", "open source"],
-"category": "Cheminformatics"
-},
-{
-"name": "AlphaFold",
-"slug": "alphafold",
-"url": "https://www.deepmind.com/research/highlighted-research/alphafold",
-"short_description": "AI system that predicts protein structures.",
-"long_description": "AlphaFold is an AI system developed by DeepMind that predicts the 3D structures of proteins from amino acid sequences. It has revolutionized structural biology and is critical in structure-based drug design and target validation.",
-"tags": ["protein folding", "structural biology", "AI", "drug discovery"],
-"category": "Drug Discovery"
-},
-{
-"name": "OpenEye Orion",
-"slug": "openeye-orion",
-"url": "https://www.eyesopen.com/orion",
-"short_description": "Cloud-native platform for drug discovery.",
-"long_description": "OpenEye Orion is a cloud-based computational chemistry platform that supports large-scale modeling, virtual screening, and cheminformatics workflows. It integrates visualization, data management, and high-performance computing capabilities.",
-"tags": ["cloud computing", "virtual screening", "cheminformatics", "drug discovery"],
-"category": "Drug Discovery"
-},
-{
-"name": "Schrödinger Suite",
-"slug": "schrodinger-suite",
-"url": "https://www.schrodinger.com/",
-"short_description": "Comprehensive modeling platform for drug design.",
-"long_description": "The Schrödinger Suite offers molecular modeling, simulation, and cheminformatics tools that support the entire drug discovery pipeline. It includes capabilities for molecular docking, quantum chemistry, and machine learning-enhanced design.",
-"tags": ["molecular modeling", "simulation", "quantum chemistry", "drug discovery"],
-"category": "Drug Discovery"
-},
-{
-"name": "BioSolveIT SeeSAR",
-"slug": "biosolveit-seesar",
-"url": "https://www.biosolveit.de/SeeSAR/",
-"short_description": "Interactive platform for structure-based design.",
-"long_description": "SeeSAR is a visual and interactive platform from BioSolveIT that aids medicinal chemists in structure-based drug design. It enables users to visualize protein-ligand interactions, optimize compounds, and run docking simulations efficiently.",
-"tags": ["structure-based design", "visualization", "docking", "drug discovery"],
-"category": "Drug Discovery"
-},
-{
-"name": "IBM RXN for Chemistry",
-"slug": "ibm-rxn",
-"url": "https://rxn.res.ibm.com/",
-"short_description": "AI-powered platform for chemical reaction prediction.",
-"long_description": "IBM RXN for Chemistry is a cloud-based platform that uses AI to predict chemical reactions, perform retrosynthesis planning, and assist in reaction optimization. It combines transformer models with intuitive user interfaces for chemists.",
-"tags": ["reaction prediction", "retrosynthesis", "AI", "cheminformatics"],
-"category": "Cheminformatics"
-},
-{
-"name": "MolBERT",
-"slug": "molbert",
-"url": "https://github.com/pharmbio/molbert",
-"short_description": "A transformer-based model for molecular representation learning.",
-"long_description": "MolBERT is a BERT-like language model tailored for molecules represented as SMILES strings. It leverages unsupervised pretraining to learn contextualized molecular embeddings that improve downstream tasks such as property prediction and molecule generation.",
-"tags": ["transformer", "SMILES", "molecular representation", "drug discovery"],
-"category": "Cheminformatics"
-},
-{
-"name": "ReLeaSE",
-"slug": "release",
-"url": "https://github.com/insilicomedicine/ReLeaSE",
-"short_description": "Reinforcement learning for de novo drug design.",
-"long_description": "ReLeaSE (Reinforcement Learning for Structural Evolution) is an AI framework that combines deep generative models and reinforcement learning to design novel chemical compounds with desirable biological properties.",
-"tags": ["reinforcement learning", "molecule generation", "drug design", "AI"],
-"category": "Drug Discovery"
-},
-{
-"name": "MolGAN",
-"slug": "molgan",
-"url": "https://github.com/nicola-decao/MolGAN",
-"short_description": "A generative adversarial network for molecular graphs.",
-"long_description": "MolGAN is a generative model for small molecular graphs using GANs and reinforcement learning. It can generate molecules directly as graphs, avoiding limitations of SMILES-based representations.",
-"tags": ["GAN", "molecular generation", "graph neural networks", "cheminformatics"],
-"category": "Cheminformatics"
-},
-{
-"name": "MegaSyn",
-"slug": "megasyn",
-"url": "https://github.com/MolecularAI/MegaSyn",
-"short_description": "Toolset for generative molecular design.",
-"long_description": "MegaSyn is a suite of generative AI tools for creating novel molecules with desirable properties. It includes generative models, property predictors, and synthetic feasibility analysis to streamline early-stage drug discovery.",
-"tags": ["molecular generation", "AI", "synthetic feasibility", "drug discovery"],
-"category": "Drug Discovery"
-},
-{
-"name": "Chematica (Synthia)",
-"slug": "chematica",
-"url": "https://www.sigmaaldrich.com/US/en/product/aldrich/synthia",
-"short_description": "AI-based retrosynthesis planning platform.",
-"long_description": "Chematica, now commercialized as Synthia, is an AI-driven tool that helps chemists plan synthetic routes. It uses reaction databases and expert-curated rules to identify efficient and novel synthesis pathways.",
-"tags": ["retrosynthesis", "reaction planning", "AI", "organic chemistry"],
-"category": "Cheminformatics"
-},
-{
-"name": "AIDrugApp",
-"slug": "aidrugapp",
-"url": "https://github.com/AIDrugApp/AIDrugApp",
-"short_description": "Web-based platform for AI-driven drug discovery.",
-"long_description": "AIDrugApp is a user-friendly web application that integrates deep learning models to predict molecular properties and drug-likeness. It allows researchers without coding experience to harness AI in drug discovery.",
-"tags": ["property prediction", "drug-likeness", "deep learning", "web platform"],
-"category": "Drug Discovery"
-},
-{
-"name": "DeepLigBuilder",
-"slug": "deepligbuilder",
-"url": "https://github.com/deepligbuilder/deepligbuilder",
-"short_description": "Deep learning-based ligand structure generation tool.",
-"long_description": "DeepLigBuilder generates 3D structures of small molecules with deep generative models. It aids in ligand-based drug design by constructing chemically valid molecules based on user input or templates.",
-"tags": ["ligand design", "3D structure generation", "deep learning", "drug discovery"],
-"category": "Drug Discovery"
-},
-{
-"name": "GraphAF",
-"slug": "graphaf",
-"url": "https://github.com/DeepGraphLearning/GraphAF",
-"short_description": "Autoregressive flow-based model for graph generation.",
-"long_description": "GraphAF is a flow-based deep generative model that builds molecular graphs atom-by-atom in an autoregressive manner. It achieves high-quality molecule generation and supports property-constrained design.",
-"tags": ["molecular generation", "flow models", "autoregressive", "graph learning"],
-"category": "Cheminformatics"
-},
-{
-"name": "PathFinder",
-"slug": "pathfinder",
-"url": "https://www.schrodinger.com/products/pathfinder",
-"short_description": "Enumerative AI-based reaction pathway generator.",
-"long_description": "PathFinder by Schrödinger is an AI tool that rapidly enumerates synthetically accessible compound libraries by exploring known reactions. It aids in hit expansion and lead optimization during drug discovery.",
-"tags": ["reaction enumeration", "lead optimization", "virtual screening", "drug discovery"],
-"category": "Drug Discovery"
-},
-{
-"name": "PostEra Manifold",
-"slug": "postera-manifold",
-"url": "https://postera.ai/manifold",
-"short_description": "AI-powered synthesis planning and molecule search platform.",
-"long_description": "Manifold is a tool from PostEra that combines AI and medicinal chemistry to help design synthetically accessible molecules. It predicts reaction routes and matches molecules with suppliers and reagents.",
-"tags": ["synthetic planning", "molecular design", "AI", "drug discovery"],
-"category": "Drug Discovery"
-},
-{
-"name": "MolecularRNN",
-"slug": "molecularrnn",
-"url": "https://github.com/GINK03/MolecularRNN",
-"short_description": "Recurrent neural network for SMILES generation.",
-"long_description": "MolecularRNN is a recurrent neural network trained on SMILES to generate novel molecules. It captures sequential dependencies in molecular strings to create syntactically valid and drug-like structures.",
-"tags": ["SMILES generation", "RNN", "molecular generation", "deep learning"],
-"category": "Cheminformatics"
-},
-{
-"name": "TDC (Therapeutics Data Commons)",
-"slug": "tdc",
-"url": "https://tdcommons.ai/",
-"short_description": "Resource platform for AI in therapeutics.",
-"long_description": "Therapeutics Data Commons (TDC) provides machine learning-ready datasets and evaluation pipelines for drug discovery, covering tasks like ADMET prediction, biomarker discovery, and drug combination prediction.",
-"tags": ["datasets", "benchmarking", "AI", "therapeutics"],
-"category": "Cheminformatics"
-},
-{
-"name": "SMILES Transformer",
-"slug": "smiles-transformer",
-"url": "https://github.com/EBjerrum/SMILESTransformer",
-"short_description": "Transformer-based model for chemical structure embedding.",
-"long_description": "The SMILES Transformer is a pretrained transformer model designed to encode molecular structures in SMILES format. It facilitates transfer learning for downstream QSAR tasks and molecular classification.",
-"tags": ["transformer", "SMILES", "embedding", "QSAR"],
-"category": "Cheminformatics"
-},
-{
-"name": "ChemAI",
-"slug": "chemai",
-"url": "https://chemai.xyz/",
-"short_description": "Machine learning platform for chemical property prediction.",
-"long_description": "ChemAI is a web platform offering tools for predicting chemical and physical properties of compounds using state-of-the-art machine learning models. It supports rapid prototyping for research and development.",
-"tags": ["property prediction", "machine learning", "web platform", "chemistry"],
-"category": "Cheminformatics"
-},
-{
-"name": "DeepSynergy",
-"slug": "deepsynergy",
-"url": "https://github.com/omn-path/DeepSynergy",
-"short_description": "Deep learning model for predicting drug synergy.",
-"long_description": "DeepSynergy is a neural network-based approach to predict the synergistic effects of drug combinations. It integrates molecular and transcriptomic data to model interaction outcomes.",
-"tags": ["drug synergy", "deep learning", "combination therapy", "cheminformatics"],
-"category": "Drug Discovery"
-},
-{
-"name": "ADMETlab 2.0",
-"slug": "admetlab2",
-"url": "https://admetmesh.scbdd.com/service/evaluation/index",
-"short_description": "Online platform for ADMET property prediction.",
-"long_description": "ADMETlab 2.0 is an enhanced online platform that predicts absorption, distribution, metabolism, excretion, and toxicity properties of chemical compounds using machine learning models.",
-"tags": ["ADMET", "property prediction", "toxicity", "machine learning"],
-"category": "Drug Discovery"
-},
-{
-"name": "SAVI",
-"slug": "savi",
-"url": "https://cactus.nci.nih.gov/download/savi/",
-"short_description": "Synthetic accessibility-based virtual inventory.",
-"long_description": "SAVI (Synthetically Accessible Virtual Inventory) is a freely available database of virtual molecules curated for synthetic feasibility. It uses reaction-based enumeration for chemical space exploration.",
-"tags": ["virtual screening", "synthetic accessibility", "cheminformatics", "inventory"],
-"category": "Cheminformatics"
-},
-{
-"name": "TargetNet",
-"slug": "targetnet",
-"url": "http://targetnet.scbdd.com/",
-"short_description": "Bioactivity prediction against multiple targets.",
-"long_description": "TargetNet is a web-based tool that predicts the bioactivity of compounds across a wide range of protein targets using QSAR models trained on large bioactivity datasets.",
-"tags": ["target prediction", "QSAR", "bioactivity", "cheminformatics"],
-"category": "Drug Discovery"
-},
-{
-"name": "MolDesigner",
-"slug": "moldesigner",
-"url": "https://moldesigner.readthedocs.io/",
-"short_description": "Interactive tool for molecular design.",
-"long_description": "MolDesigner is a cheminformatics tool for building and editing molecular structures interactively. It integrates property prediction and fragment-based design to support medicinal chemistry workflows.",
-"tags": ["molecular design", "interactive", "cheminformatics", "structure editor"],
-"category": "Cheminformatics"
-},
-{
-"name": "ChemCrow",
-"slug": "chemcrow",
-"url": "https://github.com/ur-whitelab/ChemCrow",
-"short_description": "Language agent for chemical automation tasks.",
-"long_description": "ChemCrow is a chemistry-focused large language model agent that integrates over 18 specialized tools to help with retrosynthesis, safety analysis, experimental design, and literature searches in chemical research.",
-"tags": ["language model", "automation", "retrosynthesis", "AI tools"],
-"category": "Cheminformatics"
-},  
-{
-"name": "PharmaNet",
-"slug": "pharmanet",
-"url": "https://github.com/csbio/PharmaNet",
-"short_description": "CNN-RNN hybrid for predicting drug-target interactions.",
-"long_description": "PharmaNet is a deep learning framework that combines convolutional and recurrent neural networks to predict interactions between drugs and target proteins based on molecular descriptors and SMILES strings.",
-"tags": ["drug-target interaction", "deep learning", "SMILES", "CNN", "RNN"],
-"category": "Drug Discovery"
-},
-{
-"name": "DeepTox",
-"slug": "deeptox",
-"url": "https://github.com/yangzhangalmo/DeepTox",
-"short_description": "Deep learning for chemical toxicity prediction.",
-"long_description": "DeepTox applies deep neural networks to predict chemical toxicity using molecular descriptors. It was a top-performing model in the Tox21 challenge and demonstrates how AI can enhance predictive toxicology.",
-"tags": ["toxicity", "QSAR", "deep learning", "Tox21", "prediction"],
-"category": "Cheminformatics"
-},
-{
-"name": "PolypharmDB",
-"slug": "polypharmdb",
-"url": "https://insilico.com/polypharmdb",
-"short_description": "AI-predicted polypharmacology drug database.",
-"long_description": "PolypharmDB is a database of AI-predicted drug-target interactions designed for polypharmacology. It uses deep learning to assess potential targets for existing and novel drug-like molecules.",
-"tags": ["polypharmacology", "target prediction", "deep learning", "database"],
-"category": "Drug Discovery"
-},
-{
-"name": "ChemAIBox",
-"slug": "chemaibox",
-"url": "https://chemrxiv.org/engage/api-gateway/chemrxiv/assets/orp/resource/item/60c7508c702a9b6a2d18c7a3/original/chemaibox-an-ai-toolbox-for-chemical-research.pdf",
-"short_description": "Modular AI toolbox for chemical research.",
-"long_description": "ChemAIBox is an extensible platform for integrating machine learning models in chemistry workflows. It provides a suite of tools for property prediction, molecule generation, and data analysis.",
-"tags": ["toolbox", "property prediction", "molecule generation", "AI"],
-"category": "Cheminformatics"
-},
-{
-"name": "AutoQSAR",
-"slug": "autoqsar",
-"url": "https://www.schrodinger.com/products/autoqsar",
-"short_description": "Automated QSAR modeling tool.",
-"long_description": "AutoQSAR by Schrödinger automates the process of building quantitative structure–activity relationship (QSAR) models. It uses machine learning to identify predictive molecular features and outputs high-quality models for activity prediction.",
-"tags": ["QSAR", "automation", "machine learning", "modeling"],
-"category": "Cheminformatics"
-},
-{
-"name": "MoleculeACE",
-"slug": "moleculeace",
-"url": "https://github.com/srijandas07/MoleculeACE",
-"short_description": "Tool for benchmarking molecular generative models.",
-"long_description": "MoleculeACE is a benchmarking suite for evaluating molecular generative models. It assesses validity, novelty, uniqueness, and chemical space coverage to guide AI-driven molecule generation.",
-"tags": ["benchmarking", "molecule generation", "evaluation", "generative models"],
-"category": "Cheminformatics"
-},
-{
-"name": "ORGANIC",
-"slug": "organic",
-"url": "https://github.com/gablg1/ORGANIC",
-"short_description": "GAN-based molecular generation with reinforcement learning.",
-"long_description": "ORGANIC combines generative adversarial networks (GANs) with reinforcement learning to create novel molecules optimized for desired properties. It can be used to explore drug-like chemical space efficiently.",
-"tags": ["GAN", "reinforcement learning", "molecular generation", "drug discovery"],
-"category": "Drug Discovery"
-},
-{
-"name": "RXNMapper",
-"slug": "rxnmapper",
-"url": "https://github.com/rxn4chemistry/rxnmapper",
-"short_description": "Transformer-based atom-mapping tool for reactions.",
-"long_description": "RXNMapper is a fast and accurate atom-mapping tool for chemical reactions based on unsupervised transformer models. It facilitates reaction analysis and retrosynthesis by identifying atom correspondences in reactants and products.",
-"tags": ["reaction mapping", "transformer", "retrosynthesis", "AI"],
-"category": "Cheminformatics"
-}
+  {
+    "name": "DeepChem",
+    "slug": "deepchem",
+    "url": "https://deepchem.io/",
+    "short_description": "An open-source toolkit for deep learning in drug discovery and quantum chemistry.",
+    "long_description": "DeepChem is a robust Python library that democratizes deep learning for the life sciences. It offers tools for molecular modeling, cheminformatics, and bioinformatics, enabling researchers to build predictive models for molecular properties and biological activities.",
+    "tags": [
+      "deep learning",
+      "cheminformatics",
+      "drug discovery",
+      "molecular modeling"
+    ],
+    "category": "Cheminformatics",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752566826/chem-ai-tools/deepchem.png"
+  },
+  {
+    "name": "Chemprop",
+    "slug": "chemprop",
+    "url": "https://chemprop.readthedocs.io/",
+    "short_description": "A message-passing neural network for molecular property prediction.",
+    "long_description": "Chemprop is a machine learning framework for predicting molecular properties using graph neural networks. It is designed to support regression and classification tasks and offers high accuracy across a wide range of chemical datasets.",
+    "tags": [
+      "graph neural networks",
+      "molecular property prediction",
+      "QSAR",
+      "cheminformatics"
+    ],
+    "category": "Drug Discovery",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752484959/chem-ai-tools/chemprop.png"
+  },
+  {
+    "name": "MoleculeNet",
+    "slug": "moleculenet",
+    "url": "https://moleculenet.org/",
+    "short_description": "A benchmark for molecular machine learning.",
+    "long_description": "MoleculeNet provides standardized datasets and evaluation protocols for machine learning on molecular data. It includes diverse datasets for tasks like quantum mechanics, physical chemistry, biophysics, and physiology, making it a key resource for model benchmarking.",
+    "tags": [
+      "benchmarking",
+      "datasets",
+      "molecular machine learning",
+      "cheminformatics"
+    ],
+    "category": "Cheminformatics",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752484963/chem-ai-tools/moleculenet.png"
+  },
+  {
+    "name": "AutoDock",
+    "slug": "autodock",
+    "url": "http://autodock.scripps.edu/",
+    "short_description": "A suite of automated docking tools.",
+    "long_description": "AutoDock is a molecular modeling simulation software especially effective for predicting how small molecules bind to a receptor of known 3D structure. It is widely used in virtual screening and structure-based drug design.",
+    "tags": [
+      "molecular docking",
+      "structure-based design",
+      "virtual screening",
+      "drug discovery"
+    ],
+    "category": "Drug Discovery",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752484969/chem-ai-tools/autodock.png"
+  },
+  {
+    "name": "RDKit",
+    "slug": "rdkit",
+    "url": "https://www.rdkit.org/",
+    "short_description": "An open-source cheminformatics toolkit.",
+    "long_description": "RDKit is a collection of cheminformatics and machine learning tools that supports SMILES parsing, substructure search, molecular fingerprints, and more. It integrates well with Python and is commonly used in both academia and industry.",
+    "tags": [
+      "cheminformatics",
+      "SMILES",
+      "fingerprinting",
+      "open source"
+    ],
+    "category": "Cheminformatics",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752484973/chem-ai-tools/rdkit.png"
+  },
+  {
+    "name": "AlphaFold",
+    "slug": "alphafold",
+    "url": "https://www.deepmind.com/research/highlighted-research/alphafold",
+    "short_description": "AI system that predicts protein structures.",
+    "long_description": "AlphaFold is an AI system developed by DeepMind that predicts the 3D structures of proteins from amino acid sequences. It has revolutionized structural biology and is critical in structure-based drug design and target validation.",
+    "tags": [
+      "protein folding",
+      "structural biology",
+      "AI",
+      "drug discovery"
+    ],
+    "category": "Drug Discovery",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752484981/chem-ai-tools/alphafold.png"
+  },
+  {
+    "name": "OpenEye Orion",
+    "slug": "openeye-orion",
+    "url": "https://www.eyesopen.com/orion",
+    "short_description": "Cloud-native platform for drug discovery.",
+    "long_description": "OpenEye Orion is a cloud-based computational chemistry platform that supports large-scale modeling, virtual screening, and cheminformatics workflows. It integrates visualization, data management, and high-performance computing capabilities.",
+    "tags": [
+      "cloud computing",
+      "virtual screening",
+      "cheminformatics",
+      "drug discovery"
+    ],
+    "category": "Drug Discovery",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752484985/chem-ai-tools/openeye-orion.png"
+  },
+  {
+    "name": "Schrödinger Suite",
+    "slug": "schrodinger-suite",
+    "url": "https://www.schrodinger.com/",
+    "short_description": "Comprehensive modeling platform for drug design.",
+    "long_description": "The Schrödinger Suite offers molecular modeling, simulation, and cheminformatics tools that support the entire drug discovery pipeline. It includes capabilities for molecular docking, quantum chemistry, and machine learning-enhanced design.",
+    "tags": [
+      "molecular modeling",
+      "simulation",
+      "quantum chemistry",
+      "drug discovery"
+    ],
+    "category": "Drug Discovery",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752484990/chem-ai-tools/schrodinger-suite.png"
+  },
+  {
+    "name": "BioSolveIT SeeSAR",
+    "slug": "biosolveit-seesar",
+    "url": "https://www.biosolveit.de/SeeSAR/",
+    "short_description": "Interactive platform for structure-based design.",
+    "long_description": "SeeSAR is a visual and interactive platform from BioSolveIT that aids medicinal chemists in structure-based drug design. It enables users to visualize protein-ligand interactions, optimize compounds, and run docking simulations efficiently.",
+    "tags": [
+      "structure-based design",
+      "visualization",
+      "docking",
+      "drug discovery"
+    ],
+    "category": "Drug Discovery",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752484995/chem-ai-tools/biosolveit-seesar.png"
+  },
+  {
+    "name": "IBM RXN for Chemistry",
+    "slug": "ibm-rxn",
+    "url": "https://rxn.res.ibm.com/",
+    "short_description": "AI-powered platform for chemical reaction prediction.",
+    "long_description": "IBM RXN for Chemistry is a cloud-based platform that uses AI to predict chemical reactions, perform retrosynthesis planning, and assist in reaction optimization. It combines transformer models with intuitive user interfaces for chemists.",
+    "tags": [
+      "reaction prediction",
+      "retrosynthesis",
+      "AI",
+      "cheminformatics"
+    ],
+    "category": "Cheminformatics",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752485004/chem-ai-tools/ibm-rxn.png"
+  },
+  {
+    "name": "MolBERT",
+    "slug": "molbert",
+    "url": "https://github.com/pharmbio/molbert",
+    "short_description": "A transformer-based model for molecular representation learning.",
+    "long_description": "MolBERT is a BERT-like language model tailored for molecules represented as SMILES strings. It leverages unsupervised pretraining to learn contextualized molecular embeddings that improve downstream tasks such as property prediction and molecule generation.",
+    "tags": [
+      "transformer",
+      "SMILES",
+      "molecular representation",
+      "drug discovery"
+    ],
+    "category": "Cheminformatics",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "ReLeaSE",
+    "slug": "release",
+    "url": "https://github.com/insilicomedicine/ReLeaSE",
+    "short_description": "Reinforcement learning for de novo drug design.",
+    "long_description": "ReLeaSE (Reinforcement Learning for Structural Evolution) is an AI framework that combines deep generative models and reinforcement learning to design novel chemical compounds with desirable biological properties.",
+    "tags": [
+      "reinforcement learning",
+      "molecule generation",
+      "drug design",
+      "AI"
+    ],
+    "category": "Drug Discovery",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "MolGAN",
+    "slug": "molgan",
+    "url": "https://github.com/nicola-decao/MolGAN",
+    "short_description": "A generative adversarial network for molecular graphs.",
+    "long_description": "MolGAN is a generative model for small molecular graphs using GANs and reinforcement learning. It can generate molecules directly as graphs, avoiding limitations of SMILES-based representations.",
+    "tags": [
+      "GAN",
+      "molecular generation",
+      "graph neural networks",
+      "cheminformatics"
+    ],
+    "category": "Cheminformatics",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752566890/chem-ai-tools/molgan.png"
+  },
+  {
+    "name": "MegaSyn",
+    "slug": "megasyn",
+    "url": "https://github.com/MolecularAI/MegaSyn",
+    "short_description": "Toolset for generative molecular design.",
+    "long_description": "MegaSyn is a suite of generative AI tools for creating novel molecules with desirable properties. It includes generative models, property predictors, and synthetic feasibility analysis to streamline early-stage drug discovery.",
+    "tags": [
+      "molecular generation",
+      "AI",
+      "synthetic feasibility",
+      "drug discovery"
+    ],
+    "category": "Drug Discovery",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "Chematica (Synthia)",
+    "slug": "chematica",
+    "url": "https://www.sigmaaldrich.com/US/en/product/aldrich/synthia",
+    "short_description": "AI-based retrosynthesis planning platform.",
+    "long_description": "Chematica, now commercialized as Synthia, is an AI-driven tool that helps chemists plan synthetic routes. It uses reaction databases and expert-curated rules to identify efficient and novel synthesis pathways.",
+    "tags": [
+      "retrosynthesis",
+      "reaction planning",
+      "AI",
+      "organic chemistry"
+    ],
+    "category": "Cheminformatics",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "AIDrugApp",
+    "slug": "aidrugapp",
+    "url": "https://github.com/AIDrugApp/AIDrugApp",
+    "short_description": "Web-based platform for AI-driven drug discovery.",
+    "long_description": "AIDrugApp is a user-friendly web application that integrates deep learning models to predict molecular properties and drug-likeness. It allows researchers without coding experience to harness AI in drug discovery.",
+    "tags": [
+      "property prediction",
+      "drug-likeness",
+      "deep learning",
+      "web platform"
+    ],
+    "category": "Drug Discovery",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "DeepLigBuilder",
+    "slug": "deepligbuilder",
+    "url": "https://github.com/deepligbuilder/deepligbuilder",
+    "short_description": "Deep learning-based ligand structure generation tool.",
+    "long_description": "DeepLigBuilder generates 3D structures of small molecules with deep generative models. It aids in ligand-based drug design by constructing chemically valid molecules based on user input or templates.",
+    "tags": [
+      "ligand design",
+      "3D structure generation",
+      "deep learning",
+      "drug discovery"
+    ],
+    "category": "Drug Discovery",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "GraphAF",
+    "slug": "graphaf",
+    "url": "https://github.com/DeepGraphLearning/GraphAF",
+    "short_description": "Autoregressive flow-based model for graph generation.",
+    "long_description": "GraphAF is a flow-based deep generative model that builds molecular graphs atom-by-atom in an autoregressive manner. It achieves high-quality molecule generation and supports property-constrained design.",
+    "tags": [
+      "molecular generation",
+      "flow models",
+      "autoregressive",
+      "graph learning"
+    ],
+    "category": "Cheminformatics",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752485017/chem-ai-tools/graphaf.png"
+  },
+  {
+    "name": "PathFinder",
+    "slug": "pathfinder",
+    "url": "https://www.schrodinger.com/products/pathfinder",
+    "short_description": "Enumerative AI-based reaction pathway generator.",
+    "long_description": "PathFinder by Schrödinger is an AI tool that rapidly enumerates synthetically accessible compound libraries by exploring known reactions. It aids in hit expansion and lead optimization during drug discovery.",
+    "tags": [
+      "reaction enumeration",
+      "lead optimization",
+      "virtual screening",
+      "drug discovery"
+    ],
+    "category": "Drug Discovery",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752485023/chem-ai-tools/pathfinder.png"
+  },
+  {
+    "name": "PostEra Manifold",
+    "slug": "postera-manifold",
+    "url": "https://postera.ai/manifold",
+    "short_description": "AI-powered synthesis planning and molecule search platform.",
+    "long_description": "Manifold is a tool from PostEra that combines AI and medicinal chemistry to help design synthetically accessible molecules. It predicts reaction routes and matches molecules with suppliers and reagents.",
+    "tags": [
+      "synthetic planning",
+      "molecular design",
+      "AI",
+      "drug discovery"
+    ],
+    "category": "Drug Discovery",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "MolecularRNN",
+    "slug": "molecularrnn",
+    "url": "https://github.com/GINK03/MolecularRNN",
+    "short_description": "Recurrent neural network for SMILES generation.",
+    "long_description": "MolecularRNN is a recurrent neural network trained on SMILES to generate novel molecules. It captures sequential dependencies in molecular strings to create syntactically valid and drug-like structures.",
+    "tags": [
+      "SMILES generation",
+      "RNN",
+      "molecular generation",
+      "deep learning"
+    ],
+    "category": "Cheminformatics",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "TDC (Therapeutics Data Commons)",
+    "slug": "tdc",
+    "url": "https://tdcommons.ai/",
+    "short_description": "Resource platform for AI in therapeutics.",
+    "long_description": "Therapeutics Data Commons (TDC) provides machine learning-ready datasets and evaluation pipelines for drug discovery, covering tasks like ADMET prediction, biomarker discovery, and drug combination prediction.",
+    "tags": [
+      "datasets",
+      "benchmarking",
+      "AI",
+      "therapeutics"
+    ],
+    "category": "Cheminformatics",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752485027/chem-ai-tools/tdc.png"
+  },
+  {
+    "name": "SMILES Transformer",
+    "slug": "smiles-transformer",
+    "url": "https://github.com/EBjerrum/SMILESTransformer",
+    "short_description": "Transformer-based model for chemical structure embedding.",
+    "long_description": "The SMILES Transformer is a pretrained transformer model designed to encode molecular structures in SMILES format. It facilitates transfer learning for downstream QSAR tasks and molecular classification.",
+    "tags": [
+      "transformer",
+      "SMILES",
+      "embedding",
+      "QSAR"
+    ],
+    "category": "Cheminformatics",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "ChemAI",
+    "slug": "chemai",
+    "url": "https://chemai.xyz/",
+    "short_description": "Machine learning platform for chemical property prediction.",
+    "long_description": "ChemAI is a web platform offering tools for predicting chemical and physical properties of compounds using state-of-the-art machine learning models. It supports rapid prototyping for research and development.",
+    "tags": [
+      "property prediction",
+      "machine learning",
+      "web platform",
+      "chemistry"
+    ],
+    "category": "Cheminformatics",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "DeepSynergy",
+    "slug": "deepsynergy",
+    "url": "https://github.com/omn-path/DeepSynergy",
+    "short_description": "Deep learning model for predicting drug synergy.",
+    "long_description": "DeepSynergy is a neural network-based approach to predict the synergistic effects of drug combinations. It integrates molecular and transcriptomic data to model interaction outcomes.",
+    "tags": [
+      "drug synergy",
+      "deep learning",
+      "combination therapy",
+      "cheminformatics"
+    ],
+    "category": "Drug Discovery",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "ADMETlab 2.0",
+    "slug": "admetlab2",
+    "url": "https://admetmesh.scbdd.com/service/evaluation/index",
+    "short_description": "Online platform for ADMET property prediction.",
+    "long_description": "ADMETlab 2.0 is an enhanced online platform that predicts absorption, distribution, metabolism, excretion, and toxicity properties of chemical compounds using machine learning models.",
+    "tags": [
+      "ADMET",
+      "property prediction",
+      "toxicity",
+      "machine learning"
+    ],
+    "category": "Drug Discovery",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752566920/chem-ai-tools/admetlab2.png"
+  },
+  {
+    "name": "SAVI",
+    "slug": "savi",
+    "url": "https://cactus.nci.nih.gov/download/savi/",
+    "short_description": "Synthetic accessibility-based virtual inventory.",
+    "long_description": "SAVI (Synthetically Accessible Virtual Inventory) is a freely available database of virtual molecules curated for synthetic feasibility. It uses reaction-based enumeration for chemical space exploration.",
+    "tags": [
+      "virtual screening",
+      "synthetic accessibility",
+      "cheminformatics",
+      "inventory"
+    ],
+    "category": "Cheminformatics",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "TargetNet",
+    "slug": "targetnet",
+    "url": "http://targetnet.scbdd.com/",
+    "short_description": "Bioactivity prediction against multiple targets.",
+    "long_description": "TargetNet is a web-based tool that predicts the bioactivity of compounds across a wide range of protein targets using QSAR models trained on large bioactivity datasets.",
+    "tags": [
+      "target prediction",
+      "QSAR",
+      "bioactivity",
+      "cheminformatics"
+    ],
+    "category": "Drug Discovery",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752485045/chem-ai-tools/targetnet.png"
+  },
+  {
+    "name": "MolDesigner",
+    "slug": "moldesigner",
+    "url": "https://moldesigner.readthedocs.io/",
+    "short_description": "Interactive tool for molecular design.",
+    "long_description": "MolDesigner is a cheminformatics tool for building and editing molecular structures interactively. It integrates property prediction and fragment-based design to support medicinal chemistry workflows.",
+    "tags": [
+      "molecular design",
+      "interactive",
+      "cheminformatics",
+      "structure editor"
+    ],
+    "category": "Cheminformatics",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "ChemCrow",
+    "slug": "chemcrow",
+    "url": "https://github.com/ur-whitelab/ChemCrow",
+    "short_description": "Language agent for chemical automation tasks.",
+    "long_description": "ChemCrow is a chemistry-focused large language model agent that integrates over 18 specialized tools to help with retrosynthesis, safety analysis, experimental design, and literature searches in chemical research.",
+    "tags": [
+      "language model",
+      "automation",
+      "retrosynthesis",
+      "AI tools"
+    ],
+    "category": "Cheminformatics",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "PharmaNet",
+    "slug": "pharmanet",
+    "url": "https://github.com/csbio/PharmaNet",
+    "short_description": "CNN-RNN hybrid for predicting drug-target interactions.",
+    "long_description": "PharmaNet is a deep learning framework that combines convolutional and recurrent neural networks to predict interactions between drugs and target proteins based on molecular descriptors and SMILES strings.",
+    "tags": [
+      "drug-target interaction",
+      "deep learning",
+      "SMILES",
+      "CNN",
+      "RNN"
+    ],
+    "category": "Drug Discovery",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "DeepTox",
+    "slug": "deeptox",
+    "url": "https://github.com/yangzhangalmo/DeepTox",
+    "short_description": "Deep learning for chemical toxicity prediction.",
+    "long_description": "DeepTox applies deep neural networks to predict chemical toxicity using molecular descriptors. It was a top-performing model in the Tox21 challenge and demonstrates how AI can enhance predictive toxicology.",
+    "tags": [
+      "toxicity",
+      "QSAR",
+      "deep learning",
+      "Tox21",
+      "prediction"
+    ],
+    "category": "Cheminformatics",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "PolypharmDB",
+    "slug": "polypharmdb",
+    "url": "https://insilico.com/polypharmdb",
+    "short_description": "AI-predicted polypharmacology drug database.",
+    "long_description": "PolypharmDB is a database of AI-predicted drug-target interactions designed for polypharmacology. It uses deep learning to assess potential targets for existing and novel drug-like molecules.",
+    "tags": [
+      "polypharmacology",
+      "target prediction",
+      "deep learning",
+      "database"
+    ],
+    "category": "Drug Discovery",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "ChemAIBox",
+    "slug": "chemaibox",
+    "url": "https://chemrxiv.org/engage/api-gateway/chemrxiv/assets/orp/resource/item/60c7508c702a9b6a2d18c7a3/original/chemaibox-an-ai-toolbox-for-chemical-research.pdf",
+    "short_description": "Modular AI toolbox for chemical research.",
+    "long_description": "ChemAIBox is an extensible platform for integrating machine learning models in chemistry workflows. It provides a suite of tools for property prediction, molecule generation, and data analysis.",
+    "tags": [
+      "toolbox",
+      "property prediction",
+      "molecule generation",
+      "AI"
+    ],
+    "category": "Cheminformatics",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "AutoQSAR",
+    "slug": "autoqsar",
+    "url": "https://www.schrodinger.com/products/autoqsar",
+    "short_description": "Automated QSAR modeling tool.",
+    "long_description": "AutoQSAR by Schrödinger automates the process of building quantitative structure–activity relationship (QSAR) models. It uses machine learning to identify predictive molecular features and outputs high-quality models for activity prediction.",
+    "tags": [
+      "QSAR",
+      "automation",
+      "machine learning",
+      "modeling"
+    ],
+    "category": "Cheminformatics",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752485053/chem-ai-tools/autoqsar.png"
+  },
+  {
+    "name": "MoleculeACE",
+    "slug": "moleculeace",
+    "url": "https://github.com/srijandas07/MoleculeACE",
+    "short_description": "Tool for benchmarking molecular generative models.",
+    "long_description": "MoleculeACE is a benchmarking suite for evaluating molecular generative models. It assesses validity, novelty, uniqueness, and chemical space coverage to guide AI-driven molecule generation.",
+    "tags": [
+      "benchmarking",
+      "molecule generation",
+      "evaluation",
+      "generative models"
+    ],
+    "category": "Cheminformatics",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "ORGANIC",
+    "slug": "organic",
+    "url": "https://github.com/gablg1/ORGANIC",
+    "short_description": "GAN-based molecular generation with reinforcement learning.",
+    "long_description": "ORGANIC combines generative adversarial networks (GANs) with reinforcement learning to create novel molecules optimized for desired properties. It can be used to explore drug-like chemical space efficiently.",
+    "tags": [
+      "GAN",
+      "reinforcement learning",
+      "molecular generation",
+      "drug discovery"
+    ],
+    "category": "Drug Discovery",
+    "screenshot": "assets/placeholder.png"
+  },
+  {
+    "name": "RXNMapper",
+    "slug": "rxnmapper",
+    "url": "https://github.com/rxn4chemistry/rxnmapper",
+    "short_description": "Transformer-based atom-mapping tool for reactions.",
+    "long_description": "RXNMapper is a fast and accurate atom-mapping tool for chemical reactions based on unsupervised transformer models. It facilitates reaction analysis and retrosynthesis by identifying atom correspondences in reactants and products.",
+    "tags": [
+      "reaction mapping",
+      "transformer",
+      "retrosynthesis",
+      "AI"
+    ],
+    "category": "Cheminformatics",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752566946/chem-ai-tools/rxnmapper.png"
+  }
 ]
