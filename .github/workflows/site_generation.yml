@@ -56,11 +56,11 @@ jobs:
 
           git add -A
           git diff --cached --quiet || git commit -m "Automatische Aktualisierung der Tools und Timestamp"
-          
-          # Neues!
-          git pull --rebase origin main
 
-          # Push über PAT
+          # Kein Rebase – normaler Merge
+          git pull origin main
+
+          # Push mit PAT
           git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/derkikumpel/aiforchemists.git
           git push origin HEAD:main
 
