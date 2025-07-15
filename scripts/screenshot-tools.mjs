@@ -60,10 +60,10 @@ async function captureScreenshot(tool) {
     });
 
     log(`✅ Screenshot hochgeladen: ${result.secure_url}`);
-    return result.secure_url;
+    return { url: result.secure_url, success: true };
   } catch (e) {
     error(`⚠️ Screenshot fehlgeschlagen für ${tool.name}: ${e.message || e}`);
-    return 'assets/placeholder.png';
+    return { url: 'assets/placeholder.png', success: false };
   } finally {
     if (browser) await browser.close();
   }
@@ -77,9 +77,10 @@ async function main() {
     for (let i = 0; i < tools.length; i++) {
       const tool = tools[i];
       log(`\n[${i + 1}/${tools.length}] Screenshot für ${tool.name} erstellen...`);
-      const imageUrl = await captureScreenshot(tool);
-      tools[i].screenshot = imageUrl;
-      log(`✅ Screenshot gespeichert: ${imageUrl}`);
+      const { url, success } = await captureScreenshot(tool);
+      tools[i].screenshot = url;
+      tools[i].hasScreenshot = success;  // NEU: Status speichern
+      log(`✅ Screenshot gespeichert: ${url} (Erfolg: ${success})`);
     }
 
     await fs.writeJson('./data/tools.json', tools, { spaces: 2 });
