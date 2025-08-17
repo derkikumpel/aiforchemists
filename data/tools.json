@@ -12,7 +12,7 @@
       "molecular modeling"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1754801030/chem-ai-tools/deepchem.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1755405322/chem-ai-tools/deepchem.png",
     "hasScreenshot": true
   },
   {
@@ -28,7 +28,7 @@
       "cheminformatics"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1754801034/chem-ai-tools/chemprop.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1755405326/chem-ai-tools/chemprop.png",
     "hasScreenshot": true
   },
   {
@@ -108,7 +108,7 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752484985/chem-ai-tools/openeye-orion.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1755405354/chem-ai-tools/openeye-orion.png",
     "hasScreenshot": true
   },
   {
@@ -300,7 +300,7 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1754198412/chem-ai-tools/pathfinder.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1755405398/chem-ai-tools/pathfinder.png",
     "hasScreenshot": true
   },
   {
@@ -412,8 +412,8 @@
       "machine learning"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1754801109/chem-ai-tools/admetlab2.png",
-    "hasScreenshot": true
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "SAVI",
@@ -444,8 +444,8 @@
       "cheminformatics"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1754801118/chem-ai-tools/targetnet.png",
-    "hasScreenshot": true
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "MolDesigner",
@@ -606,7 +606,7 @@
       "AI"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1754801132/chem-ai-tools/rxnmapper.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1755405489/chem-ai-tools/rxnmapper.png",
     "hasScreenshot": true
   }
 ]
