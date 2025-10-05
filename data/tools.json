@@ -12,7 +12,7 @@
       "molecular modeling"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1759033612/chem-ai-tools/deepchem.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1759638320/chem-ai-tools/deepchem.png",
     "hasScreenshot": true
   },
   {
@@ -44,8 +44,8 @@
       "cheminformatics"
     ],
     "category": "Cheminformatics",
-    "screenshot": "assets/placeholder.png",
-    "hasScreenshot": false
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1752484963/chem-ai-tools/moleculenet.png",
+    "hasScreenshot": true
   },
   {
     "name": "AutoDock",
@@ -204,7 +204,7 @@
       "cheminformatics"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1759033691/chem-ai-tools/molgan.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1759638376/chem-ai-tools/molgan.png",
     "hasScreenshot": true
   },
   {
@@ -284,7 +284,7 @@
       "graph learning"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1759033697/chem-ai-tools/graphaf.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1759638383/chem-ai-tools/graphaf.png",
     "hasScreenshot": true
   },
   {
@@ -412,7 +412,7 @@
       "machine learning"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1759033715/chem-ai-tools/admetlab2.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1759638402/chem-ai-tools/admetlab2.png",
     "hasScreenshot": true
   },
   {
@@ -606,7 +606,7 @@
       "AI"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1759033738/chem-ai-tools/rxnmapper.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1759638424/chem-ai-tools/rxnmapper.png",
     "hasScreenshot": true
   }
 ]
