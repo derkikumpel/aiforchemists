@@ -12,7 +12,7 @@
       "molecular modeling"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1761452684/chem-ai-tools/deepchem.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1762057708/chem-ai-tools/deepchem.png",
     "hasScreenshot": true
   },
   {
@@ -108,7 +108,7 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1758428745/chem-ai-tools/openeye-orion.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1762057742/chem-ai-tools/openeye-orion.png",
     "hasScreenshot": true
   },
   {
@@ -300,7 +300,7 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1755405398/chem-ai-tools/pathfinder.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1762057785/chem-ai-tools/pathfinder.png",
     "hasScreenshot": true
   },
   {
@@ -412,7 +412,7 @@
       "machine learning"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1761452767/chem-ai-tools/admetlab2.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1762057799/chem-ai-tools/admetlab2.png",
     "hasScreenshot": true
   },
   {
@@ -444,7 +444,7 @@
       "cheminformatics"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1759033725/chem-ai-tools/targetnet.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1762057807/chem-ai-tools/targetnet.png",
     "hasScreenshot": true
   },
   {
@@ -606,7 +606,7 @@
       "AI"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1761452791/chem-ai-tools/rxnmapper.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1762057824/chem-ai-tools/rxnmapper.png",
     "hasScreenshot": true
   }
 ]
