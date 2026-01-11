@@ -12,7 +12,7 @@
       "molecular modeling"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1767502300/chem-ai-tools/deepchem.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1768107054/chem-ai-tools/deepchem.png",
     "hasScreenshot": true
   },
   {
@@ -92,7 +92,7 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1766291979/chem-ai-tools/alphafold.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1768107077/chem-ai-tools/alphafold.png",
     "hasScreenshot": true
   },
   {
@@ -108,7 +108,7 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1767502328/chem-ai-tools/openeye-orion.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1768107081/chem-ai-tools/openeye-orion.png",
     "hasScreenshot": true
   },
   {
@@ -412,7 +412,7 @@
       "machine learning"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1767502393/chem-ai-tools/admetlab2.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1768107129/chem-ai-tools/admetlab2.png",
     "hasScreenshot": true
   },
   {
@@ -444,8 +444,8 @@
       "cheminformatics"
     ],
     "category": "Drug Discovery",
-    "screenshot": "assets/placeholder.png",
-    "hasScreenshot": false
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1768107138/chem-ai-tools/targetnet.png",
+    "hasScreenshot": true
   },
   {
     "name": "MolDesigner",
@@ -606,7 +606,7 @@
       "AI"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1767502440/chem-ai-tools/rxnmapper.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1768107154/chem-ai-tools/rxnmapper.png",
     "hasScreenshot": true
   }
 ]
