@@ -12,7 +12,7 @@
       "molecular modeling"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1779000449/chem-ai-tools/deepchem.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1779607414/chem-ai-tools/deepchem.png",
     "hasScreenshot": true
   },
   {
@@ -60,8 +60,8 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1775367991/chem-ai-tools/autodock.png",
-    "hasScreenshot": true
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "RDKit",
@@ -108,7 +108,7 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1779000476/chem-ai-tools/openeye-orion.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1779607467/chem-ai-tools/openeye-orion.png",
     "hasScreenshot": true
   },
   {
@@ -412,7 +412,7 @@
       "machine learning"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1779000521/chem-ai-tools/admetlab2.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1779607514/chem-ai-tools/admetlab2.png",
     "hasScreenshot": true
   },
   {
@@ -444,8 +444,8 @@
       "cheminformatics"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1778395005/chem-ai-tools/targetnet.png",
-    "hasScreenshot": true
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "MolDesigner",
@@ -606,7 +606,7 @@
       "AI"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1779000545/chem-ai-tools/rxnmapper.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1779607531/chem-ai-tools/rxnmapper.png",
     "hasScreenshot": true
   }
 ]
