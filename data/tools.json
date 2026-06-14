@@ -12,7 +12,7 @@
       "molecular modeling"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1780819048/chem-ai-tools/deepchem.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1781425054/chem-ai-tools/deepchem.png",
     "hasScreenshot": true
   },
   {
@@ -28,8 +28,8 @@
       "cheminformatics"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1775367982/chem-ai-tools/chemprop.png",
-    "hasScreenshot": true
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "MoleculeNet",
@@ -108,7 +108,7 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1780819101/chem-ai-tools/openeye-orion.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1781425103/chem-ai-tools/openeye-orion.png",
     "hasScreenshot": true
   },
   {
@@ -124,7 +124,7 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1780819106/chem-ai-tools/schrodinger-suite.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1781425108/chem-ai-tools/schrodinger-suite.png",
     "hasScreenshot": true
   },
   {
@@ -444,7 +444,7 @@
       "cheminformatics"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1780819180/chem-ai-tools/targetnet.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1781425185/chem-ai-tools/targetnet.png",
     "hasScreenshot": true
   },
   {
@@ -606,7 +606,7 @@
       "AI"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1780819195/chem-ai-tools/rxnmapper.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1781425200/chem-ai-tools/rxnmapper.png",
     "hasScreenshot": true
   }
 ]
