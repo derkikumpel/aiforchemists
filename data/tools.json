@@ -12,7 +12,7 @@
       "molecular modeling"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1781425054/chem-ai-tools/deepchem.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1782030984/chem-ai-tools/deepchem.png",
     "hasScreenshot": true
   },
   {
@@ -28,8 +28,8 @@
       "cheminformatics"
     ],
     "category": "Drug Discovery",
-    "screenshot": "assets/placeholder.png",
-    "hasScreenshot": false
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1775367982/chem-ai-tools/chemprop.png",
+    "hasScreenshot": true
   },
   {
     "name": "MoleculeNet",
@@ -44,8 +44,8 @@
       "cheminformatics"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1775367986/chem-ai-tools/moleculenet.png",
-    "hasScreenshot": true
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "AutoDock",
@@ -108,7 +108,7 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1781425103/chem-ai-tools/openeye-orion.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1782031034/chem-ai-tools/openeye-orion.png",
     "hasScreenshot": true
   },
   {
@@ -284,7 +284,7 @@
       "graph learning"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1780213749/chem-ai-tools/graphaf.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1782031063/chem-ai-tools/graphaf.png",
     "hasScreenshot": true
   },
   {
@@ -444,7 +444,7 @@
       "cheminformatics"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1781425185/chem-ai-tools/targetnet.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1782031110/chem-ai-tools/targetnet.png",
     "hasScreenshot": true
   },
   {
