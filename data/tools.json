@@ -12,7 +12,7 @@
       "molecular modeling"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1782030984/chem-ai-tools/deepchem.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1782633229/chem-ai-tools/deepchem.png",
     "hasScreenshot": true
   },
   {
@@ -28,8 +28,8 @@
       "cheminformatics"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1775367982/chem-ai-tools/chemprop.png",
-    "hasScreenshot": true
+    "screenshot": "assets/placeholder.png",
+    "hasScreenshot": false
   },
   {
     "name": "MoleculeNet",
@@ -92,7 +92,7 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1775368000/chem-ai-tools/alphafold.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1782633270/chem-ai-tools/alphafold.png",
     "hasScreenshot": true
   },
   {
@@ -108,7 +108,7 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1782031034/chem-ai-tools/openeye-orion.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1782633275/chem-ai-tools/openeye-orion.png",
     "hasScreenshot": true
   },
   {
