@@ -12,7 +12,7 @@
       "molecular modeling"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1782633229/chem-ai-tools/deepchem.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1783236582/chem-ai-tools/deepchem.png",
     "hasScreenshot": true
   },
   {
@@ -28,8 +28,8 @@
       "cheminformatics"
     ],
     "category": "Drug Discovery",
-    "screenshot": "assets/placeholder.png",
-    "hasScreenshot": false
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1783236586/chem-ai-tools/chemprop.png",
+    "hasScreenshot": true
   },
   {
     "name": "MoleculeNet",
@@ -284,7 +284,7 @@
       "graph learning"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1782031063/chem-ai-tools/graphaf.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1783236663/chem-ai-tools/graphaf.png",
     "hasScreenshot": true
   },
   {
@@ -444,7 +444,7 @@
       "cheminformatics"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1782031110/chem-ai-tools/targetnet.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1783236687/chem-ai-tools/targetnet.png",
     "hasScreenshot": true
   },
   {
@@ -606,7 +606,7 @@
       "AI"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1781425200/chem-ai-tools/rxnmapper.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1783236704/chem-ai-tools/rxnmapper.png",
     "hasScreenshot": true
   }
 ]
