@@ -12,7 +12,7 @@
       "molecular modeling"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1785047942/chem-ai-tools/deepchem.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1785652511/chem-ai-tools/deepchem.png",
     "hasScreenshot": true
   },
   {
@@ -108,7 +108,7 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1785047967/chem-ai-tools/openeye-orion.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1785652535/chem-ai-tools/openeye-orion.png",
     "hasScreenshot": true
   },
   {
@@ -124,7 +124,7 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1781425108/chem-ai-tools/schrodinger-suite.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1785652540/chem-ai-tools/schrodinger-suite.png",
     "hasScreenshot": true
   },
   {
@@ -380,7 +380,7 @@
       "chemistry"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1785048009/chem-ai-tools/chemai.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1785652579/chem-ai-tools/chemai.png",
     "hasScreenshot": true
   },
   {
@@ -444,7 +444,7 @@
       "cheminformatics"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1785048024/chem-ai-tools/targetnet.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1785652595/chem-ai-tools/targetnet.png",
     "hasScreenshot": true
   },
   {
@@ -606,7 +606,7 @@
       "AI"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1785048040/chem-ai-tools/rxnmapper.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1785652610/chem-ai-tools/rxnmapper.png",
     "hasScreenshot": true
   }
 ]
