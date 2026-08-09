@@ -12,7 +12,7 @@
       "molecular modeling"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1785652511/chem-ai-tools/deepchem.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1786252077/chem-ai-tools/deepchem.png",
     "hasScreenshot": true
   },
   {
@@ -28,7 +28,7 @@
       "cheminformatics"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1785047947/chem-ai-tools/chemprop.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1786252082/chem-ai-tools/chemprop.png",
     "hasScreenshot": true
   },
   {
@@ -108,7 +108,7 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1785652535/chem-ai-tools/openeye-orion.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1786252102/chem-ai-tools/openeye-orion.png",
     "hasScreenshot": true
   },
   {
@@ -124,7 +124,7 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1785652540/chem-ai-tools/schrodinger-suite.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1786252107/chem-ai-tools/schrodinger-suite.png",
     "hasScreenshot": true
   },
   {
@@ -156,7 +156,7 @@
       "cheminformatics"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1779000491/chem-ai-tools/ibm-rxn.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1786252117/chem-ai-tools/ibm-rxn.png",
     "hasScreenshot": true
   },
   {
@@ -204,7 +204,7 @@
       "cheminformatics"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1785047990/chem-ai-tools/molgan.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1786252124/chem-ai-tools/molgan.png",
     "hasScreenshot": true
   },
   {
@@ -284,7 +284,7 @@
       "graph learning"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1785047997/chem-ai-tools/graphaf.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1786252131/chem-ai-tools/graphaf.png",
     "hasScreenshot": true
   },
   {
@@ -380,7 +380,7 @@
       "chemistry"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1785652579/chem-ai-tools/chemai.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1786252141/chem-ai-tools/chemai.png",
     "hasScreenshot": true
   },
   {
@@ -444,7 +444,7 @@
       "cheminformatics"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1785652595/chem-ai-tools/targetnet.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1786252157/chem-ai-tools/targetnet.png",
     "hasScreenshot": true
   },
   {
@@ -606,7 +606,7 @@
       "AI"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1785652610/chem-ai-tools/rxnmapper.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1786252172/chem-ai-tools/rxnmapper.png",
     "hasScreenshot": true
   }
 ]
