@@ -12,7 +12,7 @@
       "molecular modeling"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1794136023/chem-ai-tools/deepchem.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1794743336/chem-ai-tools/deepchem.png",
     "hasScreenshot": true
   },
   {
@@ -124,7 +124,7 @@
       "drug discovery"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1793531205/chem-ai-tools/schrodinger-suite.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1794743364/chem-ai-tools/schrodinger-suite.png",
     "hasScreenshot": true
   },
   {
@@ -204,8 +204,8 @@
       "cheminformatics"
     ],
     "category": "Cheminformatics",
-    "screenshot": "assets/placeholder.png",
-    "hasScreenshot": false
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1794743378/chem-ai-tools/molgan.png",
+    "hasScreenshot": true
   },
   {
     "name": "MegaSyn",
@@ -380,7 +380,7 @@
       "chemistry"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1794136130/chem-ai-tools/chemai.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1794743396/chem-ai-tools/chemai.png",
     "hasScreenshot": true
   },
   {
@@ -444,7 +444,7 @@
       "cheminformatics"
     ],
     "category": "Drug Discovery",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1794136149/chem-ai-tools/targetnet.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1794743412/chem-ai-tools/targetnet.png",
     "hasScreenshot": true
   },
   {
@@ -606,7 +606,7 @@
       "AI"
     ],
     "category": "Cheminformatics",
-    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1793531272/chem-ai-tools/rxnmapper.png",
+    "screenshot": "https://res.cloudinary.com/djd5dgqor/image/upload/v1794743427/chem-ai-tools/rxnmapper.png",
     "hasScreenshot": true
   }
 ]
